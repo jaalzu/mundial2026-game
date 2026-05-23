@@ -1,0 +1,252 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum MatchPhase {
+  GROUP
+  ROUND_OF_16
+  QUARTER_FINAL
+  SEMI_FINAL
+  THIRD_PLACE
+  FINAL
+}
+
+enum MatchStatus {
+  SCHEDULED
+  FINISHED
+}
+
+enum PlayerPosition {
+  GK
+  DEF
+  MID
+  FWD
+}
+
+enum TeamRegion {
+  CONMEBOL
+  UEFA
+  CONCACAF
+  CAF
+  AFC
+  OFC
+}
+
+enum MatchPredictionResult {
+  EXACT_SCORE
+  WINNER
+  DRAW
+  WRONG
+}
+
+model User {
+  id              String    @id @db.Uuid
+  name            String    @unique
+  avatarPlayerId  String?   @map("avatar_player_id") @db.Uuid
+  recoveryKey     String    @unique @map("recovery_key")
+  nameUpdatedAt   DateTime? @map("name_updated_at") @db.Timestamptz(6)
+  avatarUpdatedAt DateTime? @map("avatar_updated_at") @db.Timestamptz(6)
+  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt       DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  avatarPlayer         Player?               @relation("UserAvatar", fields: [avatarPlayerId], references: [id], onDelete: SetNull)
+  matchPredictions     MatchPrediction[]
+  tournamentPrediction TournamentPrediction?
+  leaderboardDailyRows LeaderboardDaily[]
+
+  @@map("users")
+}
+
+model Team {
+  id         String      @id @default(uuid()) @db.Uuid
+  externalId String?     @unique @map("external_id")
+  name       String
+  code       String      @unique
+  region     TeamRegion?
+  flagUrl    String      @map("flag_url")
+  createdAt  DateTime    @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt  DateTime    @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  players                   Player[]
+  homeMatches               Match[]                @relation("MatchHomeTeam")
+  awayMatches               Match[]                @relation("MatchAwayTeam")
+  wonMatches                Match[]                @relation("MatchWinnerTeam")
+  championPredictions       TournamentPrediction[] @relation("TournamentPredictionChampion")
+  runnerUpPredictions       TournamentPrediction[] @relation("TournamentPredictionRunnerUp")
+  finalHomePredictions      TournamentPrediction[] @relation("TournamentPredictionFinalHome")
+  finalAwayPredictions      TournamentPrediction[] @relation("TournamentPredictionFinalAway")
+  surprisePredictions       TournamentPrediction[] @relation("TournamentPredictionSurprise")
+  disappointmentPredictions TournamentPrediction[] @relation("TournamentPredictionDisappointment")
+  championResults           TournamentResult[]     @relation("TournamentResultChampion")
+  runnerUpResults           TournamentResult[]     @relation("TournamentResultRunnerUp")
+  finalHomeResults          TournamentResult[]     @relation("TournamentResultFinalHome")
+  finalAwayResults          TournamentResult[]     @relation("TournamentResultFinalAway")
+  surpriseResults           TournamentResult[]     @relation("TournamentResultSurprise")
+  disappointmentResults     TournamentResult[]     @relation("TournamentResultDisappointment")
+
+  @@map("teams")
+}
+
+model Player {
+  id         String         @id @default(uuid()) @db.Uuid
+  externalId String?        @unique @map("external_id")
+  teamId     String         @map("team_id") @db.Uuid
+  name       String
+  photoUrl   String?        @map("photo_url")
+  position   PlayerPosition
+  createdAt  DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt  DateTime       @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  team                      Team                   @relation(fields: [teamId], references: [id], onDelete: Restrict)
+  avatarUsers               User[]                 @relation("UserAvatar")
+  mvpPredictions            TournamentPrediction[] @relation("TournamentPredictionMvp")
+  goldenBootPredictions     TournamentPrediction[] @relation("TournamentPredictionGoldenBoot")
+  bestGoalkeeperPredictions TournamentPrediction[] @relation("TournamentPredictionBestGoalkeeper")
+  revelationPredictions     TournamentPrediction[] @relation("TournamentPredictionRevelation")
+  mvpResults                TournamentResult[]     @relation("TournamentResultMvp")
+  goldenBootResults         TournamentResult[]     @relation("TournamentResultGoldenBoot")
+  bestGoalkeeperResults     TournamentResult[]     @relation("TournamentResultBestGoalkeeper")
+  revelationResults         TournamentResult[]     @relation("TournamentResultRevelation")
+
+  @@index([teamId])
+  @@map("players")
+}
+
+model Match {
+  id           String      @id @default(uuid()) @db.Uuid
+  externalId   String?     @unique @map("external_id")
+  homeTeamId   String      @map("home_team_id") @db.Uuid
+  awayTeamId   String      @map("away_team_id") @db.Uuid
+  winnerTeamId String?     @map("winner_team_id") @db.Uuid
+  phase        MatchPhase
+  status       MatchStatus @default(SCHEDULED)
+  startsAt     DateTime    @map("starts_at") @db.Timestamptz(6)
+  scoreHome    Int?        @map("score_home")
+  scoreAway    Int?        @map("score_away")
+  createdAt    DateTime    @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime    @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  homeTeam    Team              @relation("MatchHomeTeam", fields: [homeTeamId], references: [id], onDelete: Restrict)
+  awayTeam    Team              @relation("MatchAwayTeam", fields: [awayTeamId], references: [id], onDelete: Restrict)
+  winnerTeam  Team?             @relation("MatchWinnerTeam", fields: [winnerTeamId], references: [id], onDelete: SetNull)
+  predictions MatchPrediction[]
+
+  @@index([phase])
+  @@index([startsAt])
+  @@index([status])
+  @@map("matches")
+}
+
+model MatchPrediction {
+  id            String                 @id @default(uuid()) @db.Uuid
+  userId        String                 @map("user_id") @db.Uuid
+  matchId       String                 @map("match_id") @db.Uuid
+  predictedHome Int                    @map("predicted_home")
+  predictedAway Int                    @map("predicted_away")
+  points        Int                    @default(0)
+  exactHit      Boolean                @default(false) @map("exact_hit")
+  result        MatchPredictionResult?
+  createdAt     DateTime               @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  match Match @relation(fields: [matchId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, matchId])
+  @@index([matchId])
+  @@map("match_predictions")
+}
+
+model TournamentPrediction {
+  id                     String   @id @default(uuid()) @db.Uuid
+  userId                 String   @unique @map("user_id") @db.Uuid
+  championTeamId         String?  @map("champion_team_id") @db.Uuid
+  runnerUpTeamId         String?  @map("runner_up_team_id") @db.Uuid
+  finalHomeTeamId        String?  @map("final_home_team_id") @db.Uuid
+  finalAwayTeamId        String?  @map("final_away_team_id") @db.Uuid
+  surpriseTeamId         String?  @map("surprise_team_id") @db.Uuid
+  disappointmentTeamId   String?  @map("disappointment_team_id") @db.Uuid
+  mvpPlayerId            String?  @map("mvp_player_id") @db.Uuid
+  goldenBootPlayerId     String?  @map("golden_boot_player_id") @db.Uuid
+  bestGoalkeeperPlayerId String?  @map("best_goalkeeper_player_id") @db.Uuid
+  revelationPlayerId     String?  @map("revelation_player_id") @db.Uuid
+  points                 Int      @default(0)
+  createdAt              DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  user                 User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  championTeam         Team?   @relation("TournamentPredictionChampion", fields: [championTeamId], references: [id], onDelete: SetNull)
+  runnerUpTeam         Team?   @relation("TournamentPredictionRunnerUp", fields: [runnerUpTeamId], references: [id], onDelete: SetNull)
+  finalHomeTeam        Team?   @relation("TournamentPredictionFinalHome", fields: [finalHomeTeamId], references: [id], onDelete: SetNull)
+  finalAwayTeam        Team?   @relation("TournamentPredictionFinalAway", fields: [finalAwayTeamId], references: [id], onDelete: SetNull)
+  surpriseTeam         Team?   @relation("TournamentPredictionSurprise", fields: [surpriseTeamId], references: [id], onDelete: SetNull)
+  disappointmentTeam   Team?   @relation("TournamentPredictionDisappointment", fields: [disappointmentTeamId], references: [id], onDelete: SetNull)
+  mvpPlayer            Player? @relation("TournamentPredictionMvp", fields: [mvpPlayerId], references: [id], onDelete: SetNull)
+  goldenBootPlayer     Player? @relation("TournamentPredictionGoldenBoot", fields: [goldenBootPlayerId], references: [id], onDelete: SetNull)
+  bestGoalkeeperPlayer Player? @relation("TournamentPredictionBestGoalkeeper", fields: [bestGoalkeeperPlayerId], references: [id], onDelete: SetNull)
+  revelationPlayer     Player? @relation("TournamentPredictionRevelation", fields: [revelationPlayerId], references: [id], onDelete: SetNull)
+
+  @@map("tournament_predictions")
+}
+
+model TournamentResult {
+  id                     String   @id @default(uuid()) @db.Uuid
+  championTeamId         String?  @map("champion_team_id") @db.Uuid
+  runnerUpTeamId         String?  @map("runner_up_team_id") @db.Uuid
+  finalHomeTeamId        String?  @map("final_home_team_id") @db.Uuid
+  finalAwayTeamId        String?  @map("final_away_team_id") @db.Uuid
+  surpriseTeamId         String?  @map("surprise_team_id") @db.Uuid
+  disappointmentTeamId   String?  @map("disappointment_team_id") @db.Uuid
+  mvpPlayerId            String?  @map("mvp_player_id") @db.Uuid
+  goldenBootPlayerId     String?  @map("golden_boot_player_id") @db.Uuid
+  bestGoalkeeperPlayerId String?  @map("best_goalkeeper_player_id") @db.Uuid
+  revelationPlayerId     String?  @map("revelation_player_id") @db.Uuid
+  createdAt              DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt              DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  championTeam         Team?   @relation("TournamentResultChampion", fields: [championTeamId], references: [id], onDelete: SetNull)
+  runnerUpTeam         Team?   @relation("TournamentResultRunnerUp", fields: [runnerUpTeamId], references: [id], onDelete: SetNull)
+  finalHomeTeam        Team?   @relation("TournamentResultFinalHome", fields: [finalHomeTeamId], references: [id], onDelete: SetNull)
+  finalAwayTeam        Team?   @relation("TournamentResultFinalAway", fields: [finalAwayTeamId], references: [id], onDelete: SetNull)
+  surpriseTeam         Team?   @relation("TournamentResultSurprise", fields: [surpriseTeamId], references: [id], onDelete: SetNull)
+  disappointmentTeam   Team?   @relation("TournamentResultDisappointment", fields: [disappointmentTeamId], references: [id], onDelete: SetNull)
+  mvpPlayer            Player? @relation("TournamentResultMvp", fields: [mvpPlayerId], references: [id], onDelete: SetNull)
+  goldenBootPlayer     Player? @relation("TournamentResultGoldenBoot", fields: [goldenBootPlayerId], references: [id], onDelete: SetNull)
+  bestGoalkeeperPlayer Player? @relation("TournamentResultBestGoalkeeper", fields: [bestGoalkeeperPlayerId], references: [id], onDelete: SetNull)
+  revelationPlayer     Player? @relation("TournamentResultRevelation", fields: [revelationPlayerId], references: [id], onDelete: SetNull)
+
+  @@map("tournament_results")
+}
+
+model LeaderboardDaily {
+  id           String   @id @default(uuid()) @db.Uuid
+  userId       String   @map("user_id") @db.Uuid
+  totalPoints  Int      @default(0) @map("total_points")
+  exactHits    Int      @default(0) @map("exact_hits")
+  rank         Int
+  previousRank Int?     @map("previous_rank")
+  rankDelta    Int      @default(0) @map("rank_delta")
+  calculatedAt DateTime @default(now()) @map("calculated_at") @db.Timestamptz(6)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, calculatedAt])
+  @@index([rank])
+  @@map("leaderboard_daily")
+}
+
+model ApiSyncLog {
+  id             String   @id @default(uuid()) @db.Uuid
+  endpoint       String
+  statusCode     Int?     @map("status_code")
+  success        Boolean
+  message        String?
+  requestsUsed   Int?     @map("requests_used")
+  remainingQuota Int?     @map("remaining_quota")
+  syncedAt       DateTime @default(now()) @map("synced_at") @db.Timestamptz(6)
+
+  @@index([syncedAt])
+  @@map("api_sync_logs")
+}
