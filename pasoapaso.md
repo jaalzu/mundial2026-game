@@ -20,3 +20,24 @@ SESIÓN 4: Leaderboard
 ├─ Pasar sección leaderboard de Block 3
 ├─ Generar: UI + scoring logic
 └─ Commit: "Leaderboard"
+
+El orden exacto que haría yo
+Sprint 1
+auth anónima
+middleware
+recovery system
+Sprint 2
+seed fake world cup
+matches page
+prediction modal
+Sprint 3
+guardar predictions
+lock
+edit
+validation
+Sprint 4
+scoring engine básico
+leaderboard
+Sprint 5
+admin dashboard
+Sprint 6

@@ -93,6 +93,7 @@ Enters scores (stepper buttons)
 Clicks "Save Predictions"
       ↓
 [Frontend] Zod validation
+zod-prisma-types
       ↓
    ┌─────────────────┐
    │   Valid data?   │
@@ -266,7 +267,7 @@ Render from cache  Fetch from DB
 ```
 Entities & Relations
       ↓
-Database Schema (Prisma)
+Database Schema (Prisma version mas estable)
       ↓
 API Design (Server Actions + Routes)
 ```
