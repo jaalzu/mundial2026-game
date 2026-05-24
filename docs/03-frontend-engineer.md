@@ -68,7 +68,7 @@ Organized by self-contained features. Each feature folder (auth, leaderboard, ma
 
 ### SHARED LAYER
 
-`shared/` → Reusable, cross-app layout components, UI primitives (Shadcn), global hooks, types, constants, and utils.
+`shared/` → Reusable, cross-app layout components, UI primitives , global hooks, types, constants, and utils.
 
 ### GLOBAL STORE STRATEGY
 

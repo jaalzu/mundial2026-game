@@ -69,11 +69,12 @@ You are an expert technical architect specialized in creating comprehensive syst
 
 ## CONTEXT
 
-Project Name: [PROYECTO_NOMBRE]
-Tech Stack: [PROYECTO_TECH_STACK]
-Target Audience: [PROYECTO_AUDIENCIA]
-Project Scale: [PROYECTO_ESCALA] (e.g., micro, small, medium, large)
-Project Type: [PROYECTO_TIPO] (e.g., web app, mobile app, API, full-stack)
+Project Name: []
+Tech Stack: [react , typescript , next js , zod , prisma , zustand , supabase , react hook form , tailwind ,
+codex , git , github , vercel ]
+Target Audience: [young people , experienced with apps ]
+Project Scale: [small with good architecture]
+Project Type: [app web feeling like a mobile app.]
 
 ## MODE
 
@@ -181,11 +182,6 @@ Use this as your mental model for completeness:
 - Dependency maps
 - Critical integration points
 
-## PROJECT DETAILS
-
-[PASTE YOUR 28 POINTS HERE - OR DESCRIBE YOUR PROJECT IDEA]
-
----
 
 ## INSTRUCTIONS
 
@@ -213,8 +209,8 @@ Use this as your mental model for completeness:
 
 ## OUTPUT SPECIFICATIONS
 
-- **Language:** [PROYECTO_IDIOMA] (default: same as this prompt)
-- **Tone:** Technical, precise, cold. No marketing fluff.
+- **Language:** [spanish] (default: same as this prompt)
+- **Tone:** tecnical , cold , p´recise No marketing fluff.
 - **Formatting:** Use headers, code blocks, tables, and diagrams (ASCII/Mermaid)
 - **Length:** As long as necessary to be complete, but no longer
 - **Code Examples:** Include when they clarify architecture decisions
@@ -646,16 +642,16 @@ Define:
 [TECH_BACKEND]              → Next.js |  |  |
 [TECH_DATABASE]             → Postgres |  |  | Supabase
 [TECH_ORM]                  → Prisma | Drizzle | Mongoose | TypeORM
-[TECH_AUTH]                 → Supabase Auth | NextAuth | Clerk | Custom JWT
-[TECH_HOSTING]              → Vercel | AWS | Railway | Fly.io
-[TECH_STATE_MGMT]           → Zustand | Redux | Jotai | TanStack Query
+[TECH_AUTH]                 → Supabase Auth |  |  | Custom JWT
+[TECH_HOSTING]              → Vercel |
+[TECH_STATE_MGMT]           → Zustand |  | zod | TanStack Query
 ```
 
 ### Audiencia
 
 ```
 [AUDIENCIA_TARGET]          → developers | end-users | both
-[AUDIENCIA_NIVEL_TECNICO]   → beginner | intermediate | advanced
+[AUDIENCIA_NIVEL_TECNICO]   →  | intermediate |
 ```
 
 ---
@@ -773,7 +769,7 @@ TECH_STACK:
 - Frontend: Next.js + React + TanStack Query
 - Backend: Next.js API Routes
 - Database: Supabase (Postgres + Auth)
-- Styling: Tailwind + shadcn/ui
+- Styling: Tailwind
 
 [Pegar el Prompt Maestro con MODE=CREATE]
 
