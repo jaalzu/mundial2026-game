@@ -1,32 +1,40 @@
-import type { ReactNode } from "react";
+import { type ReactNode } from "react";
 
 import { cn } from "@/shared/utils/cn";
+import { colors } from "@/shared/constants/designSystem";
 
-type ScreenContainerProps = {
+interface ScreenContainerProps {
   children: ReactNode;
-
   className?: string;
+  padding?: "none" | "minimal" | "standard" | "spacious";
+}
+
+const paddingVariants = {
+  none: "p-0",
+  minimal: "px-4 py-2",
+  standard: "px-6 py-4",
+  spacious: "px-8 py-10",
 };
 
 export function ScreenContainer({
   children,
-
   className,
+  padding = "standard",
 }: ScreenContainerProps) {
   return (
-    <main className="min-h-screen bg-[#1A1A1A] text-white">
-      <div
-        className={cn(
-          [
-            "mx-auto flex min-h-screen w-full max-w-[500px]",
-            "flex-col",
-            "px-4 py-6 md:px-6 md:py-8",
-          ],
-          className,
-        )}
-      >
-        {children}
-      </div>
-    </main>
+    <div
+      className={cn(
+        "min-h-screen w-full",
+        "mx-auto max-w-[500px]",
+        paddingVariants[padding],
+        className,
+      )}
+      style={{
+        backgroundColor: colors.background,
+        color: colors.text,
+      }}
+    >
+      {children}
+    </div>
   );
 }

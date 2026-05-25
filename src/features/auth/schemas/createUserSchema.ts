@@ -5,7 +5,7 @@ export const createUserSchema = z.object({
     .string()
     .trim()
     .min(3, "Minimum 3 characters")
-    .max(16, "Maximum 16 characters")
+    .max(20, "Maximum 20 characters")
     .regex(/^[A-Z0-9_]+$/i, "Only letters, numbers and underscores"),
 
   avatar: z.string().min(1, "Avatar is required"),

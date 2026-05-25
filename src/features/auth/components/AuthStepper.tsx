@@ -9,13 +9,19 @@ export function AuthStepper({ currentStep }: AuthStepperProps) {
     <div className="flex w-full items-center">
       {steps.map((step, index) => {
         const isActive = step <= currentStep;
+
+        const isCurrent = step === currentStep;
+
         const isLast = index === steps.length - 1;
 
         return (
-          <div key={step} className="flex flex-1 items-center">
+          <div key={step} className="contents">
             <div
               className={[
-                "flex h-10 w-10 items-center justify-center border-[2px] text-sm font-bold",
+                "flex h-10 w-10 shrink-0 items-center justify-center border-[2px]",
+
+                isCurrent ? "text-[17px] font-bold" : "text-[15px] font-normal",
+
                 isActive
                   ? "border-[#3CAC3B] bg-[#3CAC3B] text-black"
                   : "border-[#666666] text-[#666666]",

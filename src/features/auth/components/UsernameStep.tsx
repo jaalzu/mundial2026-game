@@ -1,45 +1,37 @@
-import type { UseFormRegister } from "react-hook-form";
-
 import { Button } from "@/shared/components/ui/Button";
 import { Input } from "@/shared/components/ui/Input";
 
 type UsernameStepProps = {
   username: string;
-
+  onUsernameChange: (value: string) => void;
   onNext: () => void;
-
-  register: UseFormRegister<{
-    username: string;
-
-    avatar: string;
-
-    recoveryCode: string;
-  }>;
 };
 
 export function UsernameStep({
   username,
-
+  onUsernameChange,
   onNext,
-
-  register,
 }: UsernameStepProps) {
-  const isValid = username.trim().length >= 3;
+  const isValid =
+    username.length >= 3 &&
+    username.length <= 20 &&
+    /^[A-Z0-9_]+$/i.test(username);
 
   return (
-    <div className="mt-8 flex flex-1 flex-col">
-      <h1 className="text-[22px] font-bold uppercase">Elegí tu username</h1>
+    <div className="mt-7 flex flex-1 flex-col">
+      <h1 className="text-[26px] font-bold uppercase">Elegí tu username</h1>
 
-      <div className="mt-8">
+      <div className="mt-6">
         <Input
           autoComplete="off"
           placeholder="Username"
-          isFilled={isValid}
-          {...register("username")}
+          value={username}
+          onChange={(e) => onUsernameChange(e.target.value)}
+          isCompleted={isValid}
         />
       </div>
 
-      <div className="mt-auto pt-8">
+      <div className="pt-8">
         <Button disabled={!isValid} onClick={onNext}>
           Siguiente paso
         </Button>
