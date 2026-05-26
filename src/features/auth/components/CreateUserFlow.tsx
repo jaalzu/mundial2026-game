@@ -26,19 +26,13 @@ export function CreateUserFlow() {
   async function handleEnterApp() {
     setIsLoading(true);
 
-    const result = await createUser({
+    await createUser({
       username,
       avatar,
       recoveryCode,
     });
 
     setIsLoading(false);
-
-    if (!result.success) {
-      return;
-    }
-
-    router.push("/leaderboard");
   }
 
   return (
