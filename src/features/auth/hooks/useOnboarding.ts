@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 
-import type { AuthStep } from "@/features/auth/types";
-
 import { generateRecoveryCode } from "@/features/auth/utils/recoveryCode";
+
+type AuthStep = 1 | 2 | 3;
 
 export function useOnboarding() {
   const [currentStep, setCurrentStep] = useState<AuthStep>(1);

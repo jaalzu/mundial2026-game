@@ -2,12 +2,11 @@ generator client {
   provider = "prisma-client-js"
 }
 
-
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
-
 
 enum MatchPhase {
   GROUP
@@ -49,7 +48,7 @@ enum MatchPredictionResult {
 model User {
   id              String    @id @db.Uuid
   name            String    @unique
-  avatarPlayerId  String?   @map("avatar_player_id") @db.Uuid
+  avatarPlayerId  String?   @map("avatar_player_id") @db.Uuid  
   recoveryKey     String    @unique @map("recovery_key")
   nameUpdatedAt   DateTime? @map("name_updated_at") @db.Timestamptz(6)
   avatarUpdatedAt DateTime? @map("avatar_updated_at") @db.Timestamptz(6)
