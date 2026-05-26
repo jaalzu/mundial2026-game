@@ -14,7 +14,7 @@ export function BottomTabs() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0  z-50">
+    <nav className="fixed bottom-0 left-0 right-0  bg-[#1A1A1A] z-50">
       <div className="mx-auto max-w-[500px] flex ">
         {tabs.map((tab) => {
           const isActive = pathname === tab.href;
