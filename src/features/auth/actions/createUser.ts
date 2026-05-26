@@ -60,17 +60,16 @@ export async function createUser(input: CreateUserInput) {
         id: userId,
         name: parsed.data.username,
         recoveryKey: parsed.data.recoveryCode,
-        // avatarPlayerId: parsed.data.avatar || null,
       },
     });
-
-    redirect("/leaderboard");
   } catch (error) {
     console.error("DB error:", error);
-
     return {
       success: false,
       error: { _form: ["Failed to create user"] },
     };
   }
+
+  // ✅ REDIRECT FUERA DEL TRY-CATCH
+  redirect("/leaderboard");
 }
