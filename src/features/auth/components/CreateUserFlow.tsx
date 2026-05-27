@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { createUser } from "@/features/auth/actions/createUser";
 import { StepsLayout } from "@/features/auth/components/StepsLayout";
 import { AvatarStep } from "@/features/auth/components/AvatarStep";
@@ -10,7 +9,6 @@ import { UsernameStep } from "@/features/auth/components/UsernameStep";
 import { useOnboarding } from "@/features/auth/hooks/useOnboarding";
 
 export function CreateUserFlow() {
-  const router = useRouter();
   const {
     currentStep,
     recoveryCode,

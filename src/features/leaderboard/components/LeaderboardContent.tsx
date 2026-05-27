@@ -1,18 +1,18 @@
+// LeaderboardContent.tsx
 "use client";
-
-import { LeaderboardTable } from "./LeaderboardTable";
 import { useLeaderboard } from "../hooks/useLeaderboard";
+import { LeaderboardTable } from "./LeaderboardTable";
+import type { LeaderboardEntry } from "../actions/getLeaderboard";
 
 type LeaderboardContentProps = {
-  currentUserId?: string;
+  entries: LeaderboardEntry[];
+  currentUserId: string;
 };
 
-export function LeaderboardContent({ currentUserId }: LeaderboardContentProps) {
-  const { entries, isLoading, error } = useLeaderboard(currentUserId);
-
-  if (error) {
-    return null;
-  }
-
+export function LeaderboardContent({
+  entries: initialEntries,
+  currentUserId,
+}: LeaderboardContentProps) {
+  const { entries } = useLeaderboard(initialEntries);
   return <LeaderboardTable entries={entries} currentUserId={currentUserId} />;
 }

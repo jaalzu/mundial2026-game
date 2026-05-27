@@ -1,20 +1,27 @@
 "use client";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
+import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
 import { ReactNode, useMemo } from "react";
 
 type ProvidersProps = {
   children: ReactNode;
 };
 
+/**
+ * Provider con persistencia en localStorage:
+ * - Si cierras la app y vuelves, el caché se restaura
+ * - Stale time es muy alto (24h) así que casi no refetchea
+ */
 export function Providers({ children }: ProvidersProps) {
   const queryClient = useMemo(
     () =>
       new QueryClient({
         defaultOptions: {
           queries: {
-            staleTime: 60 * 1000,
-            gcTime: 5 * 60 * 1000,
+            staleTime: 60 * 1000, // 1 min default (los profile queries overridean con 24h)
+            gcTime: 5 * 60 * 1000, // 5 min default
             retry: 1,
           },
         },
@@ -22,7 +29,28 @@ export function Providers({ children }: ProvidersProps) {
     [],
   );
 
+  // Persistencia en localStorage (solo en client)
+  const persister = useMemo(
+    () =>
+      typeof window !== "undefined"
+        ? createSyncStoragePersister({
+            storage: window.localStorage,
+            serialize: JSON.stringify,
+            deserialize: JSON.parse,
+          })
+        : null,
+    [],
+  );
+
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <PersistQueryClientProvider
+      client={queryClient}
+      persistOptions={{
+        persister: persister!,
+        maxAge: 24 * 60 * 60 * 1000, // Persist 24 horas
+      }}
+    >
+      {children}
+    </PersistQueryClientProvider>
   );
 }

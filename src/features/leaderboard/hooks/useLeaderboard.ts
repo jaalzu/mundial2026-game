@@ -1,3 +1,4 @@
+// src/features/leaderboard/hooks/useLeaderboard.ts
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
@@ -6,27 +7,18 @@ import {
   type LeaderboardEntry,
 } from "../actions/getLeaderboard";
 
-export type UseLeaderboardReturn = {
-  entries: LeaderboardEntry[];
-  isLoading: boolean;
-  error: Error | null;
-  refetch: () => void;
-};
+const LEADERBOARD_INIT_TIME = Date.now();
 
-/**
- * Hook para el leaderboard con:
- * - Refetch automático cada 5 minutos
- * - Refetch al enfocar la ventana
- * - Refetch manual via refetch()
- */
-export function useLeaderboard(userId?: string): UseLeaderboardReturn {
+export function useLeaderboard(initialEntries: LeaderboardEntry[]) {
   const query = useQuery({
     queryKey: ["leaderboard"],
     queryFn: () => getLeaderboard(),
-    refetchInterval: 60 * 60 * 2000, // 2 hora
-    refetchOnWindowFocus: false, // Desactiva refetch al enfocar
-    staleTime: 60 * 60 * 1000, // 1 hora
-    gcTime: 24 * 60 * 60 * 1000, // 24 horas
+    initialData: initialEntries,
+    initialDataUpdatedAt: LEADERBOARD_INIT_TIME,
+    refetchInterval: 60 * 60 * 1000,
+    refetchOnWindowFocus: false,
+    staleTime: 60 * 60 * 1000,
+    gcTime: 24 * 60 * 60 * 1000,
     retry: 1,
   });
 

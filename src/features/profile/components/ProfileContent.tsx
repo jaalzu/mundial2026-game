@@ -1,65 +1,30 @@
-"use client";
-
 import { ProfileSection } from "./ProfileSection";
 import { StatsSection } from "./StatsSection";
 import { TournamentPredictionsSection } from "./TournamentPredictionsSection";
-import { useProfileData } from "../hooks/useProfileData";
+import { resolveTournamentPredictionDisplay } from "../utils/resolveTournamentPredictionDisplay";
+import { getMockStats } from "../data/mockProfileData";
 import { colors, typography } from "@/shared/constants/designSystem";
+import type { getProfileData } from "../actions/getProfileData";
 
 type ProfileContentProps = {
   userId: string;
   userName: string;
   avatarPlayerId: string | null;
+  recoveryKey: string;
+  profileData: Awaited<ReturnType<typeof getProfileData>>;
 };
 
-/**
- * Componente que maneja toda la lógica de traer datos via hook.
- * La page.tsx lo llama y pasa el userId.
- *
- * Este componente:
- * - Llama useProfileData() que cachea con TanStack Query
- * - Maneja loading/error states
- * - Renderiza los componentes dumb
- */
 export function ProfileContent({
   userId,
   userName,
   avatarPlayerId,
+  recoveryKey,
+  profileData,
 }: ProfileContentProps) {
-  const { stats, predictions, recoveryKey, isLoading, error } =
-    useProfileData(userId);
-
-  if (isLoading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          minHeight: "200px",
-          fontFamily: typography.fontFamily,
-          color: colors.text,
-        }}
-      >
-        Cargando perfil...
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div
-        style={{
-          padding: "16px",
-          fontFamily: typography.fontFamily,
-          color: colors.secondary,
-          fontSize: typography.sizes.sm,
-        }}
-      >
-        Error al cargar perfil. Mostrando datos en caché...
-      </div>
-    );
-  }
+  const stats = profileData?.stats ?? getMockStats();
+  const predictions = resolveTournamentPredictionDisplay(
+    profileData?.prediction ?? null,
+  );
 
   const profileUser = {
     id: userId,
@@ -73,7 +38,6 @@ export function ProfileContent({
       <ProfileSection user={profileUser} />
       <StatsSection stats={stats} />
       <TournamentPredictionsSection predictions={predictions} />
-
       <p
         style={{
           fontFamily: typography.fontFamily,

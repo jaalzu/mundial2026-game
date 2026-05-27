@@ -1,21 +1,7 @@
-import { redirect } from "next/navigation";
-import { getAuthenticatedUser } from "@/features/auth/utils/getAuthenticatedUser";
-import { ScreenContainer } from "@/shared/components/ui/ScreenContainer";
-import { ProfilePageClient } from "@/features/profile/components/ProfilePageClient";
+import { ProfilePageServer } from "@/features/profile/components/ProfilePageServer";
 
-export default async function ProfilePage() {
-  const user = await getAuthenticatedUser();
-  if (!user) redirect("/landing");
+export const revalidate = 300;
 
-  return (
-    <ScreenContainer>
-      <div className="py-4">
-        <ProfilePageClient
-          userId={user.id}
-          userName={user.name}
-          avatarPlayerId={user.avatarPlayerId}
-        />
-      </div>
-    </ScreenContainer>
-  );
+export default function ProfilePage() {
+  return <ProfilePageServer />;
 }

@@ -1,69 +1,40 @@
-"use client";
+// "use client";
 
-import { useQueries } from "@tanstack/react-query";
-import { getUserStats } from "../actions/getUserStats";
-import { getTournamentPredictions } from "../actions/getTournamentPredictions";
-import { getRecoveryKey } from "../actions/getRecoveryKey";
-import { resolveTournamentPredictionDisplay } from "../utils/resolveTournamentPredictionDisplay";
-import { getMockStats, MOCK_RECOVERY_KEY } from "../data/mockProfileData";
-import type { UserStats, TournamentPredictions } from "../types";
+// import { useQuery } from "@tanstack/react-query";
+// import { getProfileData } from "../actions/getProfileData";
+// import { resolveTournamentPredictionDisplay } from "../utils/resolveTournamentPredictionDisplay";
+// import { getMockStats } from "../data/mockProfileData";
 
-export type UseProfileDataReturn = {
-  stats: UserStats;
-  predictions: TournamentPredictions;
-  recoveryKey: string;
-  isLoading: boolean;
-  error: Error | null;
-};
+// const PROFILE_INIT_TIME = Date.now();
 
-export function useProfileData(userId: string): UseProfileDataReturn {
-  const results = useQueries({
-    queries: [
-      {
-        queryKey: ["profile", userId, "stats"],
-        queryFn: () => getUserStats(userId),
-        staleTime: 24 * 60 * 60 * 1000, // 24h
-        gcTime: 7 * 24 * 60 * 60 * 1000, // 7 días
-        retry: 1,
-        enabled: !!userId,
-      },
-      {
-        queryKey: ["profile", userId, "predictions"],
-        queryFn: () => getTournamentPredictions(userId),
-        staleTime: 24 * 60 * 60 * 1000, // 24h
-        gcTime: 7 * 24 * 60 * 60 * 1000, // 7 días
-        retry: 1,
-        enabled: !!userId,
-      },
-      {
-        queryKey: ["profile", userId, "recoveryKey"],
-        queryFn: () => getRecoveryKey(),
-        staleTime: Infinity, // Recovery key NUNCA cambia
-        gcTime: 7 * 24 * 60 * 60 * 1000, // 7 días
-        retry: 1,
-        enabled: !!userId,
-      },
-    ],
-  });
+// export type UseProfileDataReturn = {
+//   stats: ReturnType<typeof getMockStats>;
+//   predictions: ReturnType<typeof resolveTournamentPredictionDisplay>;
+//   isLoading: boolean;
+//   error: Error | null;
+// };
 
-  const [statsQuery, predictionsQuery, recoveryKeyQuery] = results;
+// export function useProfileData(
+//   userId: string,
+//   initialData?: Awaited<ReturnType<typeof getProfileData>>,
+// ): UseProfileDataReturn {
+//   const query = useQuery({
+//     queryKey: ["profile", userId],
+//     queryFn: () => getProfileData(userId),
+//     initialData,
+//     initialDataUpdatedAt: PROFILE_INIT_TIME,
+//     staleTime: 24 * 60 * 60 * 1000,
+//     gcTime: 7 * 24 * 60 * 60 * 1000,
+//     retry: 1,
+//     enabled: !!userId,
+//   });
 
-  const predictions = resolveTournamentPredictionDisplay(
-    predictionsQuery.data ?? null,
-  );
-
-  const isLoading = results.some((q) => q.isLoading);
-
-  const error = results.find((q) => q.error)?.error || null;
-
-  const stats = statsQuery.data ?? getMockStats();
-  const recoveryKey = recoveryKeyQuery.data?.recoveryKey ?? MOCK_RECOVERY_KEY;
-
-  return {
-    stats,
-    predictions,
-    recoveryKey,
-    isLoading,
-    error: error as Error | null,
-  };
-}
+//   return {
+//     stats: query.data?.stats ?? getMockStats(),
+//     predictions: resolveTournamentPredictionDisplay(
+//       query.data?.prediction ?? null,
+//     ),
+//     isLoading: query.isLoading,
+//     error: query.error as Error | null,
+//   };
+// }
