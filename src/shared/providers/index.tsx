@@ -1,6 +1,6 @@
 "use client";
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient } from "@tanstack/react-query";
 import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
 import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
 import { ReactNode, useMemo } from "react";
@@ -20,8 +20,8 @@ export function Providers({ children }: ProvidersProps) {
       new QueryClient({
         defaultOptions: {
           queries: {
-            staleTime: 60 * 1000, // 1 min default (los profile queries overridean con 24h)
-            gcTime: 5 * 60 * 1000, // 5 min default
+            staleTime: 10 * 60 * 2000, // 20 min
+            gcTime: 24 * 60 * 60 * 1000, // 24h
             retry: 1,
           },
         },

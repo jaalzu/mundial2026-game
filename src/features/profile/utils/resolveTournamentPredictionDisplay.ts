@@ -5,12 +5,12 @@
  * Mapea relaciones resueltas (teamName, playerName) a strings.
  * Si hay null, retorna "—" para mantener la UI limpia.
  */
+
+import type { getProfileData } from "../actions/getProfileData";
+type PredictionRaw = Awaited<ReturnType<typeof getProfileData>>["prediction"];
+
 export function resolveTournamentPredictionDisplay(
-  prediction: Awaited<
-    ReturnType<
-      typeof import("../actions/getTournamentPredictions").getTournamentPredictions
-    >
-  > | null,
+  prediction: PredictionRaw | null,
 ): TournamentPredictionDisplay {
   if (!prediction) {
     return {

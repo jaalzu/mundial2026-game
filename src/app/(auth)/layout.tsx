@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { getAuthenticatedUser } from "@/features/auth/utils/getAuthenticatedUser";
+import { getAuthenticatedUser } from "@/shared/utils/getAuthenticatedUser";
 import { Nav } from "@/shared/components/layout/Nav";
 import { BottomTabs } from "@/shared/components/layout/BottomTabs";
 import { colors } from "@/shared/constants/designSystem";

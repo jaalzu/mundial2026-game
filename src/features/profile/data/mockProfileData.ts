@@ -5,7 +5,7 @@ import type { UserStats, TournamentPredictions } from "../types";
 
 export function getMockStats(): UserStats {
   return {
-    position: null,
+    position: 0,
     totalPlayers: 0,
     totalPoints: 0,
     exactPredictions: 0,

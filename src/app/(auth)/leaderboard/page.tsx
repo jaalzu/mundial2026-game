@@ -1,4 +1,4 @@
-import { getAuthenticatedUser } from "@/features/auth/utils/getAuthenticatedUser";
+import { getAuthenticatedUser } from "@/shared/utils/getAuthenticatedUser";
 import { getLeaderboard } from "@/features/leaderboard/actions/getLeaderboard";
 import { LeaderboardContent } from "@/features/leaderboard/components/LeaderboardContent";
 import { redirect } from "next/navigation";

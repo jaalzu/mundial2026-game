@@ -9,19 +9,10 @@ export { SectionCard } from "./components/SectionCard";
 export { DataRow } from "./components/DataRow";
 export { RecoveryCodeRow } from "./components/RecoveryCodeRow";
 export { ProfileContent } from "./components/ProfileContent";
-
-// Hooks
-export {
-  useProfileData,
-  type UseProfileDataReturn,
-} from "./hooks/useProfileData";
-
-// Queries
-export { getUserStats } from "./actions/getUserStats";
-export { getTournamentPredictions } from "./actions/getTournamentPredictions";
+export { ProfilePageServer } from "./components/ProfilePageServer";
 
 // Actions
-export { getRecoveryKey } from "./actions/getRecoveryKey";
+export { getProfileData } from "./actions/getProfileData";
 
 // Utils
 export {
@@ -30,8 +21,4 @@ export {
 } from "./utils/resolveTournamentPredictionDisplay";
 
 // Data
-export {
-  getMockStats,
-  getMockTournamentPredictions,
-  MOCK_RECOVERY_KEY,
-} from "./data/mockProfileData";
+export { getMockStats } from "./data/mockProfileData";

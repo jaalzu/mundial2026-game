@@ -20,7 +20,7 @@ export function DataRow({
         color: colors.text,
       }}
     >
-      <span style={{ opacity: 0.7 }}>{label}:</span>
+      <span style={{ opacity: 0.8 }}>{label}:</span>
       <span
         style={{
           color: valueHighlight ? colors.primary : colors.text,

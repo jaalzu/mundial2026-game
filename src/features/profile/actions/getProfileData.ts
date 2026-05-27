@@ -1,17 +1,19 @@
-// getProfileData.ts
 "use server";
+
 import { prisma } from "@/lib/prisma";
-import { getAuthenticatedUser } from "@/features/auth/utils/getAuthenticatedUser";
 
 export async function getProfileData(userId: string) {
-  const user = await getAuthenticatedUser(); // 1 sola auth call
-  if (!user || user.id !== userId) throw new Error("Unauthorized");
-
-  // Todo en paralelo, 1 sola auth
-  const [leaderboardEntry, prediction] = await Promise.all([
+  const [leaderboardEntry, prediction, totalPlayers] = await Promise.all([
     prisma.leaderboardDaily.findFirst({
       where: { userId },
       orderBy: { calculatedAt: "desc" },
+      select: {
+        rank: true,
+        totalPoints: true,
+        exactHits: true,
+        rankDelta: true,
+        calculatedAt: true,
+      },
     }),
     prisma.tournamentPrediction.findUnique({
       where: { userId },
@@ -28,24 +30,21 @@ export async function getProfileData(userId: string) {
         revelationPlayer: { select: { name: true } },
       },
     }),
+
+    prisma.user.count(),
   ]);
 
   const stats = leaderboardEntry
-    ? await prisma.leaderboardDaily
-        .groupBy({
-          by: ["userId"],
-          where: { calculatedAt: leaderboardEntry.calculatedAt },
-        })
-        .then((r) => ({
-          position: leaderboardEntry.rank,
-          totalPlayers: r.length,
-          totalPoints: leaderboardEntry.totalPoints,
-          exactPredictions: leaderboardEntry.exactHits,
-          rankDelta: leaderboardEntry.rankDelta,
-        }))
+    ? {
+        position: leaderboardEntry.rank,
+        totalPlayers,
+        totalPoints: leaderboardEntry.totalPoints,
+        exactPredictions: leaderboardEntry.exactHits,
+        rankDelta: leaderboardEntry.rankDelta,
+      }
     : {
         position: null,
-        totalPlayers: 0,
+        totalPlayers,
         totalPoints: 0,
         exactPredictions: 0,
         rankDelta: 0,

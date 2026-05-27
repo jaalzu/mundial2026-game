@@ -43,15 +43,13 @@ export function ProfileContent({
           fontFamily: typography.fontFamily,
           fontSize: "10px",
           color: colors.text,
-          opacity: 0.4,
+          opacity: 0.7,
           textAlign: "center",
           lineHeight: 1.5,
         }}
       >
         para informar sobre bugs o feedback podés comunicarte a este correo:{" "}
-        <span style={{ color: colors.primary, opacity: 1 }}>
-          javieraizuu@gmail.com
-        </span>
+        javieraizuu@gmail.com
       </p>
     </div>
   );
