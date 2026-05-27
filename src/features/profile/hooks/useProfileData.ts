@@ -1,6 +1,6 @@
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
+import { useQueries } from "@tanstack/react-query";
 import { getUserStats } from "../actions/getUserStats";
 import { getTournamentPredictions } from "../actions/getTournamentPredictions";
 import { getRecoveryKey } from "../actions/getRecoveryKey";
@@ -17,39 +17,44 @@ export type UseProfileDataReturn = {
 };
 
 export function useProfileData(userId: string): UseProfileDataReturn {
-  const statsQuery = useQuery({
-    queryKey: ["profile", userId, "stats"],
-    queryFn: () => getUserStats(userId),
-    staleTime: 24 * 60 * 60 * 1000,
-    gcTime: 48 * 60 * 60 * 1000,
-    retry: 1,
-    enabled: !!userId,
+  const results = useQueries({
+    queries: [
+      {
+        queryKey: ["profile", userId, "stats"],
+        queryFn: () => getUserStats(userId),
+        staleTime: 24 * 60 * 60 * 1000, // 24h
+        gcTime: 7 * 24 * 60 * 60 * 1000, // 7 días
+        retry: 1,
+        enabled: !!userId,
+      },
+      {
+        queryKey: ["profile", userId, "predictions"],
+        queryFn: () => getTournamentPredictions(userId),
+        staleTime: 24 * 60 * 60 * 1000, // 24h
+        gcTime: 7 * 24 * 60 * 60 * 1000, // 7 días
+        retry: 1,
+        enabled: !!userId,
+      },
+      {
+        queryKey: ["profile", userId, "recoveryKey"],
+        queryFn: () => getRecoveryKey(),
+        staleTime: Infinity, // Recovery key NUNCA cambia
+        gcTime: 7 * 24 * 60 * 60 * 1000, // 7 días
+        retry: 1,
+        enabled: !!userId,
+      },
+    ],
   });
 
-  const predictionsQuery = useQuery({
-    queryKey: ["profile", userId, "predictions"],
-    queryFn: () => getTournamentPredictions(userId),
-    staleTime: 24 * 60 * 60 * 1000,
-    gcTime: 48 * 60 * 60 * 1000,
-    retry: 1,
-    enabled: !!userId,
-  });
-
-  const recoveryKeyQuery = useQuery({
-    queryKey: ["profile", userId, "recoveryKey"],
-    queryFn: () => getRecoveryKey(),
-    staleTime: Infinity,
-    retry: 1,
-    enabled: !!userId,
-  });
+  const [statsQuery, predictionsQuery, recoveryKeyQuery] = results;
 
   const predictions = resolveTournamentPredictionDisplay(
     predictionsQuery.data ?? null,
   );
 
-  const isLoading = statsQuery.isLoading || predictionsQuery.isLoading;
-  const error =
-    statsQuery.error || predictionsQuery.error || recoveryKeyQuery.error;
+  const isLoading = results.some((q) => q.isLoading);
+
+  const error = results.find((q) => q.error)?.error || null;
 
   const stats = statsQuery.data ?? getMockStats();
   const recoveryKey = recoveryKeyQuery.data?.recoveryKey ?? MOCK_RECOVERY_KEY;
