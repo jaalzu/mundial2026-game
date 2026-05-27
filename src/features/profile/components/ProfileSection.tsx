@@ -15,7 +15,7 @@ export function ProfileSection({ user }: ProfileSectionProps) {
     <SectionCard title="Perfil">
       <DataRow label="Username" value={user.name} />
       <DataRow label="Avatar" value={avatarDisplayName} />
-      <RecoveryCodeRow code={user.recoveryCode} />
+      <RecoveryCodeRow code={user.recoveryKey} />
     </SectionCard>
   );
 }

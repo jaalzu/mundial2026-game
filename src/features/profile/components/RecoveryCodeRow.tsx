@@ -28,7 +28,7 @@ export function RecoveryCodeRow({ code }: RecoveryCodeRowProps) {
         style={{
           fontSize: typography.sizes.md,
           color: colors.primary,
-          letterSpacing: "0.11em",
+          letterSpacing: "0.08em",
         }}
       >
         {code}

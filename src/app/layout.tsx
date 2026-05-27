@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Anonymous_Pro } from "next/font/google";
+import { Providers } from "@/shared/providers";
 import "./globals.css";
 
 const anonymousPro = Anonymous_Pro({
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={anonymousPro.variable}>{children}</body>
+      <body className={anonymousPro.variable}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

@@ -1,31 +1,32 @@
 import type { UserStats, TournamentPredictions } from "../types";
 
-// ─── Reemplazar estas funciones con queries reales cuando estén disponibles ───
-// Ejemplo:
-//   import { getUserStats } from "@/features/profile/queries/getUserStats"
-//   import { getTournamentPredictions } from "@/features/profile/queries/getTournamentPredictions"
+// ─── Fallback/Mock data para cuando no hay datos en DB ───
+// Reemplazar estas funciones con las queries reales en page.tsx
 
 export function getMockStats(): UserStats {
   return {
-    position: 4,
-    totalPlayers: 30,
-    totalPoints: 40,
-    exactPredictions: 3,
+    position: null,
+    totalPlayers: 0,
+    totalPoints: 0,
+    exactPredictions: 0,
+    rankDelta: 0,
   };
 }
 
 export function getMockTournamentPredictions(): TournamentPredictions {
   return {
-    champion: "Argentina",
-    runnerUp: "Francia",
-    goldenBoot: "Messi",
-    mvp: "Messi",
-    youngPlayer: "Messi",
-    disappointmentTeam: "Chile",
-    revelationTeam: "Jamaica",
-    goldenGlove: "Dibu Martinez",
+    champion: "—",
+    runnerUp: "—",
+    finalHome: "—",
+    finalAway: "—",
+    surprise: "—",
+    disappointment: "—",
+    mvp: "—",
+    goldenBoot: "—",
+    bestGoalkeeper: "—",
+    revelation: "—",
   };
 }
 
-// TODO: reemplazar con recovery key real (viene de DB)
-export const MOCK_RECOVERY_CODE = "W4RLD-CUP26-XJKL9P";
+// TODO: reemplazar en page.tsx - obtener de getAuthenticatedUser o DB
+export const MOCK_RECOVERY_KEY = "XXXX-XXXX-XXXX-XXXX";

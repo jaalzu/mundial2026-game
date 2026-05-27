@@ -7,13 +7,13 @@ type SectionCardProps = {
 
 export function SectionCard({ title, children }: SectionCardProps) {
   return (
-    <div style={{ border: borders.default, borderRadius: "4px" }}>
+    <div style={{ border: borders.light, borderRadius: "4px" }}>
       <div
-        className="px-4 py-2"
+        className="px-4 py-3"
         style={{
-          borderBottom: borders.default,
+          borderBottom: borders.light,
           fontFamily: typography.fontFamily,
-          fontSize: typography.sizes.lg,
+          fontSize: typography.sizes.md,
           fontWeight: "bold",
           color: colors.text,
           textTransform: "uppercase",
