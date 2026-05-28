@@ -1,14 +1,12 @@
-import { typography } from "@/shared/constants/designSystem";
+import { redirect } from "next/navigation";
+import { getAuthenticatedUser } from "@/shared/utils/getAuthenticatedUser";
+import { PredictionsContent } from "@/features/predictions/components/PredictionsContent";
 
-export default function PredictionsPage() {
-  return (
-    <div className="flex min-h-[60vh] items-center justify-center px-6">
-      <h1
-        className="text-3xl md:text-4xl font-bold uppercase text-center"
-        style={{ fontFamily: typography.fontFamily }}
-      >
-        Hola soy Predicciones
-      </h1>
-    </div>
-  );
+export const revalidate = 0; // predictions are user-specific, never cache at page level
+
+export default async function PredictionsPage() {
+  const currentUser = await getAuthenticatedUser();
+  if (!currentUser) redirect("/landing");
+
+  return <PredictionsContent userId={currentUser.id} />;
 }

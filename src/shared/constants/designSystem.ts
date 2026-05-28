@@ -12,8 +12,8 @@ export const colors = {
 /////// borders ////////
 export const borders = {
   light: "1px solid #3CAC3B",
-  default: "2px solid #666666",
-  active: "3px solid #3CAC3B",
+  default: "1px solid #666666",
+  active: "2px solid #3CAC3B",
   button: "4px solid #3CAC3B",
 };
 

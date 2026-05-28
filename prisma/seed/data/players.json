@@ -148,7 +148,7 @@
     ],
     "forwards": [
       { "name": "Florian Wirtz", "number": 7 },
-      { "name": "Serge Gnabry", "number": 7 },
+      { "name": "Kai Havertz", "number": 7 },
       { "name": "Leroy Sané", "number": 19 }
     ]
   },
@@ -921,17 +921,21 @@
       { "name": "Achraf Hakimi", "number": 2 },
       { "name": "Romain Saïss", "number": 4 },
       { "name": "Nayef Aguerd", "number": 6 },
-      { "name": "Ferland Mendy", "number": 3 }
+      { "name": "Ferland Mendy", "number": 3 },
+      { "name": "Noussair Mazraoui ", "number": 3 }
     ],
     "midfielders": [
       { "name": "Hakim Ziyech", "number": 8 },
       { "name": "Sofyan Amrabat", "number": 4 },
-      { "name": "Yahya Attiyat Allah", "number": 17 }
+      { "name": "Yahya Attiyat Allah", "number": 17 },
+      { "name": "Brahim Díaz ", "number": 17 },
+      { "name": "Sofyan Amrabat ", "number": 17 }
     ],
     "forwards": [
       { "name": "Youssef En-Nesyri", "number": 9 },
       { "name": "Sofiane Boufal", "number": 10 },
-      { "name": "Noussair Mazraoui", "number": 23 }
+      { "name": "Noussair Mazraoui", "number": 23 },
+      { "name": "Abde Ezzalzouli", "number": 13 }
     ]
   },
   "Algeria": {

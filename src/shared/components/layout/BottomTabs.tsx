@@ -25,7 +25,7 @@ export function BottomTabs() {
               href={tab.href}
               className="flex-1 text-center transition-colors"
               style={{
-                padding: "20px 0px",
+                padding: "15px 0px",
                 border: isActive ? "3px solid #3CAC3B" : borders.default,
                 fontFamily: typography.fontFamily,
                 fontSize: typography.sizes.lg,
