@@ -17,8 +17,8 @@ export function getMockTournamentPredictions(): TournamentPredictions {
   return {
     champion: "—",
     runnerUp: "—",
-    finalHome: "—",
-    finalAway: "—",
+    // finalHome: "—",
+    // finalAway: "—",
     surprise: "—",
     disappointment: "—",
     mvp: "—",

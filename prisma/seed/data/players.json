@@ -1,0 +1,1190 @@
+{
+  "Argentina": {
+    "goalkeepers": [
+      { "name": "Emiliano Martínez", "number": 1 },
+      { "name": "Gerónimo Rulli", "number": 23 },
+      { "name": "Juan Musso", "number": 13 }
+    ],
+    "defenders": [
+      { "name": "Cristian Romero", "number": 13 },
+      { "name": "Lisandro Martínez", "number": 3 },
+      { "name": "Nicolás Otamendi", "number": 19 },
+      { "name": "Nahuel Molina", "number": 4 },
+      { "name": "Gonzalo Montiel", "number": 2 }
+    ],
+    "midfielders": [
+      { "name": "Rodrigo De Paul", "number": 7 },
+      { "name": "Enzo Fernández", "number": 24 },
+      { "name": "Alexis Mac Allister", "number": 20 },
+      { "name": "Leandro Paredes", "number": 5 },
+      { "name": "Giovani Lo Celso", "number": 18 }
+    ],
+    "forwards": [
+      { "name": "Lionel Messi", "number": 10 },
+      { "name": "Lautaro Martínez", "number": 22 },
+      { "name": "Julián Álvarez", "number": 9 },
+      { "name": "Alejandro Garnacho", "number": 17 }
+    ]
+  },
+  "Brazil": {
+    "goalkeepers": [
+      { "name": "Alisson", "number": 1 },
+      { "name": "Ederson", "number": 23 },
+      { "name": "Weverton", "number": 12 }
+    ],
+    "defenders": [
+      { "name": "Marquinhos", "number": 4 },
+      { "name": "Gabriel Magalhaes", "number": 3 },
+      { "name": "Bremer", "number": 13 },
+      { "name": "Danilo", "number": 6 }
+    ],
+    "midfielders": [
+      { "name": "Casemiro", "number": 5 },
+      { "name": "Bruno Guimaraes", "number": 18 },
+      { "name": "Lucas Paquetá", "number": 7 }
+    ],
+    "forwards": [
+      { "name": "Vinicius Jr.", "number": 7 },
+      { "name": "Neymar Jr.", "number": 10 },
+      { "name": "Raphinha", "number": 11 },
+      { "name": "Gabriel Martinelli", "number": 12 },
+      { "name": "Endrick", "number": 21 },
+      { "name": "Rodrygo", "number": 20 }
+    ]
+  },
+  "Spain": {
+    "goalkeepers": [
+      { "name": "Unai Simón", "number": 1 },
+      { "name": "David Raya", "number": 23 },
+      { "name": "Joan García", "number": 13 }
+    ],
+    "defenders": [
+      { "name": "Aymeric Laporte", "number": 3 },
+      { "name": "Marc Cucurella", "number": 3 },
+      { "name": "Alejandro Grimaldo", "number": 3 },
+      { "name": "Pau Cubarsí", "number": 3 }
+    ],
+    "midfielders": [
+      { "name": "Rodrigo Hernández", "number": 16 },
+      { "name": "Pedri", "number": 8 },
+      { "name": "Gavi", "number": 5 },
+      { "name": "Fabián Ruiz", "number": 14 }
+    ],
+    "forwards": [
+      { "name": "Lamine Yamal", "number": 19 },
+      { "name": "Nico Williams", "number": 17 },
+      { "name": "Dani Olmo", "number": 15 },
+      { "name": "Ferran Torres", "number": 11 }
+    ]
+  },
+  "France": {
+    "goalkeepers": [
+      { "name": "Mike Maignan", "number": 16 },
+      { "name": "Robin Risser", "number": 23 },
+      { "name": "Brice Samba", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "William Saliba", "number": 2 },
+      { "name": "Jules Koundé", "number": 4 },
+      { "name": "Theo Hernández", "number": 19 },
+      { "name": "Ibrahima Konaté", "number": 5 },
+      { "name": "Dayot Upamecano", "number": 6 }
+    ],
+    "midfielders": [
+      { "name": "N'Golo Kanté", "number": 13 },
+      { "name": "Aurélien Tchouaméni", "number": 8 },
+      { "name": "Adrien Rabiot", "number": 14 },
+      { "name": "Warren Zaïre-Emery", "number": 25 }
+    ],
+    "forwards": [
+      { "name": "Kylian Mbappé", "number": 10 },
+      { "name": "Ousmane Dembélé", "number": 11 },
+      { "name": "Bradley Barcola", "number": 12 },
+      { "name": "Marcus Thuram", "number": 9 },
+      { "name": "Michael Olise", "number": 7 }
+    ]
+  },
+  "England": {
+    "goalkeepers": [
+      { "name": "Jordan Pickford", "number": 1 },
+      { "name": "Dean Henderson", "number": 13 },
+      { "name": "James Trafford", "number": 23 }
+    ],
+    "defenders": [
+      { "name": "John Stones", "number": 5 },
+      { "name": "Reece James", "number": 2 },
+      { "name": "Marc Guéhi", "number": 6 },
+      { "name": "Dan Burn", "number": 3 }
+    ],
+    "midfielders": [
+      { "name": "Jude Bellingham", "number": 22 },
+      { "name": "Declan Rice", "number": 4 },
+      { "name": "Kobbie Mainoo", "number": 37 }
+    ],
+    "forwards": [
+      { "name": "Harry Kane", "number": 9 },
+      { "name": "Bukayo Saka", "number": 7 },
+      { "name": "Marcus Rashford", "number": 10 },
+      { "name": "Ollie Watkins", "number": 11 },
+      { "name": "Anthony Gordon", "number": 20 }
+    ]
+  },
+  "Germany": {
+    "goalkeepers": [
+      { "name": "Manuel Neuer", "number": 1 },
+      { "name": "Bernd Leno", "number": 25 },
+      { "name": "Marc-André ter Stegen", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Antonio Rüdiger", "number": 2 },
+      { "name": "Mats Hummels", "number": 15 },
+      { "name": "Serge Gnabry", "number": 7 },
+      { "name": "Joshua Kimmich", "number": 6 }
+    ],
+    "midfielders": [
+      { "name": "Toni Kroos", "number": 8 },
+      { "name": "İlkay Gündoğan", "number": 10 },
+      { "name": "Jamal Musiala", "number": 14 }
+    ],
+    "forwards": [
+      { "name": "Florian Wirtz", "number": 7 },
+      { "name": "Serge Gnabry", "number": 7 },
+      { "name": "Leroy Sané", "number": 19 }
+    ]
+  },
+  "Netherlands": {
+    "goalkeepers": [
+      { "name": "Remko Pasveer", "number": 1 },
+      { "name": "Justin Bijlow", "number": 1 },
+      { "name": "Bart Verbruggen", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Virgil van Dijk", "number": 4 },
+      { "name": "Denzel Dumfries", "number": 2 },
+      { "name": "Matthijs de Ligt", "number": 4 },
+      { "name": "Nathan Aké", "number": 6 }
+    ],
+    "midfielders": [
+      { "name": "Frenkie de Jong", "number": 21 },
+      { "name": "Davy Klaassen", "number": 6 },
+      { "name": "Marten de Roon", "number": 15 }
+    ],
+    "forwards": [
+      { "name": "Memphis Depay", "number": 7 },
+      { "name": "Steven Bergwijn", "number": 7 },
+      { "name": "Xavi Simons", "number": 7 }
+    ]
+  },
+  "Belgium": {
+    "goalkeepers": [
+      { "name": "Thibaut Courtois", "number": 1 },
+      { "name": "Simon Mignolet", "number": 1 },
+      { "name": "Thomas Kaminski", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Toby Alderweireld", "number": 2 },
+      { "name": "Jan Vertonghen", "number": 5 },
+      { "name": "Dedryck Boyata", "number": 3 },
+      { "name": "Thomas Meunier", "number": 15 }
+    ],
+    "midfielders": [
+      { "name": "Kevin De Bruyne", "number": 7 },
+      { "name": "Axel Witsel", "number": 6 },
+      { "name": "Yannick Carrasco", "number": 21 }
+    ],
+    "forwards": [
+      { "name": "Romelu Lukaku", "number": 9 },
+      { "name": "Jeremy Doku", "number": 7 },
+      { "name": "Leandro Trossard", "number": 7 }
+    ]
+  },
+  "Portugal": {
+    "goalkeepers": [
+      { "name": "Rui Patrício", "number": 1 },
+      { "name": "Jose Sá", "number": 1 },
+      { "name": "Samuel Soares", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Rúben Dias", "number": 3 },
+      { "name": "Pepe", "number": 3 },
+      { "name": "João Cancelo", "number": 27 },
+      { "name": "Nélson Semedo", "number": 13 }
+    ],
+    "midfielders": [
+      { "name": "Bruno Fernandes", "number": 8 },
+      { "name": "Rúben Neves", "number": 18 },
+      { "name": "João Félix", "number": 11 }
+    ],
+    "forwards": [
+      { "name": "Cristiano Ronaldo", "number": 7 },
+      { "name": "Gonçalo Ramos", "number": 23 },
+      { "name": "Diogo Jota", "number": 7 }
+    ]
+  },
+  "Italy": {
+    "goalkeepers": [
+      { "name": "Gianluigi Donnarumma", "number": 1 },
+      { "name": "Mattia Perin", "number": 1 },
+      { "name": "Guglielmo Vicario", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Alessandro Bastoni", "number": 5 },
+      { "name": "Leonardo Bonucci", "number": 19 },
+      { "name": "Giovanni Di Lorenzo", "number": 2 },
+      { "name": "Matteo Darmian", "number": 32 }
+    ],
+    "midfielders": [
+      { "name": "Marco Verratti", "number": 6 },
+      { "name": "Nicolò Barella", "number": 23 },
+      { "name": "Jorginho", "number": 8 }
+    ],
+    "forwards": [
+      { "name": "Ciro Immobile", "number": 17 },
+      { "name": "Lorenzo Insigne", "number": 10 },
+      { "name": "Federico Chiesa", "number": 14 }
+    ]
+  },
+  "Mexico": {
+    "goalkeepers": [
+      { "name": "Guillermo Ochoa", "number": 1 },
+      { "name": "Alfredo Talavera", "number": 1 },
+      { "name": "Luis Malagón", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Miguel Layún", "number": 3 },
+      { "name": "César Montes", "number": 19 },
+      { "name": "Héctor Moreno", "number": 15 },
+      { "name": "Gerardo Arteaga", "number": 3 }
+    ],
+    "midfielders": [
+      { "name": "Raúl Jiménez", "number": 9 },
+      { "name": "Edson Álvarez", "number": 16 },
+      { "name": "Hirving Lozano", "number": 22 }
+    ],
+    "forwards": [
+      { "name": "Santiago Giménez", "number": 15 },
+      { "name": "Alexis Vega", "number": 17 },
+      { "name": "Diego Lainez", "number": 11 }
+    ]
+  },
+  "USA": {
+    "goalkeepers": [
+      { "name": "Matt Turner", "number": 1 },
+      { "name": "Ethan Horvath", "number": 1 },
+      { "name": "Stefan Frei", "number": 24 }
+    ],
+    "defenders": [
+      { "name": "Sergiño Dest", "number": 3 },
+      { "name": "Joe Scally", "number": 24 },
+      { "name": "Antonee Robinson", "number": 7 },
+      { "name": "Walker Zimmerman", "number": 4 }
+    ],
+    "midfielders": [
+      { "name": "Christian Pulisic", "number": 10 },
+      { "name": "Tyler Adams", "number": 6 },
+      { "name": "Gio Reyna", "number": 7 }
+    ],
+    "forwards": [
+      { "name": "Folarin Balogun", "number": 9 },
+      { "name": "Weston McKennie", "number": 8 },
+      { "name": "Yunus Musah", "number": 5 }
+    ]
+  },
+  "Canada": {
+    "goalkeepers": [
+      { "name": "Milan Borjan", "number": 1 },
+      { "name": "Maxime Crépeau", "number": 16 },
+      { "name": "Dayne St. Clair", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Alphonso Davies", "number": 19 },
+      { "name": "Achraf Hakimi", "number": 2 },
+      { "name": "Atalanta Gara", "number": 5 },
+      { "name": "Samuel Adekugbe", "number": 3 }
+    ],
+    "midfielders": [
+      { "name": "Athanasios Rantos", "number": 8 },
+      { "name": "Mark-Anthony Kaye", "number": 4 },
+      { "name": "Jonathan David", "number": 9 }
+    ],
+    "forwards": [
+      { "name": "Jonathan David", "number": 9 },
+      { "name": "Cyle Larin", "number": 9 },
+      { "name": "Tajon Buchanan", "number": 20 }
+    ]
+  },
+  "Uruguay": {
+    "goalkeepers": [
+      { "name": "Sergio Rochet", "number": 1 },
+      { "name": "Fernando Muslera", "number": 1 },
+      { "name": "Pablo Dovale", "number": 23 }
+    ],
+    "defenders": [
+      { "name": "Martín Cáceres", "number": 3 },
+      { "name": "Giorgian de Arrascaeta", "number": 4 },
+      { "name": "José Giménez", "number": 3 },
+      { "name": "Matías Viña", "number": 5 }
+    ],
+    "midfielders": [
+      { "name": "Rodrigo Bentancur", "number": 30 },
+      { "name": "Lucas Torreira", "number": 11 },
+      { "name": "Giorgian de Arrascaeta", "number": 8 }
+    ],
+    "forwards": [
+      { "name": "Luis Suárez", "number": 9 },
+      { "name": "Edinson Cavani", "number": 21 },
+      { "name": "Facundo Torres", "number": 17 }
+    ]
+  },
+  "Paraguay": {
+    "goalkeepers": [
+      { "name": "Alfredo Talavera", "number": 1 },
+      { "name": "Andrés Domínguez", "number": 25 },
+      { "name": "Roberto Fernández", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Gustavo Gómez", "number": 3 },
+      { "name": "Júnior Alonso", "number": 3 },
+      { "name": "Fabio Balbuena", "number": 4 },
+      { "name": "Juan Kaprof", "number": 26 }
+    ],
+    "midfielders": [
+      { "name": "Matías Rojas", "number": 14 },
+      { "name": "Rodney Rolan", "number": 6 },
+      { "name": "Richard Sánchez", "number": 10 }
+    ],
+    "forwards": [
+      { "name": "Roque Santa Cruz", "number": 9 },
+      { "name": "Guillermo Paiva", "number": 7 },
+      { "name": "Cristian Benavente", "number": 11 }
+    ]
+  },
+  "Colombia": {
+    "goalkeepers": [
+      { "name": "Camilo Vargas", "number": 1 },
+      { "name": "Álvaro Montero", "number": 23 },
+      { "name": "Carlos Moreno", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Yerry Mina", "number": 3 },
+      { "name": "Davinson Sánchez", "number": 6 },
+      { "name": "Juan Cuadrado", "number": 7 },
+      { "name": "Atalanta Gara", "number": 4 }
+    ],
+    "midfielders": [
+      { "name": "James Rodríguez", "number": 10 },
+      { "name": "Andrés Andrade", "number": 5 },
+      { "name": "Edwin Cardona", "number": 8 }
+    ],
+    "forwards": [
+      { "name": "Radamel Falcao", "number": 9 },
+      { "name": "Luis Díaz", "number": 19 },
+      { "name": "Duván Zapata", "number": 9 }
+    ]
+  },
+  "Ecuador": {
+    "goalkeepers": [
+      { "name": "Hernán Galíndez", "number": 1 },
+      { "name": "Alexander Domínguez", "number": 1 },
+      { "name": "Javier Burrai", "number": 23 }
+    ],
+    "defenders": [
+      { "name": "Carlos Gruezo", "number": 5 },
+      { "name": "Pervis Estupiñán", "number": 3 },
+      { "name": "Piero Hincapié", "number": 22 },
+      { "name": "Félix Torres", "number": 4 }
+    ],
+    "midfielders": [
+      { "name": "Moisés Caicedo", "number": 25 },
+      { "name": "Arturo Valencia", "number": 15 },
+      { "name": "José Cifuentes", "number": 20 }
+    ],
+    "forwards": [
+      { "name": "Enner Valencia", "number": 13 },
+      { "name": "Jôn Córdoba", "number": 9 },
+      { "name": "Michael Estrada", "number": 18 }
+    ]
+  },
+  "Austria": {
+    "goalkeepers": [
+      { "name": "Peter Gulácsi", "number": 1 },
+      { "name": "Pavao Pervan", "number": 23 },
+      { "name": "Markus Schubert", "number": 12 }
+    ],
+    "defenders": [
+      { "name": "David Alaba", "number": 4 },
+      { "name": "Philipp Lienhart", "number": 4 },
+      { "name": "Stefan Posch", "number": 3 },
+      { "name": "Heinz Lindner", "number": 5 }
+    ],
+    "midfielders": [
+      { "name": "Marcel Sabitzer", "number": 7 },
+      { "name": "Florian Kainz", "number": 10 },
+      { "name": "Christoph Baumgartner", "number": 8 }
+    ],
+    "forwards": [
+      { "name": "Marko Arnautovic", "number": 7 },
+      { "name": "Gregoritsch", "number": 9 },
+      { "name": "Michael Gregoritsch", "number": 9 }
+    ]
+  },
+  "Czech Republic": {
+    "goalkeepers": [
+      { "name": "Tomáš Vaclík", "number": 1 },
+      { "name": "Matěj Kovár", "number": 23 },
+      { "name": "Roman Burki", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Vladimír Coufal", "number": 2 },
+      { "name": "Jakub Brabec", "number": 4 },
+      { "name": "David Jurásek", "number": 3 },
+      { "name": "Matěj Jurina", "number": 5 }
+    ],
+    "midfielders": [
+      { "name": "Tomáš Souček", "number": 22 },
+      { "name": "Lukáš Masopust", "number": 10 },
+      { "name": "Ondřej Bílek", "number": 21 }
+    ],
+    "forwards": [
+      { "name": "Matěj Vydra", "number": 9 },
+      { "name": "Patrik Schick", "number": 7 },
+      { "name": "Antonín Barák", "number": 14 }
+    ]
+  },
+  "Bosnia & Herzegovina": {
+    "goalkeepers": [
+      { "name": "Ibrahim Sehic", "number": 1 },
+      { "name": "Kenan Kodro", "number": 23 },
+      { "name": "Nikola Vasilj", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Sead Kolašinac", "number": 3 },
+      { "name": "Ognjen Canadi", "number": 5 },
+      { "name": "Ante Čorić", "number": 4 },
+      { "name": "Adriel Bär", "number": 2 }
+    ],
+    "midfielders": [
+      { "name": "Pjanić", "number": 5 },
+      { "name": "Miralem Pjanić", "number": 5 },
+      { "name": "Edin Visca", "number": 10 }
+    ],
+    "forwards": [
+      { "name": "Edin Dzeko", "number": 9 },
+      { "name": "Rade Dugalic", "number": 9 },
+      { "name": "Marko Milic", "number": 7 }
+    ]
+  },
+  "Switzerland": {
+    "goalkeepers": [
+      { "name": "Yann Sommer", "number": 1 },
+      { "name": "Jonas Omlin", "number": 23 },
+      { "name": "Gregor Kobel", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Fabian Schär", "number": 5 },
+      { "name": "Stephan Lichtsteiner", "number": 2 },
+      { "name": "Ricardo Rodríguez", "number": 13 },
+      { "name": "Loris Benito", "number": 3 }
+    ],
+    "midfielders": [
+      { "name": "Xherdan Shaqiri", "number": 23 },
+      { "name": "Remo Freuler", "number": 10 },
+      { "name": "Steven Zuber", "number": 7 }
+    ],
+    "forwards": [
+      { "name": "Haris Seferovic", "number": 9 },
+      { "name": "Breel Embolo", "number": 7 },
+      { "name": "Rubén Vargas", "number": 10 }
+    ]
+  },
+  "Sweden": {
+    "goalkeepers": [
+      { "name": "Robin Olsen", "number": 1 },
+      { "name": "Kristoffer Nordfeldt", "number": 1 },
+      { "name": "Andreas Isaksson", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Victor Nilsson Lindelöf", "number": 3 },
+      { "name": "Mikael Lustig", "number": 2 },
+      { "name": "Pontus Dahlberg", "number": 5 },
+      { "name": "Ludwig Augustinsson", "number": 13 }
+    ],
+    "midfielders": [
+      { "name": "Sebastian Larsson", "number": 7 },
+      { "name": "Albin Ekdal", "number": 10 },
+      { "name": "Emil Forsberg", "number": 23 }
+    ],
+    "forwards": [
+      { "name": "Alexander Isak", "number": 9 },
+      { "name": "Marcus Berg", "number": 7 },
+      { "name": "Sargalas Schön", "number": 6 }
+    ]
+  },
+  "Norway": {
+    "goalkeepers": [
+      { "name": "Ørjan Nyland", "number": 1 },
+      { "name": "Rune Jarstein", "number": 1 },
+      { "name": "André Hansen", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Kristoffer Ajer", "number": 4 },
+      { "name": "Stale Solbakken", "number": 5 },
+      { "name": "Birger Meling", "number": 3 },
+      { "name": "Omar Elabdellaoui", "number": 27 }
+    ],
+    "midfielders": [
+      { "name": "Martin Ødegaard", "number": 8 },
+      { "name": "Morten Thorsby", "number": 5 },
+      { "name": "Sander Berge", "number": 17 }
+    ],
+    "forwards": [
+      { "name": "Erling Haaland", "number": 9 },
+      { "name": "Guro Reiten", "number": 7 },
+      { "name": "Josh King", "number": 9 }
+    ]
+  },
+  "Scotland": {
+    "goalkeepers": [
+      { "name": "Craig Gordon", "number": 1 },
+      { "name": "Jon McLaughlin", "number": 1 },
+      { "name": "Jack Walton", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Andy Robertson", "number": 3 },
+      { "name": "Kieran Tierney", "number": 3 },
+      { "name": "Scott McKenna", "number": 4 },
+      { "name": "Liam Cooper", "number": 6 }
+    ],
+    "midfielders": [
+      { "name": "Callum McGregor", "number": 7 },
+      { "name": "John McGinn", "number": 7 },
+      { "name": "Stuart Armstrong", "number": 17 }
+    ],
+    "forwards": [
+      { "name": "Lyndon Dykes", "number": 9 },
+      { "name": "Ryan Christie", "number": 20 },
+      { "name": "Lawrence Shankland", "number": 9 }
+    ]
+  },
+  "Croatia": {
+    "goalkeepers": [
+      { "name": "Dominik Livaković", "number": 1 },
+      { "name": "Ivo Grbić", "number": 23 },
+      { "name": "Nediljko Labrović", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Joško Gvardiol", "number": 24 },
+      { "name": "Dani Lovren", "number": 6 },
+      { "name": "Dejan Lovren", "number": 6 },
+      { "name": "Sergej Milinković-Savić", "number": 21 }
+    ],
+    "midfielders": [
+      { "name": "Luka Modrić", "number": 10 },
+      { "name": "Mateo Kovačić", "number": 8 },
+      { "name": "Ivan Rakitić", "number": 7 }
+    ],
+    "forwards": [
+      { "name": "Andrej Kramarić", "number": 10 },
+      { "name": "Bruno Petković", "number": 9 },
+      { "name": "Marko Livaja", "number": 7 }
+    ]
+  },
+  "Poland": {
+    "goalkeepers": [
+      { "name": "Wojciech Szczęsny", "number": 1 },
+      { "name": "Łukasz Fabiański", "number": 1 },
+      { "name": "Radosław Majecki", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Robert Lewandowski", "number": 9 },
+      { "name": "Jan Bednarek", "number": 4 },
+      { "name": "Bartosz Bereszyński", "number": 2 },
+      { "name": "Kamil Glik", "number": 5 }
+    ],
+    "midfielders": [
+      { "name": "Piotr Zieliński", "number": 7 },
+      { "name": "Grzegorz Krychowiak", "number": 6 },
+      { "name": "Mateusz Klich", "number": 10 }
+    ],
+    "forwards": [
+      { "name": "Robert Lewandowski", "number": 9 },
+      { "name": "Arkadiusz Milik", "number": 9 },
+      { "name": "Karol Świderski", "number": 9 }
+    ]
+  },
+  "Serbia": {
+    "goalkeepers": [
+      { "name": "Vladimir Stojković", "number": 1 },
+      { "name": "Predrag Rajković", "number": 1 },
+      { "name": "Stefan Mitrović", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Sead Kolašinac", "number": 3 },
+      { "name": "Nikola Milenković", "number": 4 },
+      { "name": "Aleksandar Kolarov", "number": 11 },
+      { "name": "Milos Veljković", "number": 6 }
+    ],
+    "midfielders": [
+      { "name": "Sergej Milinković-Savić", "number": 21 },
+      { "name": "Nemanja Matić", "number": 4 },
+      { "name": "Andrija Živković", "number": 10 }
+    ],
+    "forwards": [
+      { "name": "Aleksandar Mitrović", "number": 9 },
+      { "name": "Dušan Vlahović", "number": 7 },
+      { "name": "Dusan Tadic", "number": 10 }
+    ]
+  },
+  "Turkey": {
+    "goalkeepers": [
+      { "name": "Uğurcan Çakır", "number": 1 },
+      { "name": "Altay Bayındır", "number": 1 },
+      { "name": "Sergen Çetin", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Çağlar Söyüncü", "number": 23 },
+      { "name": "Merih Demiral", "number": 3 },
+      { "name": "Hakan Çalhanoğlu", "number": 10 },
+      { "name": "Zeki Çelik", "number": 2 }
+    ],
+    "midfielders": [
+      { "name": "Arda Güler", "number": 10 },
+      { "name": "Hakan Çalhanoğlu", "number": 10 },
+      { "name": "İlkay Gündoğan", "number": 10 }
+    ],
+    "forwards": [
+      { "name": "Burak Yılmaz", "number": 9 },
+      { "name": "Cengiz Ünder", "number": 17 },
+      { "name": "Edin Visca", "number": 7 }
+    ]
+  },
+  "Iran": {
+    "goalkeepers": [
+      { "name": "Alireza Beiranvand", "number": 1 },
+      { "name": "Majid Hosseini", "number": 1 },
+      { "name": "Payam Niazmand", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Reza Beikzadeh", "number": 4 },
+      { "name": "Majid Hosseini", "number": 3 },
+      { "name": "Sadegh Moharrami", "number": 2 },
+      { "name": "Ehsan Hajsafi", "number": 5 }
+    ],
+    "midfielders": [
+      { "name": "Sardar Azmoun", "number": 9 },
+      { "name": "Vahid Amiri", "number": 5 },
+      { "name": "Omid Ebrahimi", "number": 10 }
+    ],
+    "forwards": [
+      { "name": "Sardar Azmoun", "number": 9 },
+      { "name": "Mehdi Taremi", "number": 9 },
+      { "name": "Karim Ansarifard", "number": 19 }
+    ]
+  },
+  "Japan": {
+    "goalkeepers": [
+      { "name": "Shuichi Gonda", "number": 1 },
+      { "name": "Eiji Kawashima", "number": 1 },
+      { "name": "Yohei Omori", "number": 23 }
+    ],
+    "defenders": [
+      { "name": "Takehiro Tomiyasu", "number": 22 },
+      { "name": "Maya Yoshida", "number": 3 },
+      { "name": "Hiroki Sakai", "number": 4 },
+      { "name": "Yuta Nakayama", "number": 5 }
+    ],
+    "midfielders": [
+      { "name": "Wataru Endo", "number": 4 },
+      { "name": "Hidemasa Morita", "number": 5 },
+      { "name": "Takumi Minamino", "number": 7 }
+    ],
+    "forwards": [
+      { "name": "Reo Noda", "number": 9 },
+      { "name": "Marcus Marcus", "number": 7 },
+      { "name": "Kaoru Mitoma", "number": 17 }
+    ]
+  },
+  "South Korea": {
+    "goalkeepers": [
+      { "name": "Jo Hyeon-woo", "number": 1 },
+      { "name": "Kim Seung-gyu", "number": 1 },
+      { "name": "Lee Beom-young", "number": 21 }
+    ],
+    "defenders": [
+      { "name": "Kim Min-jae", "number": 3 },
+      { "name": "Oh Se-hun", "number": 4 },
+      { "name": "Lee O-jae", "number": 2 },
+      { "name": "Park Ji-soo", "number": 23 }
+    ],
+    "midfielders": [
+      { "name": "Lee Jae-sung", "number": 18 },
+      { "name": "Hwang In-beom", "number": 16 },
+      { "name": "Lee Kang-in", "number": 15 }
+    ],
+    "forwards": [
+      { "name": "Son Heung-min", "number": 7 },
+      { "name": "Hwang Ui-jo", "number": 20 },
+      { "name": "Cho Gue-sung", "number": 9 }
+    ]
+  },
+  "Australia": {
+    "goalkeepers": [
+      { "name": "Andrew Redmayne", "number": 1 },
+      { "name": "Mathew Ryan", "number": 1 },
+      { "name": "Joe Gauci", "number": 20 }
+    ],
+    "defenders": [
+      { "name": "Aziz Behich", "number": 3 },
+      { "name": "Bailey Wright", "number": 4 },
+      { "name": "Harry Souttar", "number": 5 },
+      { "name": "Joel King", "number": 6 }
+    ],
+    "midfielders": [
+      { "name": "Aaron Mooy", "number": 13 },
+      { "name": "Jackson Irvine", "number": 15 },
+      { "name": "Tom Rogic", "number": 8 }
+    ],
+    "forwards": [
+      { "name": "Jamie Maclaren", "number": 9 },
+      { "name": "Mitchell Duke", "number": 7 },
+      { "name": "Craig Goodwin", "number": 12 }
+    ]
+  },
+  "Saudi Arabia": {
+    "goalkeepers": [
+      { "name": "Mohammed Al-Owais", "number": 1 },
+      { "name": "Abdullah Al-Muaiouf", "number": 1 },
+      { "name": "Nawaf Al-Saaphan", "number": 23 }
+    ],
+    "defenders": [
+      { "name": "Ali Al-Bulayhi", "number": 5 },
+      { "name": "Hassan Al-Tambakti", "number": 2 },
+      { "name": "Abdulrahman Al-Aboud", "number": 4 },
+      { "name": "Saud Abdulhamid", "number": 3 }
+    ],
+    "midfielders": [
+      { "name": "Salem Al-Dawsari", "number": 8 },
+      { "name": "Mohammed Al-Burayk", "number": 6 },
+      { "name": "Abdulhameed Al-Ghamdi", "number": 18 }
+    ],
+    "forwards": [
+      { "name": "Firas Al-Buraikan", "number": 9 },
+      { "name": "Hattan Bahebri", "number": 7 },
+      { "name": "Fahad Al-Muwallad", "number": 10 }
+    ]
+  },
+  "Qatar": {
+    "goalkeepers": [
+      { "name": "Meshaal Barsham", "number": 1 },
+      { "name": "Yousif Hassan", "number": 1 },
+      { "name": "Khalid Hamees", "number": 23 }
+    ],
+    "defenders": [
+      { "name": "Abdelkarim Hassan", "number": 5 },
+      { "name": "Pedro Miguel", "number": 3 },
+      { "name": "Boualem Khoukhi", "number": 6 },
+      { "name": "Homam Ahmed", "number": 2 }
+    ],
+    "midfielders": [
+      { "name": "Akram Afif", "number": 7 },
+      { "name": "Ali Assadalla", "number": 6 },
+      { "name": "Mohammed Waad", "number": 11 }
+    ],
+    "forwards": [
+      { "name": "Almoez Ali", "number": 9 },
+      { "name": "Afif Akram", "number": 7 },
+      { "name": "Nacho Fernández", "number": 10 }
+    ]
+  },
+  "Uzbekistan": {
+    "goalkeepers": [
+      { "name": "Yuriy Nikolayev", "number": 1 },
+      { "name": "Dmitri Belikov", "number": 1 },
+      { "name": "Jemalevich Lebedev", "number": 23 }
+    ],
+    "defenders": [
+      { "name": "Mirzaev Abduvaxit", "number": 2 },
+      { "name": "Khodjayev Shokhrukhbek", "number": 4 },
+      { "name": "Makhmudov Mirjalol", "number": 5 },
+      { "name": "Izzatullaev Temur", "number": 3 }
+    ],
+    "midfielders": [
+      { "name": "Odil Akhmedov", "number": 10 },
+      { "name": "Eldor Shomodeov", "number": 16 },
+      { "name": "Jaloliddin Masharipov", "number": 8 }
+    ],
+    "forwards": [
+      { "name": "Eldor Shomurodov", "number": 19 },
+      { "name": "Khojiakbar Alijonov", "number": 7 },
+      { "name": "Oston Urunov", "number": 20 }
+    ]
+  },
+  "Iraq": {
+    "goalkeepers": [
+      { "name": "Jalal Hassan", "number": 1 },
+      { "name": "Faryd Mondragon", "number": 1 },
+      { "name": "Firas Kassem", "number": 23 }
+    ],
+    "defenders": [
+      { "name": "Ali Adnan", "number": 3 },
+      { "name": "Maitham Bushnaq", "number": 2 },
+      { "name": "Hussein Mohareb", "number": 4 },
+      { "name": "Ahmed Ibrahim", "number": 5 }
+    ],
+    "midfielders": [
+      { "name": "Safee Eldin", "number": 6 },
+      { "name": "Widad Salim", "number": 10 },
+      { "name": "Ali Kadhim", "number": 8 }
+    ],
+    "forwards": [
+      { "name": "Yasin Osman", "number": 9 },
+      { "name": "Ayman Hussein", "number": 7 },
+      { "name": "Amjed Atta", "number": 19 }
+    ]
+  },
+  "Jordan": {
+    "goalkeepers": [
+      { "name": "Amer Shafi", "number": 1 },
+      { "name": "Mohammad Rasheed", "number": 1 },
+      { "name": "Tariq Abu-Samreh", "number": 23 }
+    ],
+    "defenders": [
+      { "name": "Yazan Al-Khatib", "number": 10 },
+      { "name": "Ramzi Abu-Ridas", "number": 3 },
+      { "name": "Romain Saïss", "number": 4 },
+      { "name": "Muhammad Hashem", "number": 2 }
+    ],
+    "midfielders": [
+      { "name": "Yazan Al-Khatib", "number": 10 },
+      { "name": "Bashar Radi", "number": 7 },
+      { "name": "Mustafa Albaida", "number": 8 }
+    ],
+    "forwards": [
+      { "name": "Gorran Ghani", "number": 9 },
+      { "name": "Ahmed Yaseen", "number": 19 },
+      { "name": "Sayyid Abdulqader", "number": 11 }
+    ]
+  },
+  "Egypt": {
+    "goalkeepers": [
+      { "name": "Mohamed El Shenawy", "number": 1 },
+      { "name": "Amir Abdelhamid", "number": 1 },
+      { "name": "Mostafa Shobier", "number": 23 }
+    ],
+    "defenders": [
+      { "name": "Amir Abdelhamid", "number": 2 },
+      { "name": "Mohammed Elneny", "number": 15 },
+      { "name": "Baher El Mohamady", "number": 3 },
+      { "name": "Mohamed Salah", "number": 10 }
+    ],
+    "midfielders": [
+      { "name": "Mohammed Elneny", "number": 15 },
+      { "name": "Tarek Hamed", "number": 5 },
+      { "name": "Amr Warda", "number": 20 }
+    ],
+    "forwards": [
+      { "name": "Mohamed Salah", "number": 10 },
+      { "name": "Marwan Mohsen", "number": 9 },
+      { "name": "Ahmed Hassan", "number": 7 }
+    ]
+  },
+  "Senegal": {
+    "goalkeepers": [
+      { "name": "Édouard Mendy", "number": 1 },
+      { "name": "Seny Dieng", "number": 23 },
+      { "name": "Famara Diédhiou", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Kalidou Koulibaly", "number": 3 },
+      { "name": "Abdou Diallo", "number": 6 },
+      { "name": "Ismail Jakobs", "number": 5 },
+      { "name": "Oussou Ba", "number": 4 }
+    ],
+    "midfielders": [
+      { "name": "Sadio Mané", "number": 10 },
+      { "name": "Ismaël Sarr", "number": 15 },
+      { "name": "Pape Sarr", "number": 17 }
+    ],
+    "forwards": [
+      { "name": "Sadio Mané", "number": 10 },
+      { "name": "Habib Diallo", "number": 9 },
+      { "name": "Keita Baldé", "number": 18 }
+    ]
+  },
+  "Morocco": {
+    "goalkeepers": [
+      { "name": "Yassine Bounou", "number": 1 },
+      { "name": "Ahmed Reda Tagnaouti", "number": 1 },
+      { "name": "Bono", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Achraf Hakimi", "number": 2 },
+      { "name": "Romain Saïss", "number": 4 },
+      { "name": "Nayef Aguerd", "number": 6 },
+      { "name": "Ferland Mendy", "number": 3 }
+    ],
+    "midfielders": [
+      { "name": "Hakim Ziyech", "number": 8 },
+      { "name": "Sofyan Amrabat", "number": 4 },
+      { "name": "Yahya Attiyat Allah", "number": 17 }
+    ],
+    "forwards": [
+      { "name": "Youssef En-Nesyri", "number": 9 },
+      { "name": "Sofiane Boufal", "number": 10 },
+      { "name": "Noussair Mazraoui", "number": 23 }
+    ]
+  },
+  "Algeria": {
+    "goalkeepers": [
+      { "name": "Raïs M'Bolhi", "number": 1 },
+      { "name": "Oussama Benbot", "number": 23 },
+      { "name": "Mamadou Samassa", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Riyad Mahrez", "number": 26 },
+      { "name": "Yacine Brahimi", "number": 10 },
+      { "name": "Dani Ceballos", "number": 5 },
+      { "name": "Faouzi Ghoulam", "number": 3 }
+    ],
+    "midfielders": [
+      { "name": "Riyad Mahrez", "number": 26 },
+      { "name": "Yacine Brahimi", "number": 10 },
+      { "name": "Sofiane Feghouli", "number": 8 }
+    ],
+    "forwards": [
+      { "name": "Baghdad Bounedjah", "number": 9 },
+      { "name": "Djamel Benlamri", "number": 5 },
+      { "name": "Islam Slimani", "number": 9 }
+    ]
+  },
+  "Tunisia": {
+    "goalkeepers": [
+      { "name": "Aymen Mathlouthi", "number": 1 },
+      { "name": "Mouez Hassen", "number": 23 },
+      { "name": "Mohamed Ali Ben Romdhane", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Mohamed Dräger", "number": 6 },
+      { "name": "Yassine Khenissi", "number": 5 },
+      { "name": "Ali Maaloul", "number": 3 },
+      { "name": "Nabil Bahoui", "number": 2 }
+    ],
+    "midfielders": [
+      { "name": "Youssef Msakni", "number": 18 },
+      { "name": "Mohamed Amine Ben Amor", "number": 7 },
+      { "name": "Amine Chermiti", "number": 8 }
+    ],
+    "forwards": [
+      { "name": "Seifeddine Jaziri", "number": 9 },
+      { "name": "Naïm Sliti", "number": 19 },
+      { "name": "Romain Saïss", "number": 10 }
+    ]
+  },
+  "Ivory Coast": {
+    "goalkeepers": [
+      { "name": "Sylvain Gbohouo", "number": 1 },
+      { "name": "Ouphouet Kouassi", "number": 1 },
+      { "name": "Gbohouo Sylvain", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Serge Aurier", "number": 24 },
+      { "name": "Eric Bailly", "number": 4 },
+      { "name": "Ghislain Konan", "number": 5 },
+      { "name": "Habib Maïga", "number": 3 }
+    ],
+    "midfielders": [
+      { "name": "Jean Michaël Seri", "number": 6 },
+      { "name": "Mohamed Sylla", "number": 8 },
+      { "name": "Ibrahim Sanogo", "number": 10 }
+    ],
+    "forwards": [
+      { "name": "Nicolas Pépé", "number": 10 },
+      { "name": "Wilfried Zaha", "number": 11 },
+      { "name": "Max-Alain Gradel", "number": 7 }
+    ]
+  },
+  "Ghana": {
+    "goalkeepers": [
+      { "name": "Lawrence Ati Zigi", "number": 1 },
+      { "name": "Joseph Wollacott", "number": 1 },
+      { "name": "Razak Abalora", "number": 23 }
+    ],
+    "defenders": [
+      { "name": "Yaw Ackah", "number": 4 },
+      { "name": "John Pantsil", "number": 3 },
+      { "name": "Jonathan Mensah", "number": 5 },
+      { "name": "Mohammed Salisu", "number": 6 }
+    ],
+    "midfielders": [
+      { "name": "Thomas Partey", "number": 5 },
+      { "name": "Mubarak Wakaso", "number": 18 },
+      { "name": "Salifu Ibrahim", "number": 7 }
+    ],
+    "forwards": [
+      { "name": "Asamoah Gyan", "number": 3 },
+      { "name": "Kamaldeen Sulemana", "number": 10 },
+      { "name": "André Ayew", "number": 7 }
+    ]
+  },
+  "South Africa": {
+    "goalkeepers": [
+      { "name": "Ronwen Williams", "number": 1 },
+      { "name": "Bruce Bvuma", "number": 1 },
+      { "name": "Itumeleng Khune", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Thamsanqa Mkhize", "number": 5 },
+      { "name": "Innocent Maela", "number": 3 },
+      { "name": "Rushine de Reuck", "number": 4 },
+      { "name": "Mpilo Gumede", "number": 2 }
+    ],
+    "midfielders": [
+      { "name": "Themba Zwane", "number": 10 },
+      { "name": "Andile Jali", "number": 6 },
+      { "name": "Bongani Zungu", "number": 18 }
+    ],
+    "forwards": [
+      { "name": "Teboho Mokoena", "number": 15 },
+      { "name": "Evidence Makgopa", "number": 9 },
+      { "name": "Lyle Foster", "number": 17 }
+    ]
+  },
+  "Cape Verde": {
+    "goalkeepers": [
+      { "name": "Karamoko Cissé", "number": 1 },
+      { "name": "Zeferino Sequeira", "number": 1 },
+      { "name": "Anderson Pereira", "number": 23 }
+    ],
+    "defenders": [
+      { "name": "Nélson Semedo", "number": 13 },
+      { "name": "Didac Plana", "number": 3 },
+      { "name": "Stopira", "number": 4 },
+      { "name": "Karl Nerú", "number": 2 }
+    ],
+    "midfielders": [
+      { "name": "Lisandro López", "number": 18 },
+      { "name": "Julio Tavares", "number": 17 },
+      { "name": "Willi Semedo", "number": 5 }
+    ],
+    "forwards": [
+      { "name": "Garry Rodrigues", "number": 10 },
+      { "name": "Nanu", "number": 15 },
+      { "name": "Heldon", "number": 9 }
+    ]
+  },
+  "Congo DR": {
+    "goalkeepers": [
+      { "name": "Idi Mama Nsungu", "number": 1 },
+      { "name": "Fabrice Ondama", "number": 23 },
+      { "name": "Alex Nyarko", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Yoane Wissa", "number": 7 },
+      { "name": "Jeff Reine-Adélaïde", "number": 4 },
+      { "name": "Jody Lukoki", "number": 3 },
+      { "name": "Grégory Krychowiak", "number": 5 }
+    ],
+    "midfielders": [
+      { "name": "Omotayo Edun", "number": 6 },
+      { "name": "Khama Billiat", "number": 10 },
+      { "name": "Cédric Bakambu", "number": 9 }
+    ],
+    "forwards": [
+      { "name": "Yoane Wissa", "number": 7 },
+      { "name": "Cédric Bakambu", "number": 9 },
+      { "name": "Jeremy Doku", "number": 20 }
+    ]
+  },
+  "Haiti": {
+    "goalkeepers": [
+      { "name": "Johary Chamarbide", "number": 1 },
+      { "name": "Josué Duverger", "number": 23 },
+      { "name": "Jérôme Majoie", "number": 1 }
+    ],
+    "defenders": [
+      { "name": "Carlens Arcus", "number": 3 },
+      { "name": "Abdias Pierre", "number": 2 },
+      { "name": "Derrick Etienne", "number": 4 },
+      { "name": "Kenson Seymour", "number": 5 }
+    ],
+    "midfielders": [
+      { "name": "Jhon Córdoba", "number": 9 },
+      { "name": "Duckens Nazon", "number": 17 },
+      { "name": "Francksen Isaac", "number": 16 }
+    ],
+    "forwards": [
+      { "name": "Jhon Córdoba", "number": 9 },
+      { "name": "Duckens Nazon", "number": 17 },
+      { "name": "Chrystian Balié", "number": 7 }
+    ]
+  },
+  "Panama": {
+    "goalkeepers": [
+      { "name": "Luis Mejía", "number": 1 },
+      { "name": "José González", "number": 1 },
+      { "name": "Óscar Suárez", "number": 23 }
+    ],
+    "defenders": [
+      { "name": "Anibal Valencia", "number": 10 },
+      { "name": "Carlos Gómez", "number": 2 },
+      { "name": "Orlando Mosquera", "number": 3 },
+      { "name": "Roy Chipolina", "number": 4 }
+    ],
+    "midfielders": [
+      { "name": "Anibal Valencia", "number": 10 },
+      { "name": "Édgar Bárcenas", "number": 6 },
+      { "name": "Yomira Pinzón", "number": 8 }
+    ],
+    "forwards": [
+      { "name": "Rolando Blackburn", "number": 9 },
+      { "name": "Ramón Brown", "number": 7 },
+      { "name": "Gabriel Torres", "number": 15 }
+    ]
+  },
+  "Curaçao": {
+    "goalkeepers": [
+      { "name": "Leandro Bacuna", "number": 1 },
+      { "name": "Jasper Cillessen", "number": 1 },
+      { "name": "Steven Martina", "number": 23 }
+    ],
+    "defenders": [
+      { "name": "Leandro Bacuna", "number": 10 },
+      { "name": "Romain Kramer", "number": 3 },
+      { "name": "Davy Klaassen", "number": 6 },
+      { "name": "Kadeem Harris", "number": 2 }
+    ],
+    "midfielders": [
+      { "name": "Leandro Bacuna", "number": 10 },
+      { "name": "Romain Kramer", "number": 3 },
+      { "name": "Davy Klaassen", "number": 6 }
+    ],
+    "forwards": [
+      { "name": "Rankín Elía", "number": 9 },
+      { "name": "Zyro Ballon", "number": 7 },
+      { "name": "Moacyr Félix", "number": 17 }
+    ]
+  },
+  "New Zealand": {
+    "goalkeepers": [
+      { "name": "Stefan Marinović", "number": 1 },
+      { "name": "Oli Sail", "number": 1 },
+      { "name": "Mike Fondop", "number": 23 }
+    ],
+    "defenders": [
+      { "name": "Reno Piscopo", "number": 3 },
+      { "name": "Andrew Durante", "number": 4 },
+      { "name": "Dane Ingham", "number": 2 },
+      { "name": "Alex Rufer", "number": 15 }
+    ],
+    "midfielders": [
+      { "name": "Alex Rufer", "number": 15 },
+      { "name": "Ryan Thomas", "number": 5 },
+      { "name": "Leo Bertos", "number": 8 }
+    ],
+    "forwards": [
+      { "name": "Chris Wood", "number": 13 },
+      { "name": "Elijah Just", "number": 9 },
+      { "name": "Ben Waine", "number": 12 }
+    ]
+  }
+}

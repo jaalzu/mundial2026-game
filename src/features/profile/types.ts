@@ -9,8 +9,8 @@ export type UserStats = {
 export type TournamentPredictions = {
   champion: string;
   runnerUp: string;
-  finalHome: string;
-  finalAway: string;
+  // finalHome: string;
+  // finalAway: string;
   surprise: string;
   disappointment: string;
   mvp: string;
