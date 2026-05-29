@@ -47,9 +47,11 @@ async function main() {
 
   for (const team of teamsRaw) {
     const upsertedTeam = await prisma.team.upsert({
-      where: { code: team.fifa_code },
+      where: { code: team.iso_code ?? team.fifa_code },
       update: {
         code: team.iso_code ?? team.fifa_code,
+        name: team.name,
+        region: team.confed || "UNKNOWN",
       },
       create: {
         code: team.iso_code ?? team.fifa_code,
