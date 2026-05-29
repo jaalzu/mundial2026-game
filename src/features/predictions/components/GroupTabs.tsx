@@ -29,7 +29,7 @@ export function GroupTabs({
   return (
     <div
       ref={scrollRef}
-      className="flex overflow-x-auto gap-4 mx-3 mb-4"
+      className="flex overflow-x-auto gap-3 mx-3 mb-4 "
       style={{ scrollbarWidth: "none" }}
     >
       {groups.map((group) => {
@@ -39,14 +39,13 @@ export function GroupTabs({
             key={group}
             data-group={group}
             onClick={() => handleSelect(group)}
-            className="flex-shrink-0 px-3 py-1 transition-all "
+            className="flex-shrink-0 px-3.5 py-1 transition-all "
             style={{
               fontFamily: typography.fontFamily,
               fontSize: typography.sizes.md,
               fontWeight: isActive ? 700 : 400,
               color: isActive ? colors.text : colors.mutedText,
-              border: isActive ? "2px solid #3CAC3B" : "2px solid #666666",
-
+              border: isActive ? borders.light : borders.default,
               backgroundColor: colors.background,
             }}
           >

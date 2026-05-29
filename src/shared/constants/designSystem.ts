@@ -52,7 +52,7 @@ export const states = {
   },
 
   completed: {
-    border: "3px solid #3CAC3B",
+    border: "1px solid #3CAC3B",
   },
 
   locked: {

@@ -24,9 +24,10 @@ interface GroupMatchesProps {
   onAutosave?: (matchId: string, home: number, away: number) => void;
 }
 
+// esto iria en constants?
 const POINTS_LEGEND = [
   { points: "+3", label: "exacto", color: colors.primary },
-  { points: "+1", label: "ganador", color: "#F59E0B" },
+  { points: "+1", label: "ganador", color: "#f59f0be4" },
   { points: "0", label: "fallo", color: colors.secondary },
 ];
 
@@ -86,15 +87,15 @@ export function GroupMatches({
   }, [watch, setFocus, groupData.matches, onAutosave, onNavigateNext]);
 
   return (
-    <div className="flex flex-col mt-1">
+    <div className="flex flex-col  mt-1">
       {/* Points legend */}
-      <div className="flex justify-end gap-2 px-3 ">
+      <div className="flex justify-end gap-3 px-4 ">
         {POINTS_LEGEND.map(({ points, label, color }) => (
           <span
             key={label}
             style={{
               fontFamily: typography.fontFamily,
-              fontSize: typography.sizes.xs,
+              fontSize: typography.sizes.sm,
               color,
             }}
           >
@@ -104,12 +105,9 @@ export function GroupMatches({
       </div>
 
       {/* Group container */}
-      <div className="mx-3" style={{ border: borders.default }}>
+      <div className="mx-2" style={{ border: borders.default }}>
         {/* Group header */}
-        <div
-          className="flex items-center justify-between px-6 py-1"
-          style={{ borderBottom: borders.default }}
-        >
+        <div className="flex items-center justify-between px-6 py-1">
           <span
             style={{
               fontFamily: typography.fontFamily,

@@ -3,7 +3,7 @@
 import type { UseFormRegister, UseFormWatch } from "react-hook-form";
 import type { Match } from "../models/types";
 import { Flag } from "@/shared/constants/flags";
-
+import { getTeamNameEs } from "@/shared/utils/teamNames";
 import type { GroupPredictionsForm } from "./GroupMatches";
 import { MatchScoreInput } from "./MatchScoreInput";
 import {
@@ -22,6 +22,8 @@ interface MatchRowProps {
   onFocusRequest: () => void;
 }
 
+// esto va en utils
+
 function formatMatchDate(isoString: string): string {
   const d = new Date(isoString);
   const day = String(d.getUTCDate()).padStart(2, "0");
@@ -31,31 +33,29 @@ function formatMatchDate(isoString: string): string {
   return `${day}/${month} ${hours}:${mins}`;
 }
 
-/**
- * Componente reutilizable para mostrar un equipo (bandera + nombre)
- */
 interface TeamDisplayProps {
   code: string;
   name: string;
 }
 
+// esto va solito
 function TeamDisplay({ code, name }: TeamDisplayProps) {
+  const displayName = getTeamNameEs(code, name);
   return (
-    <div className="flex flex-col items-center gap-1">
-      <div style={{ width: "32px", height: "25px" }}>
-        <Flag code={code} className="rounded-sm w-full h-full" />
+    <div className="flex flex-col items-center gap-1 w-full justify-center">
+      <div style={{ width: "38px", height: "28px" }} className="shrink-0">
+        <Flag code={code} className="w-full h-full object-cover" />
       </div>
-
       <span
-        className="text-center leading-tight"
+        className="text-center  block  w-full"
         style={{
           fontFamily: typography.fontFamily,
-          fontSize: typography.sizes.md,
+          fontSize: typography.sizes.sm,
           color: colors.text,
-          maxWidth: "70px",
+          maxWidth: "100px",
         }}
       >
-        {name}
+        {displayName}
       </span>
     </div>
   );
@@ -78,7 +78,7 @@ export function MatchRow({
   const isComplete = homeIsFilled && awayIsFilled;
 
   const rowBorder = isActive
-    ? borders.active
+    ? borders.light
     : isComplete
       ? states.completed.border
       : borders.default;
@@ -86,31 +86,31 @@ export function MatchRow({
   return (
     <div
       onClick={onFocusRequest}
-      className="flex flex-col cursor-pointer transition-all"
-      style={{ border: rowBorder }}
+      className="flex flex-col cursor-pointer transition-all px-1 pb-4"
+      style={{
+        border: rowBorder,
+        height: "80px",
+      }}
     >
-      {/* Date */}
-      <p
-        className="text-center pt-1"
-        style={{
-          fontFamily: typography.fontFamily,
-          fontSize: typography.sizes.xs,
-          color: colors.mutedText,
-        }}
-      >
-        {formatMatchDate(match.startsAt)}
-      </p>
+      <div className="w-full text-center pt-1 shrink-0 ">
+        <p
+          style={{
+            fontFamily: typography.fontFamily,
+            fontSize: typography.sizes.xs,
+            color: colors.mutedText,
+          }}
+        >
+          {formatMatchDate(match.startsAt)}
+        </p>
+      </div>
 
-      {/* Inner row */}
       <div
-        className="grid items-center px-1 py-1.5"
+        className="grid items-center w-full flex-1"
         style={{ gridTemplateColumns: "1fr auto 1fr" }}
       >
-        {/* Home team */}
         <TeamDisplay code={match.homeTeam.code} name={match.homeTeam.name} />
 
-        {/* Inputs */}
-        <div className="flex items-center gap-1 px-2">
+        <div className="flex items-center gap-1 px-2 justify-center">
           <MatchScoreInput
             registration={register(`matches.${index}.predictedHome`)}
             isFilled={homeIsFilled}
@@ -119,6 +119,7 @@ export function MatchRow({
             style={{
               fontSize: typography.sizes.xs,
               color: colors.mutedText,
+              fontFamily: typography.fontFamily,
             }}
           >
             vs
@@ -129,7 +130,6 @@ export function MatchRow({
           />
         </div>
 
-        {/* Away team */}
         <TeamDisplay code={match.awayTeam.code} name={match.awayTeam.name} />
       </div>
     </div>

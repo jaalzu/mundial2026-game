@@ -246,7 +246,6 @@ export function Flag({ code, className = "w-9 h-6", alt }: FlagProps) {
     );
   }
 
-  // Si no, usar flag-icons CSS
   return (
     <span
       className={`fi fi-${iso2} inline-block rounded-sm ${className}`}

@@ -20,14 +20,14 @@ export function MatchScoreInput({
       maxLength={2}
       className="text-center outline-none transition-all "
       style={{
-        width: "41px",
+        width: "42px",
         height: "38px",
         fontFamily: typography.fontFamily,
-        fontSize: typography.sizes.lg,
-        fontWeight: 700,
+        fontSize: typography.sizes.xl,
+        fontWeight: 400,
         color: isFilled ? colors.primary : colors.mutedText,
-        border: isFilled ? "1px solid #3CAC3B" : "1px solid #666666",
-        borderRadius: "6px",
+        border: isFilled ? borders.light : borders.default,
+        borderRadius: "1px",
         caretColor: colors.primary,
       }}
     />

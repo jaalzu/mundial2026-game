@@ -9,6 +9,7 @@ import { GroupMatches } from "./GroupMatches";
 import { savePrediction } from "../actions/savePrediction";
 import { colors, typography } from "@/shared/constants/designSystem";
 import type { GroupData } from "@/features/predictions/models/types";
+
 interface PredictionsContentProps {
   userId: string;
   groups: GroupData[];
@@ -42,7 +43,7 @@ export function PredictionsContent({
 
   return (
     <div
-      className="flex flex-col min-h-full"
+      className="flex flex-col min-h-full "
       style={{ backgroundColor: colors.background }}
     >
       <PhaseTabs activePhase={activePhase} onSelectPhase={setActivePhase} />
