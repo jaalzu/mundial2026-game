@@ -35,6 +35,12 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      country-flag-icons:
+        specifier: ^1.6.17
+        version: 1.6.17
+      flag-icons:
+        specifier: ^7.5.0
+        version: 7.5.0
       lucide-react:
         specifier: ^1.16.0
         version: 1.16.0(react@19.2.6)
@@ -1386,6 +1392,9 @@ packages:
     resolution: {integrity: sha512-ei8Aos7ja0weRpFzJnEA9UHJ/7XQmqglbRwnf2ATjcB9Wq874VKH9kfjjirM6UhU2/E5fFYadylyhFldcqSidQ==}
     engines: {node: '>=18'}
 
+  country-flag-icons@1.6.17:
+    resolution: {integrity: sha512-Nmik0289ZVZSI3c7mJR/amg6DyY7Z59b0sTFSKayeX72mHfPzCPJygwJs2pYgQULzuAyWeCUgwAJ+Dq8OR+JFw==}
+
   create-require@1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
 
@@ -1708,6 +1717,9 @@ packages:
   find-up@5.0.0:
     resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==}
     engines: {node: '>=10'}
+
+  flag-icons@7.5.0:
+    resolution: {integrity: sha512-kd+MNXviFIg5hijH766tt+3x76ele1AXlo4zDdCxIvqWZhKt4T83bOtxUOOMlTx/EcFdUMH5yvQgYlFh1EqqFg==}
 
   flat-cache@4.0.1:
     resolution: {integrity: sha512-f7ccFPK3SXFHpx15UIGyRJ/FJQctuKZ0zVuN3frBo4HnK3cay9VEW0R6yPYFHC0AgqhukPzKjq22t5DmAyqGyw==}
@@ -3928,6 +3940,8 @@ snapshots:
 
   cookie@1.1.1: {}
 
+  country-flag-icons@1.6.17: {}
+
   create-require@1.1.1: {}
 
   cross-spawn@7.0.6:
@@ -4408,6 +4422,8 @@ snapshots:
     dependencies:
       locate-path: 6.0.0
       path-exists: 4.0.0
+
+  flag-icons@7.5.0: {}
 
   flat-cache@4.0.1:
     dependencies:

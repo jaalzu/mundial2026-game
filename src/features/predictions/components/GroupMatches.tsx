@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import type { GroupData } from "../types";
+import type { GroupData } from "../models/types";
 import { MatchRow } from "./MatchRow";
 import { colors, borders, typography } from "@/shared/constants/designSystem";
 

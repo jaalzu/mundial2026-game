@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Anonymous_Pro } from "next/font/google";
 import { Providers } from "@/shared/providers";
 import "./globals.css";
+import "flag-icons/css/flag-icons.min.css";
 
 const anonymousPro = Anonymous_Pro({
   subsets: ["latin"],

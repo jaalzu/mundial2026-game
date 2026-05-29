@@ -1,6 +1,6 @@
 "use client";
 
-import type { PredictionPhase } from "../types";
+import type { PredictionPhase } from "../models/types";
 import { colors, typography } from "@/shared/constants/designSystem";
 
 const PHASES: { id: PredictionPhase; label: string }[] = [

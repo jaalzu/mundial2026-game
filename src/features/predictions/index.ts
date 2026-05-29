@@ -6,4 +6,4 @@ export type {
   PredictionsMap,
   PredictionPhase,
   GroupData,
-} from "./types";
+} from "./models/types";

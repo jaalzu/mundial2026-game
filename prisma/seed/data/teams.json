@@ -106,6 +106,7 @@
     "flag_icon": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
     "flag_unicode": "\\u{1F3F4}\\u{E0067}\\u{E0062}\\u{E0073}\\u{E0063}\\u{E0074}\\u{E007F}",
     "fifa_code": "SCO",
+    "iso_code": "GB-SCT",
     "group": "C",
     "confed": "UEFA"
   },
@@ -162,6 +163,7 @@
     "flag_icon": "🇨🇼",
     "flag_unicode": "\\u{1F1E8}\\u{1F1FC}",
     "fifa_code": "CUW",
+    "iso_code": "CW",
     "group": "E",
     "confed": "CONCACAF"
   },
@@ -409,6 +411,7 @@
     "flag_icon": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "flag_unicode": "\\u{1F3F4}\\u{E0067}\\u{E0062}\\u{E0065}\\u{E006E}\\u{E0067}\\u{E007F}",
     "fifa_code": "ENG",
+    "iso_code": "GB-ENG",
     "group": "L",
     "confed": "UEFA"
   },

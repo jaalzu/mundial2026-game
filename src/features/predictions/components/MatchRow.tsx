@@ -1,7 +1,9 @@
 "use client";
 
 import type { UseFormRegister, UseFormWatch } from "react-hook-form";
-import type { Match } from "../types";
+import type { Match } from "../models/types";
+import { Flag } from "@/shared/constants/flags";
+
 import type { GroupPredictionsForm } from "./GroupMatches";
 import { MatchScoreInput } from "./MatchScoreInput";
 import {
@@ -29,6 +31,36 @@ function formatMatchDate(isoString: string): string {
   return `${day}/${month} ${hours}:${mins}`;
 }
 
+/**
+ * Componente reutilizable para mostrar un equipo (bandera + nombre)
+ */
+interface TeamDisplayProps {
+  code: string;
+  name: string;
+}
+
+function TeamDisplay({ code, name }: TeamDisplayProps) {
+  return (
+    <div className="flex flex-col items-center gap-1">
+      <div style={{ width: "32px", height: "25px" }}>
+        <Flag code={code} className="rounded-sm w-full h-full" />
+      </div>
+
+      <span
+        className="text-center leading-tight"
+        style={{
+          fontFamily: typography.fontFamily,
+          fontSize: typography.sizes.md,
+          color: colors.text,
+          maxWidth: "70px",
+        }}
+      >
+        {name}
+      </span>
+    </div>
+  );
+}
+
 export function MatchRow({
   match,
   index,
@@ -39,7 +71,6 @@ export function MatchRow({
 }: MatchRowProps) {
   const homeVal = watch(`matches.${index}.predictedHome`);
   const awayVal = watch(`matches.${index}.predictedAway`);
-
   const homeIsFilled =
     homeVal !== "" && homeVal !== null && homeVal !== undefined;
   const awayIsFilled =
@@ -72,32 +103,14 @@ export function MatchRow({
 
       {/* Inner row */}
       <div
-        className="grid items-center px-1 py-1.5 "
-        style={{ gridTemplateColumns: "1fr auto 1fr " }}
+        className="grid items-center px-1 py-1.5"
+        style={{ gridTemplateColumns: "1fr auto 1fr" }}
       >
         {/* Home team */}
-        <div className="flex flex-col items-center gap-1 ">
-          <img
-            src={match.homeTeam.flagUrl}
-            alt={match.homeTeam.name}
-            className="object-cover "
-            style={{ width: "36px", height: "24px" }}
-          />
-          <span
-            className="text-center leading-tight "
-            style={{
-              fontFamily: typography.fontFamily,
-              fontSize: typography.sizes.md,
-              color: colors.text,
-              maxWidth: "70px",
-            }}
-          >
-            {match.homeTeam.name}
-          </span>
-        </div>
+        <TeamDisplay code={match.homeTeam.code} name={match.homeTeam.name} />
 
         {/* Inputs */}
-        <div className="flex items-center gap-1 px-2 ">
+        <div className="flex items-center gap-1 px-2">
           <MatchScoreInput
             registration={register(`matches.${index}.predictedHome`)}
             isFilled={homeIsFilled}
@@ -117,25 +130,7 @@ export function MatchRow({
         </div>
 
         {/* Away team */}
-        <div className="flex flex-col items-center gap-1">
-          <img
-            src={match.awayTeam.flagUrl}
-            alt={match.awayTeam.name}
-            className="object-cover "
-            style={{ width: "36px", height: "24px" }}
-          />
-          <span
-            className="text-center "
-            style={{
-              fontFamily: typography.fontFamily,
-              fontSize: typography.sizes.md,
-              color: colors.text,
-              maxWidth: "70px",
-            }}
-          >
-            {match.awayTeam.name}
-          </span>
-        </div>
+        <TeamDisplay code={match.awayTeam.code} name={match.awayTeam.name} />
       </div>
     </div>
   );

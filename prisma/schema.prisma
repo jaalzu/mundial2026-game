@@ -124,6 +124,7 @@ model Match {
   homeTeamId   String      @map("home_team_id") @db.Uuid
   awayTeamId   String      @map("away_team_id") @db.Uuid
   winnerTeamId String?     @map("winner_team_id") @db.Uuid
+  group String? @map("group")
   phase        MatchPhase
   status       MatchStatus @default(SCHEDULED)
   startsAt     DateTime    @map("starts_at") @db.Timestamptz(6)

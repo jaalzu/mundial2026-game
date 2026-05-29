@@ -1,25 +1,32 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import type { PredictionPhase } from "../types";
-import { MOCK_GROUPS, ALL_GROUPS } from "../mockData";
+import type { PredictionPhase } from "../models/types";
+
 import { PhaseTabs } from "./PhaseTabs";
 import { GroupTabs } from "./GroupTabs";
 import { GroupMatches } from "./GroupMatches";
+import { savePrediction } from "../actions/savePrediction";
 import { colors, typography } from "@/shared/constants/designSystem";
-
+import type { GroupData } from "@/features/predictions/models/types";
 interface PredictionsContentProps {
   userId: string;
+  groups: GroupData[];
 }
 
-export function PredictionsContent({ userId }: PredictionsContentProps) {
+export function PredictionsContent({
+  userId,
+  groups,
+}: PredictionsContentProps) {
   const [activePhase, setActivePhase] = useState<PredictionPhase>("GROUPS");
-  const [activeGroup, setActiveGroup] = useState<string>(ALL_GROUPS[0]);
+  const [activeGroup, setActiveGroup] = useState<string>(
+    groups[0]?.group || "A",
+  );
 
-  const activeGroupIndex = ALL_GROUPS.indexOf(activeGroup);
-  const activeGroupData = MOCK_GROUPS.find((g) => g.group === activeGroup);
-  const nextGroup = ALL_GROUPS[activeGroupIndex + 1];
-  const prevGroup = ALL_GROUPS[activeGroupIndex - 1];
+  const activeGroupIndex = groups.findIndex((g) => g.group === activeGroup);
+  const activeGroupData = groups.find((g) => g.group === activeGroup);
+  const nextGroup = groups[activeGroupIndex + 1]?.group;
+  const prevGroup = groups[activeGroupIndex - 1]?.group;
 
   const goToGroup = (group: string) => {
     setActiveGroup(group);
@@ -27,9 +34,8 @@ export function PredictionsContent({ userId }: PredictionsContentProps) {
   };
 
   const handleAutosave = useCallback(
-    (matchId: string, home: number, away: number) => {
-      // TODO: server action
-      console.log("[autosave]", { userId, matchId, home, away });
+    async (matchId: string, home: number, away: number) => {
+      await savePrediction(userId, matchId, home, away);
     },
     [userId],
   );
@@ -44,7 +50,7 @@ export function PredictionsContent({ userId }: PredictionsContentProps) {
       {activePhase === "GROUPS" && (
         <>
           <GroupTabs
-            groups={ALL_GROUPS}
+            groups={groups.map((g) => g.group)}
             activeGroup={activeGroup}
             onSelectGroup={goToGroup}
           />

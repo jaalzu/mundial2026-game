@@ -1,12 +1,13 @@
+// src/app/(auth)/predictions/page.tsx
 import { redirect } from "next/navigation";
 import { getAuthenticatedUser } from "@/shared/utils/getAuthenticatedUser";
+import { getMatches } from "@/features/matches/actions/getMatches";
 import { PredictionsContent } from "@/features/predictions/components/PredictionsContent";
 
-export const revalidate = 0; // predictions are user-specific, never cache at page level
-
 export default async function PredictionsPage() {
-  const currentUser = await getAuthenticatedUser();
-  if (!currentUser) redirect("/landing");
+  const user = await getAuthenticatedUser();
+  if (!user) redirect("/landing");
 
-  return <PredictionsContent userId={currentUser.id} />;
+  const groups = await getMatches();
+  return <PredictionsContent groups={groups} userId={user.id} />;
 }

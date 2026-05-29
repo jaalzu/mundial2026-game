@@ -50,7 +50,7 @@ export function GroupTabs({
               backgroundColor: colors.background,
             }}
           >
-            Grupo {group}
+            {group}
           </button>
         );
       })}

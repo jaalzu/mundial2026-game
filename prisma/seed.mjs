@@ -48,12 +48,14 @@ async function main() {
   for (const team of teamsRaw) {
     const upsertedTeam = await prisma.team.upsert({
       where: { code: team.fifa_code },
-      update: {},
+      update: {
+        code: team.iso_code ?? team.fifa_code,
+      },
       create: {
-        code: team.fifa_code,
+        code: team.iso_code ?? team.fifa_code,
         name: team.name,
         region: team.confed || "UNKNOWN",
-        flagUrl: team.flag_icon || "",
+        flagUrl: "",
       },
     });
     teamsMap.set(team.name, upsertedTeam.id);
@@ -94,6 +96,7 @@ async function main() {
         externalId: `wc2026-${fixture.MatchNumber}`,
         homeTeamId,
         awayTeamId,
+        group: fixture.Group ?? null,
         phase,
         status: "SCHEDULED",
         startsAt: new Date(fixture.DateUtc),
