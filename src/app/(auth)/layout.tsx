@@ -1,5 +1,4 @@
 // app/(protected)/layout.tsx
-export const dynamic = "force-dynamic";
 
 import { redirect } from "next/navigation";
 import { getAuthenticatedUser } from "@/shared/utils/getAuthenticatedUser";

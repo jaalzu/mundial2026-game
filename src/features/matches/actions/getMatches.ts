@@ -28,7 +28,10 @@ export async function getMatches(): Promise<GroupData[]> {
   const groupMap = new Map<string, GroupData>();
 
   for (const match of matches) {
-    const group = match.group?.replace("Group", "").trim();
+    const groupValue = match.group as string | null;
+    if (!groupValue) continue;
+
+    const group = groupValue.replace("Group", "").trim();
     if (!group) continue;
 
     if (!groupMap.has(group)) {

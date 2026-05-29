@@ -3,6 +3,7 @@ import { Anonymous_Pro } from "next/font/google";
 import { Providers } from "@/shared/providers";
 import "./globals.css";
 import "flag-icons/css/flag-icons.min.css";
+export const dynamic = "force-dynamic";
 
 const anonymousPro = Anonymous_Pro({
   subsets: ["latin"],
