@@ -6,11 +6,13 @@ import { colors, borders, typography } from "@/shared/constants/designSystem";
 interface MatchScoreInputProps {
   registration: UseFormRegisterReturn;
   isFilled: boolean;
+  disabled?: boolean;
 }
 
 export function MatchScoreInput({
   registration,
   isFilled,
+  disabled,
 }: MatchScoreInputProps) {
   return (
     <input
@@ -18,6 +20,7 @@ export function MatchScoreInput({
       type="text"
       inputMode="numeric"
       maxLength={2}
+      disabled={disabled}
       onChange={(e) => {
         const cleaned = e.target.value.replace(/^0+(\d)/, "$1");
         e.target.value = cleaned;
@@ -34,6 +37,8 @@ export function MatchScoreInput({
         border: isFilled ? borders.light : borders.default,
         borderRadius: "1px",
         caretColor: colors.primary,
+        opacity: disabled ? 0.4 : 1,
+        cursor: disabled ? "not-allowed" : "text",
       }}
     />
   );

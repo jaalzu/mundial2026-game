@@ -38,8 +38,8 @@
 ┌─────────────────────────────────────────────────────────────┐
 │            EXTERNAL SERVICES                                │
 │  ┌──────────────┐  ┌──────────────┐  ┌─────────────────┐   │
-│  │ API-Football │  │ Supabase     │  │  Vercel Cron    │   │
-│  │ (Data Sync)  │  │ Auth         │  │  (Daily Jobs)   │   │
+│  │  │  │ Supabase     │  │  Vercel Cron    │   │
+│  │   │  │ Auth         │  │  (Daily Jobs)   │   │
 │  └──────────────┘  └──────────────┘  └─────────────────┘   │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -188,7 +188,7 @@ Cron trigger (03:00 AM daily)
   OR
 Admin manual sync
       ↓
-[Sync Service] Call API-Football
+I PUT THE MATCHS RESULTS
       ↓
 Fetch latest fixture data:
    - Match dates/times
@@ -214,7 +214,6 @@ Return success/failure
 **Interacciones:**
 
 - **Vercel Cron** → Server Route Handler (Trigger)
-- **Route Handler** → API-Football (HTTP request)
 - **FootballApiProvider** → Response mapping (JSON → Schema)
 - **Sync Service** → Prisma → Postgres (Upsert matches)
 - **Sync Service** → Prisma → Postgres (Log sync status)
@@ -456,7 +455,7 @@ Foundation Data (Entities)
 
 ### ¿Qué se actualiza automáticamente?
 
-- **Cron diario (03:00 AM):** Fixture changes desde API-Football
+- **Cron diario (03:00 AM):** Fixture changes desde yo
 - **Manual admin:** Match scores y leaderboard recalculation
 
 ### ¿Qué requiere refresh manual?
