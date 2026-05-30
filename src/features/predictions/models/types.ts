@@ -21,8 +21,8 @@ export interface Match {
   awayTeam: Team;
   phase: MatchPhase;
   status: MatchStatus;
-  startsAt: string; // ISO string
-  group?: string; // e.g. "A", "B", ...
+  startsAt: string;
+  group?: string;
   scoreHome?: number;
   scoreAway?: number;
 }

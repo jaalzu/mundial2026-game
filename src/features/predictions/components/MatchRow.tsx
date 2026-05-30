@@ -43,11 +43,11 @@ function TeamDisplay({ code, name }: TeamDisplayProps) {
   const displayName = getTeamNameEs(code, name);
   return (
     <div className="flex flex-col items-center gap-1 w-full justify-center">
-      <div style={{ width: "38px", height: "28px" }} className="shrink-0">
+      <div style={{ width: "36px", height: "26px" }} className="shrink-0">
         <Flag code={code} className="w-full h-full object-cover" />
       </div>
       <span
-        className="text-center  block  w-full"
+        className="text-center block w-full"
         style={{
           fontFamily: typography.fontFamily,
           fontSize: typography.sizes.sm,
@@ -89,7 +89,7 @@ export function MatchRow({
       className="flex flex-col cursor-pointer transition-all px-1 pb-4"
       style={{
         border: rowBorder,
-        height: "80px",
+        height: "85px",
       }}
     >
       <div className="w-full text-center pt-1 shrink-0 ">

@@ -70,6 +70,5 @@ export async function createUser(input: CreateUserInput) {
     };
   }
 
-  // ✅ REDIRECT FUERA DEL TRY-CATCH
   redirect("/leaderboard");
 }
