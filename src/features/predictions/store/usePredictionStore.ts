@@ -8,7 +8,7 @@ interface PredictionsStore {
   setPrediction: (value: MatchPredictionValue) => void;
 }
 
-export const usePredictionsStore = create<PredictionsStore>()(
+export const usePredictionStore = create<PredictionsStore>()(
   persist(
     (set) => ({
       predictions: {},

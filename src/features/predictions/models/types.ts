@@ -1,3 +1,5 @@
+// ─── Existing types ──────────────────────────────────────────────────────────
+
 export type MatchPhase =
   | "GROUP"
   | "ROUND_OF_16"
@@ -33,7 +35,6 @@ export interface MatchPredictionValue {
   predictedAway: number | null;
 }
 
-/** Keyed by matchId for O(1) lookup */
 export type PredictionsMap = Record<string, MatchPredictionValue>;
 
 export type PredictionPhase = "GROUPS" | "TOURNAMENT" | "KNOCKOUT";
@@ -43,7 +44,6 @@ export interface GroupData {
   matches: Match[];
 }
 
-/** Shape of the react-hook-form for a single group */
 export interface GroupPredictionsFormValues {
   matches: {
     matchId: string;
@@ -52,7 +52,59 @@ export interface GroupPredictionsFormValues {
   }[];
 }
 
-/** Result type for server actions */
 export type ActionResult<T = void> =
   | { success: true; data: T }
   | { success: false; error: string };
+
+// ─── Tournament types ────────────────────────────────────────────────────────
+
+export type PlayerPosition =
+  | "GOALKEEPER"
+  | "DEFENDER"
+  | "MIDFIELDER"
+  | "FORWARD";
+
+export interface PlayerOption {
+  id: string;
+  name: string;
+  photoUrl: string | null;
+  position: PlayerPosition;
+  team: {
+    id: string;
+    name: string;
+    code: string;
+    flagUrl: string;
+  };
+}
+
+export interface TeamOption {
+  id: string;
+  name: string;
+  code: string;
+  flagUrl: string;
+}
+
+export interface TournamentPredictionData {
+  championTeamId: string | null;
+  runnerUpTeamId: string | null;
+  // finalHomeTeamId: string | null;
+  // finalAwayTeamId: string | null;
+  surpriseTeamId: string | null;
+  disappointmentTeamId: string | null;
+  mvpPlayerId: string | null;
+  goldenBootPlayerId: string | null;
+  bestGoalkeeperPlayerId: string | null;
+  revelationPlayerId: string | null;
+}
+
+export type TournamentPredictionField = keyof TournamentPredictionData;
+
+export type TournamentSelectionType = "team" | "player";
+
+export interface TournamentCardConfig {
+  field: TournamentPredictionField;
+  label: string;
+  description: string;
+  type: TournamentSelectionType;
+  playerPosition?: PlayerPosition;
+}

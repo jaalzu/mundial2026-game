@@ -1,12 +1,19 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
-import type { PredictionPhase, PredictionsMap } from "../models/types";
+import type {
+  PredictionPhase,
+  PredictionsMap,
+  TournamentPredictionData,
+  TeamOption,
+  PlayerOption,
+} from "../models/types";
 import type { GroupData } from "../models/types";
-import { usePredictionsStore } from "../store/usePredictionStore";
+import { usePredictionStore } from "../store/usePredictionStore";
 import { PhaseTabs } from "./shared/PhaseTabs";
 import { GroupTabs } from "./groups/GroupTabs";
 import { GroupMatches } from "./groups/GroupMatches";
+import { TournamentPredictions } from "./tournament/TournamentPredictions";
 import { savePrediction } from "../actions/savePrediction";
 import { colors, typography } from "@/shared/constants/designSystem";
 
@@ -14,19 +21,25 @@ interface PredictionsContentProps {
   userId: string;
   groups: GroupData[];
   initialPredictions: PredictionsMap;
+  initialTournament: TournamentPredictionData | null;
+  teams: TeamOption[];
+  players: PlayerOption[];
 }
 
 export function PredictionsContent({
   userId,
   groups,
   initialPredictions,
+  initialTournament,
+  teams,
+  players,
 }: PredictionsContentProps) {
   const [activePhase, setActivePhase] = useState<PredictionPhase>("GROUPS");
   const [activeGroup, setActiveGroup] = useState<string>(
     groups[0]?.group ?? "A",
   );
 
-  const { predictions, hydrate, setPrediction } = usePredictionsStore();
+  const { predictions, hydrate, setPrediction } = usePredictionStore();
 
   useEffect(() => {
     hydrate(initialPredictions);
@@ -83,7 +96,16 @@ export function PredictionsContent({
         </>
       )}
 
-      {(activePhase === "TOURNAMENT" || activePhase === "KNOCKOUT") && (
+      {activePhase === "TOURNAMENT" && (
+        <TournamentPredictions
+          userId={userId}
+          initialData={initialTournament}
+          teams={teams}
+          players={players}
+        />
+      )}
+
+      {activePhase === "KNOCKOUT" && (
         <div className="flex flex-1 items-center justify-center min-h-48">
           <span
             style={{
@@ -93,8 +115,7 @@ export function PredictionsContent({
               letterSpacing: "0.06em",
             }}
           >
-            {activePhase === "TOURNAMENT" ? "Campeonato" : "Eliminatorias"} —
-            próximamente
+            Eliminatorias — próximamente
           </span>
         </div>
       )}
