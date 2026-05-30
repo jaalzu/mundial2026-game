@@ -1,10 +1,14 @@
 "use client";
 
 import type { UseFormRegister, UseFormWatch } from "react-hook-form";
-import type { Match } from "../models/types";
-import { Flag } from "@/shared/constants/flags";
-import { getTeamNameEs } from "@/shared/utils/teamNames";
-import type { GroupPredictionsForm } from "./GroupMatches";
+import type { Match } from "../../models/types";
+import type { GroupPredictionsFormValues } from "../../models/types";
+import { formatMatchDate } from "../../utils/matchDate";
+import {
+  isValidScore,
+  isPredictionComplete,
+} from "../../utils/predictionHelpers";
+import { TeamDisplay } from "./TeamDisplay";
 import { MatchScoreInput } from "./MatchScoreInput";
 import {
   colors,
@@ -17,48 +21,9 @@ interface MatchRowProps {
   match: Match;
   index: number;
   isActive: boolean;
-  register: UseFormRegister<GroupPredictionsForm>;
-  watch: UseFormWatch<GroupPredictionsForm>;
+  register: UseFormRegister<GroupPredictionsFormValues>;
+  watch: UseFormWatch<GroupPredictionsFormValues>;
   onFocusRequest: () => void;
-}
-
-// esto va en utils
-
-function formatMatchDate(isoString: string): string {
-  const d = new Date(isoString);
-  const day = String(d.getUTCDate()).padStart(2, "0");
-  const month = String(d.getUTCMonth() + 1).padStart(2, "0");
-  const hours = String(d.getUTCHours()).padStart(2, "0");
-  const mins = String(d.getUTCMinutes()).padStart(2, "0");
-  return `${day}/${month} ${hours}:${mins}`;
-}
-
-interface TeamDisplayProps {
-  code: string;
-  name: string;
-}
-
-// esto va solito
-function TeamDisplay({ code, name }: TeamDisplayProps) {
-  const displayName = getTeamNameEs(code, name);
-  return (
-    <div className="flex flex-col items-center gap-1 w-full justify-center">
-      <div style={{ width: "36px", height: "26px" }} className="shrink-0">
-        <Flag code={code} className="w-full h-full object-cover" />
-      </div>
-      <span
-        className="text-center block w-full"
-        style={{
-          fontFamily: typography.fontFamily,
-          fontSize: typography.sizes.sm,
-          color: colors.text,
-          maxWidth: "100px",
-        }}
-      >
-        {displayName}
-      </span>
-    </div>
-  );
 }
 
 export function MatchRow({
@@ -71,11 +36,9 @@ export function MatchRow({
 }: MatchRowProps) {
   const homeVal = watch(`matches.${index}.predictedHome`);
   const awayVal = watch(`matches.${index}.predictedAway`);
-  const homeIsFilled =
-    homeVal !== "" && homeVal !== null && homeVal !== undefined;
-  const awayIsFilled =
-    awayVal !== "" && awayVal !== null && awayVal !== undefined;
-  const isComplete = homeIsFilled && awayIsFilled;
+  const homeIsFilled = isValidScore(homeVal);
+  const awayIsFilled = isValidScore(awayVal);
+  const isComplete = isPredictionComplete(homeVal, awayVal);
 
   const rowBorder = isActive
     ? borders.light
@@ -87,12 +50,9 @@ export function MatchRow({
     <div
       onClick={onFocusRequest}
       className="flex flex-col cursor-pointer transition-all px-1 pb-4"
-      style={{
-        border: rowBorder,
-        height: "85px",
-      }}
+      style={{ border: rowBorder, height: "85px" }}
     >
-      <div className="w-full text-center pt-1 shrink-0 ">
+      <div className="w-full text-center pt-1 shrink-0">
         <p
           style={{
             fontFamily: typography.fontFamily,

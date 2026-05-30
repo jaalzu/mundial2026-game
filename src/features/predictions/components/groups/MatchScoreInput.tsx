@@ -18,7 +18,12 @@ export function MatchScoreInput({
       type="text"
       inputMode="numeric"
       maxLength={2}
-      className="text-center outline-none transition-all "
+      onChange={(e) => {
+        const cleaned = e.target.value.replace(/^0+(\d)/, "$1");
+        e.target.value = cleaned;
+        registration.onChange(e);
+      }}
+      className="text-center outline-none transition-all"
       style={{
         width: "42px",
         height: "38px",

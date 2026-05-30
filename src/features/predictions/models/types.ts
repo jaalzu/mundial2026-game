@@ -33,12 +33,26 @@ export interface MatchPredictionValue {
   predictedAway: number | null;
 }
 
-// Keyed by matchId for easy lookup
+/** Keyed by matchId for O(1) lookup */
 export type PredictionsMap = Record<string, MatchPredictionValue>;
 
 export type PredictionPhase = "GROUPS" | "TOURNAMENT" | "KNOCKOUT";
 
 export interface GroupData {
-  group: string; // "A" | "B" ...
+  group: string;
   matches: Match[];
 }
+
+/** Shape of the react-hook-form for a single group */
+export interface GroupPredictionsFormValues {
+  matches: {
+    matchId: string;
+    predictedHome: string;
+    predictedAway: string;
+  }[];
+}
+
+/** Result type for server actions */
+export type ActionResult<T = void> =
+  | { success: true; data: T }
+  | { success: false; error: string };

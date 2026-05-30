@@ -1,49 +1,58 @@
 "use client";
 
-import { useState, useCallback } from "react";
-import type { PredictionPhase } from "../models/types";
-
-import { PhaseTabs } from "./PhaseTabs";
-import { GroupTabs } from "./GroupTabs";
-import { GroupMatches } from "./GroupMatches";
+import { useState, useCallback, useEffect } from "react";
+import type { PredictionPhase, PredictionsMap } from "../models/types";
+import type { GroupData } from "../models/types";
+import { usePredictionsStore } from "../store/usePredictionStore";
+import { PhaseTabs } from "./shared/PhaseTabs";
+import { GroupTabs } from "./groups/GroupTabs";
+import { GroupMatches } from "./groups/GroupMatches";
 import { savePrediction } from "../actions/savePrediction";
 import { colors, typography } from "@/shared/constants/designSystem";
-import type { GroupData } from "@/features/predictions/models/types";
 
 interface PredictionsContentProps {
   userId: string;
   groups: GroupData[];
+  initialPredictions: PredictionsMap;
 }
 
 export function PredictionsContent({
   userId,
   groups,
+  initialPredictions,
 }: PredictionsContentProps) {
   const [activePhase, setActivePhase] = useState<PredictionPhase>("GROUPS");
   const [activeGroup, setActiveGroup] = useState<string>(
-    groups[0]?.group || "A",
+    groups[0]?.group ?? "A",
   );
 
+  const { predictions, hydrate, setPrediction } = usePredictionsStore();
+
+  useEffect(() => {
+    hydrate(initialPredictions);
+  }, [hydrate, initialPredictions]);
+
   const activeGroupIndex = groups.findIndex((g) => g.group === activeGroup);
-  const activeGroupData = groups.find((g) => g.group === activeGroup);
+  const activeGroupData = groups[activeGroupIndex];
   const nextGroup = groups[activeGroupIndex + 1]?.group;
   const prevGroup = groups[activeGroupIndex - 1]?.group;
 
-  const goToGroup = (group: string) => {
+  const goToGroup = useCallback((group: string) => {
     setActiveGroup(group);
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  }, []);
 
   const handleAutosave = useCallback(
     async (matchId: string, home: number, away: number) => {
+      setPrediction({ matchId, predictedHome: home, predictedAway: away });
       await savePrediction(userId, matchId, home, away);
     },
-    [userId],
+    [userId, setPrediction],
   );
 
   return (
     <div
-      className="flex flex-col min-h-full "
+      className="flex flex-col min-h-full"
       style={{ backgroundColor: colors.background }}
     >
       <PhaseTabs activePhase={activePhase} onSelectPhase={setActivePhase} />
@@ -59,6 +68,7 @@ export function PredictionsContent({
             <GroupMatches
               key={activeGroup}
               groupData={activeGroupData}
+              initialPredictions={predictions}
               nextGroupLabel={nextGroup}
               prevGroupLabel={prevGroup}
               onNavigateNext={
