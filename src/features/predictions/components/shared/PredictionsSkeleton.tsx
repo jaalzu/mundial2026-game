@@ -1,16 +1,11 @@
-import { colors, borders } from "@/shared/constants/designSystem";
+"use client";
 
-/**
- * Shown as Suspense fallback while predictions data loads.
- * Mirrors the real layout so there's no layout shift on hydration.
- */
+import { colors, borders, typography } from "@/shared/constants/designSystem";
+
 export function PredictionsSkeleton() {
   return (
-    <div
-      className="flex flex-col"
-      style={{ backgroundColor: colors.background }}
-    >
-      {/* Phase tabs skeleton */}
+    <div className="flex flex-col mt-1">
+      {/* Phase Tabs */}
       <div
         className="grid grid-cols-3 mb-4"
         style={{ border: `2px solid ${colors.border}` }}
@@ -20,10 +15,13 @@ export function PredictionsSkeleton() {
             key={label}
             className="py-2 text-center"
             style={{
+              fontFamily: typography.fontFamily,
+              fontSize: typography.sizes.lg,
+              fontWeight: 700,
+              color: colors.text,
               borderLeft: i === 0 ? "none" : `2px solid ${colors.border}`,
-              color: colors.mutedText,
-              fontSize: "0.875rem",
-              opacity: 0.4,
+              backgroundColor: colors.background,
+              opacity: 0.6,
             }}
           >
             {label}
@@ -31,46 +29,186 @@ export function PredictionsSkeleton() {
         ))}
       </div>
 
-      {/* Group tabs skeleton */}
-      <div className="flex gap-3 mx-3 mb-4">
-        {["A", "B", "C", "D", "E", "F"].map((g) => (
+      {/* Group Tabs */}
+      <div
+        className="flex overflow-x-auto gap-3 mx-3 mb-4"
+        style={{ scrollbarWidth: "none" }}
+      >
+        {["A", "B", "C", "D", "E", "F", "G", "H"].map((group) => (
           <div
-            key={g}
-            className="px-3.5 py-1 animate-pulse"
+            key={group}
+            className="flex-shrink-0 px-3.5 py-1 animate-pulse"
             style={{
+              fontFamily: typography.fontFamily,
+              fontSize: typography.sizes.md,
+              fontWeight: 700,
               border: borders.default,
-              color: colors.mutedText,
-              opacity: 0.4,
+              backgroundColor: colors.background,
+              color: colors.text,
             }}
           >
-            {g}
+            {group}
           </div>
         ))}
       </div>
 
-      {/* Match rows skeleton */}
+      {/* Points Legend */}
+      <div className="flex justify-end gap-3 px-4 mb-4">
+        <span
+          style={{
+            fontFamily: typography.fontFamily,
+            fontSize: typography.sizes.sm,
+            color: colors.primary,
+          }}
+        >
+          <strong>+3</strong> exacto
+        </span>
+        <span
+          style={{
+            fontFamily: typography.fontFamily,
+            fontSize: typography.sizes.sm,
+            color: "#f59f0be4",
+          }}
+        >
+          <strong>+1</strong> ganador
+        </span>
+        <span
+          style={{
+            fontFamily: typography.fontFamily,
+            fontSize: typography.sizes.sm,
+            color: colors.secondary,
+          }}
+        >
+          <strong>0</strong> fallo
+        </span>
+      </div>
+
+      {/* Group Header & Match Rows */}
       <div className="mx-2" style={{ border: borders.default }}>
-        <div className="px-6 py-1 h-9" />
-        {Array.from({ length: 6 }).map((_, i) => (
-          <div
-            key={i}
-            className="animate-pulse"
+        {/* Group Title */}
+        <div
+          className="flex items-center justify-between px-6 py-1"
+          style={{ borderBottom: borders.default }}
+        >
+          <span
             style={{
-              height: "85px",
-              borderTop: i > 0 ? borders.default : "none",
+              fontFamily: typography.fontFamily,
+              fontSize: typography.sizes.xl,
+              fontWeight: 700,
+              color: colors.text,
+              opacity: 0.7,
             }}
           >
+            Grupo A
+          </span>
+        </div>
+
+        {/* Match Rows */}
+        <div className="flex flex-col">
+          {Array.from({ length: 6 }).map((_, i) => (
             <div
-              className="mx-auto mt-4 rounded"
+              key={i}
+              className="flex flex-col animate-pulse"
               style={{
-                height: "12px",
-                width: "120px",
-                backgroundColor: colors.mutedText,
-                opacity: 0.15,
+                height: "90px",
+                borderTop: i > 0 ? borders.default : "none",
+                padding: "8px 4px 16px 4px",
               }}
-            />
-          </div>
-        ))}
+            >
+              {/* Date skeleton */}
+              <div className="w-full text-center pt-1 shrink-0">
+                <div
+                  className="mx-auto rounded"
+                  style={{
+                    height: "10px",
+                    width: "100px",
+                    backgroundColor: colors.mutedText,
+                    opacity: 0.15,
+                  }}
+                />
+              </div>
+
+              {/* Teams + Score skeleton */}
+              <div
+                className="grid items-center w-full flex-1 mt-2"
+                style={{ gridTemplateColumns: "1fr auto 1fr" }}
+              >
+                {/* Home Team */}
+                <div className="flex flex-col items-center gap-1 w-full justify-center">
+                  <div
+                    style={{
+                      width: "36px",
+                      height: "26px",
+                      backgroundColor: colors.mutedText,
+                      opacity: 0.15,
+                    }}
+                  />
+                  <div
+                    className="rounded"
+                    style={{
+                      height: "8px",
+                      width: "60px",
+                      backgroundColor: colors.mutedText,
+                      opacity: 0.15,
+                    }}
+                  />
+                </div>
+
+                {/* Score inputs */}
+                <div className="flex items-center gap-1 px-2 justify-center">
+                  <div
+                    className="rounded"
+                    style={{
+                      width: "42px",
+                      height: "38px",
+                      backgroundColor: colors.mutedText,
+                      opacity: 0.15,
+                    }}
+                  />
+                  <span
+                    style={{
+                      fontSize: typography.sizes.xs,
+                      color: colors.mutedText,
+                      opacity: 0.5,
+                    }}
+                  >
+                    vs
+                  </span>
+                  <div
+                    className="rounded"
+                    style={{
+                      width: "42px",
+                      height: "38px",
+                      backgroundColor: colors.mutedText,
+                      opacity: 0.15,
+                    }}
+                  />
+                </div>
+
+                {/* Away Team */}
+                <div className="flex flex-col items-center gap-1 w-full justify-center">
+                  <div
+                    style={{
+                      width: "36px",
+                      height: "26px",
+                      backgroundColor: colors.mutedText,
+                      opacity: 0.15,
+                    }}
+                  />
+                  <div
+                    className="rounded"
+                    style={{
+                      height: "8px",
+                      width: "60px",
+                      backgroundColor: colors.mutedText,
+                      opacity: 0.15,
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

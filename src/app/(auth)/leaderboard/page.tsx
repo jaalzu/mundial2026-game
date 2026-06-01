@@ -2,7 +2,9 @@ import { getAuthenticatedUser } from "@/shared/utils/getAuthenticatedUser";
 import { getLeaderboard } from "@/features/leaderboard/actions/getLeaderboard";
 import { LeaderboardContent } from "@/features/leaderboard/components/LeaderboardContent";
 import { redirect } from "next/navigation";
-export const revalidate = 300;
+
+export const revalidate = 3600;
+
 export default async function LeaderboardPage() {
   const [currentUser, leaderboard] = await Promise.all([
     getAuthenticatedUser(),

@@ -39,12 +39,8 @@ export function useGroupAutosave({
       const field = match[2] as "predictedHome" | "predictedAway";
       const entry = values.matches?.[idx];
 
-      console.log("field:", field, "entry:", entry);
-
       const home = parseInt(entry?.predictedHome ?? "", 10);
       const away = parseInt(entry?.predictedAway ?? "", 10);
-
-      console.log("parsed — home:", home, "away:", away);
 
       if (field === "predictedHome") {
         if (!isNaN(home)) setFocus(`matches.${idx}.predictedAway`);

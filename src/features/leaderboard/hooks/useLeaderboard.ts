@@ -7,14 +7,14 @@ import {
   type LeaderboardEntry,
 } from "../actions/getLeaderboard";
 
-const LEADERBOARD_INIT_TIME = Date.now();
+// const LEADERBOARD_INIT_TIME = Date.now();
 
 export function useLeaderboard(initialEntries: LeaderboardEntry[]) {
   const query = useQuery({
     queryKey: ["leaderboard"],
     queryFn: () => getLeaderboard(),
     initialData: initialEntries,
-    initialDataUpdatedAt: LEADERBOARD_INIT_TIME,
+    // initialDataUpdatedAt: LEADERBOARD_INIT_TIME,
     refetchInterval: 60 * 60 * 1000,
     refetchOnWindowFocus: false,
     staleTime: 60 * 60 * 1000,

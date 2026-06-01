@@ -39,14 +39,8 @@ export function TournamentPredictions({
 
   const handleChange = useCallback(
     async (field: TournamentPredictionField, value: string | null) => {
-      // Optimistic update
       setField(field, value);
-
-      const result = await saveTournamentPrediction(userId, field, value);
-      if (!result.success) {
-        console.error("[TournamentPredictions] Autosave failed:", result.error);
-        // TODO: toast notification
-      }
+      await saveTournamentPrediction(userId, field, value);
     },
     [userId, setField],
   );

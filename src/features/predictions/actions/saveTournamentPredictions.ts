@@ -4,10 +4,6 @@ import { prisma } from "@/lib/prisma";
 import type { TournamentPredictionField, ActionResult } from "../models/types";
 import { revalidatePath } from "next/cache";
 
-/**
- * Saves a single tournament prediction field via upsert.
- * Called on every card selection — one field at a time.
- */
 export async function saveTournamentPrediction(
   userId: string,
   field: TournamentPredictionField,

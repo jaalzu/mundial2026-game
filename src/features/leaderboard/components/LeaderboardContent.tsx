@@ -1,4 +1,3 @@
-// LeaderboardContent.tsx
 "use client";
 import { useLeaderboard } from "../hooks/useLeaderboard";
 import { LeaderboardTable } from "./LeaderboardTable";
@@ -14,5 +13,11 @@ export function LeaderboardContent({
   currentUserId,
 }: LeaderboardContentProps) {
   const { entries } = useLeaderboard(initialEntries);
-  return <LeaderboardTable entries={entries} currentUserId={currentUserId} />;
+
+  // usar initialEntries hasta que React Query hidrate
+  const displayEntries = entries.length > 0 ? entries : initialEntries;
+
+  return (
+    <LeaderboardTable entries={displayEntries} currentUserId={currentUserId} />
+  );
 }

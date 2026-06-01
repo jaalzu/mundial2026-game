@@ -83,7 +83,6 @@ export function PredictionCard({
             onChange={onChange}
             isActive={isActive}
             onActivate={onActivate}
-            filterPosition={config.playerPosition}
           />
         )}
       </div>
