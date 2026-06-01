@@ -78,28 +78,34 @@ export function TeamSelector({
           />
         }
       >
-        <div
-          style={{ width: "32px", height: "22px", flexShrink: 0 }}
-          className="flex items-center"
-        >
-          <Flag
-            code={selectedTeam!.code}
-            className="w-full h-full object-cover block"
-          />
-        </div>
-        <span
-          className="flex-1"
-          style={{
-            fontFamily: typography.fontFamily,
-            fontSize: typography.sizes.md,
-            color: colors.text,
-          }}
-        >
-          {getTeamNameEs(selectedTeam!.code, selectedTeam!.name)}
-        </span>
-        <span style={{ color: colors.primary, fontSize: typography.sizes.md }}>
-          ✓
-        </span>
+        {selectedTeam && (
+          <>
+            <div
+              style={{ width: "32px", height: "22px", flexShrink: 0 }}
+              className="flex items-center"
+            >
+              <Flag
+                code={selectedTeam.code}
+                className="w-full h-full object-cover block"
+              />
+            </div>
+            <span
+              className="flex-1"
+              style={{
+                fontFamily: typography.fontFamily,
+                fontSize: typography.sizes.md,
+                color: colors.text,
+              }}
+            >
+              {getTeamNameEs(selectedTeam.code, selectedTeam.name)}
+            </span>
+            <span
+              style={{ color: colors.primary, fontSize: typography.sizes.md }}
+            >
+              ✓
+            </span>
+          </>
+        )}
       </SelectorInput>
 
       {isActive && !selectedTeam && (
