@@ -8,8 +8,8 @@ import type {
 const EMPTY: TournamentPredictionData = {
   championTeamId: null,
   runnerUpTeamId: null,
-  //   finalHomeTeamId: null,
-  //   finalAwayTeamId: null,
+  finalHomeTeamId: null,
+  finalAwayTeamId: null,
   surpriseTeamId: null,
   disappointmentTeamId: null,
   mvpPlayerId: null,
@@ -33,7 +33,7 @@ export const useTournamentPredictionsStore =
         hydrate: (initial) =>
           set((state) => ({
             // Local optimistic updates win over server data
-            data: { ...EMPTY, ...initial, ...state.data },
+            data: { ...EMPTY, ...state.data, ...initial },
           })),
 
         setField: (field, value) =>
