@@ -14,16 +14,6 @@ export function TournamentPredictionsSection({
       <DataRow label="Campeon" value={predictions.champion} valueHighlight />
       <DataRow label="Subcampeon" value={predictions.runnerUp} valueHighlight />
       <DataRow
-        label="Final Home"
-        value={predictions.finalHome}
-        valueHighlight
-      />
-      <DataRow
-        label="Final Away"
-        value={predictions.finalAway}
-        valueHighlight
-      />
-      <DataRow
         label="Equipo Sorpresa"
         value={predictions.surprise}
         valueHighlight

@@ -53,6 +53,11 @@ export async function finishMatch({
       }),
     }));
 
+    console.log(
+      "[finishMatch] scored predictions:",
+      JSON.stringify(scored, null, 2),
+    );
+
     // Transaction: update match + all predictions atomically
     await prisma.$transaction([
       // 1. Mark match as finished

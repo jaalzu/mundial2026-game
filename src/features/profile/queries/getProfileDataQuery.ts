@@ -22,8 +22,8 @@ export function getCachedProfileData(userId: string) {
           include: {
             championTeam: { select: { name: true } },
             runnerUpTeam: { select: { name: true } },
-            finalHomeTeam: { select: { name: true } },
-            finalAwayTeam: { select: { name: true } },
+            // finalHomeTeam: { select: { name: true } },
+            // finalAwayTeam: { select: { name: true } },
             surpriseTeam: { select: { name: true } },
             disappointmentTeam: { select: { name: true } },
             mvpPlayer: { select: { name: true } },
@@ -50,10 +50,14 @@ export function getCachedProfileData(userId: string) {
             exactPredictions: 0,
             rankDelta: 0,
           };
+      console.log(
+        "[profile] leaderboardEntry:",
+        JSON.stringify(leaderboardEntry, null, 2),
+      );
 
       return { stats, prediction };
     },
     [`profile-data-${userId}`],
-    { revalidate: 3600 },
+    { revalidate: false },
   );
 }

@@ -87,8 +87,8 @@ export interface TeamOption {
 export interface TournamentPredictionData {
   championTeamId: string | null;
   runnerUpTeamId: string | null;
-  finalHomeTeamId: string | null;
-  finalAwayTeamId: string | null;
+  // finalHomeTeamId: string | null;
+  // finalAwayTeamId: string | null;
   surpriseTeamId: string | null;
   disappointmentTeamId: string | null;
   mvpPlayerId: string | null;

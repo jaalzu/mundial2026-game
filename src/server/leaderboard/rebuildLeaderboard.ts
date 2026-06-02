@@ -1,50 +1,54 @@
 import { prisma } from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
 
-/**
- * Rebuilds the leaderboard snapshot for all users.
- * Called after any match is finished or tournament results are updated.
- *
- * Algorithm:
- * 1. Sum all MatchPrediction.points + TournamentPrediction.points per user
- * 2. Rank by totalPoints DESC, exactHits DESC as tiebreaker
- * 3. Compare with previous rank to compute rankDelta
- * 4. Upsert LeaderboardDaily rows
- */
 export async function rebuildLeaderboard(): Promise<void> {
   const now = new Date();
+  now.setHours(0, 0, 0, 0);
 
-  // 1. Aggregate points per user
-  const [matchAggregates, tournamentPredictions, previousRanks] =
-    await Promise.all([
-      prisma.matchPrediction.groupBy({
-        by: ["userId"],
-        _sum: { points: true },
-        _count: { exactHit: true },
-      }),
-      prisma.tournamentPrediction.findMany({
-        select: { userId: true, points: true },
-      }),
-      prisma.leaderboardDaily.findMany({
-        select: { userId: true, rank: true },
-        orderBy: { calculatedAt: "desc" },
-        distinct: ["userId"],
-      }),
-    ]);
+  const [
+    matchPoints,
+    exactHitCounts,
+    tournamentPredictions,
+    previousRanks,
+    allUsers,
+  ] = await Promise.all([
+    prisma.matchPrediction.groupBy({
+      by: ["userId"],
+      _sum: { points: true },
+    }),
+    prisma.matchPrediction.groupBy({
+      by: ["userId"],
+      where: { exactHit: true },
+      _count: { id: true },
+    }),
+    prisma.tournamentPrediction.findMany({
+      select: { userId: true, points: true },
+    }),
+    prisma.leaderboardDaily.findMany({
+      select: { userId: true, rank: true },
+      orderBy: { calculatedAt: "desc" },
+      distinct: ["userId"],
+    }),
+    prisma.user.findMany({
+      select: { id: true },
+    }),
+  ]);
 
-  // Build lookup maps
   const tournamentMap = new Map(
     tournamentPredictions.map((t) => [t.userId, t.points]),
   );
+  const exactHitsMap = new Map(
+    exactHitCounts.map((e) => [e.userId, e._count.id]),
+  );
   const previousRankMap = new Map(previousRanks.map((r) => [r.userId, r.rank]));
 
-  // 2. Merge match + tournament points per user
-  const userScores = matchAggregates.map((agg) => ({
+  const userScores = matchPoints.map((agg) => ({
     userId: agg.userId,
     totalPoints: (agg._sum.points ?? 0) + (tournamentMap.get(agg.userId) ?? 0),
-    exactHits: agg._count.exactHit,
+    exactHits: exactHitsMap.get(agg.userId) ?? 0,
   }));
 
-  // Include users with only tournament predictions (no match predictions yet)
+  // Usuarios con solo tournament predictions
   for (const tp of tournamentPredictions) {
     if (!userScores.find((u) => u.userId === tp.userId)) {
       userScores.push({
@@ -55,18 +59,27 @@ export async function rebuildLeaderboard(): Promise<void> {
     }
   }
 
-  // 3. Sort and assign ranks
+  // Usuarios sin ninguna predicción
+  for (const user of allUsers) {
+    if (!userScores.find((u) => u.userId === user.id)) {
+      userScores.push({
+        userId: user.id,
+        totalPoints: 0,
+        exactHits: 0,
+      });
+    }
+  }
+
   userScores.sort((a, b) =>
     b.totalPoints !== a.totalPoints
       ? b.totalPoints - a.totalPoints
       : b.exactHits - a.exactHits,
   );
 
-  // 4. Upsert leaderboard rows
   const upserts = userScores.map((user, i) => {
     const rank = i + 1;
     const previousRank = previousRankMap.get(user.userId) ?? rank;
-    const rankDelta = previousRank - rank; // positive = moved up
+    const rankDelta = previousRank - rank;
 
     return prisma.leaderboardDaily.upsert({
       where: {
@@ -91,5 +104,10 @@ export async function rebuildLeaderboard(): Promise<void> {
     });
   });
 
+  console.log("[rebuild] total userScores a upsertear:", userScores.length);
+  console.log("[rebuild] userScores:", JSON.stringify(userScores, null, 2));
+
   await prisma.$transaction(upserts);
+  revalidatePath("/leaderboard");
+  revalidatePath("/profile");
 }

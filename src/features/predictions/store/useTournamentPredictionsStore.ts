@@ -8,8 +8,8 @@ import type {
 const EMPTY: TournamentPredictionData = {
   championTeamId: null,
   runnerUpTeamId: null,
-  finalHomeTeamId: null,
-  finalAwayTeamId: null,
+  // finalHomeTeamId: null,
+  // finalAwayTeamId: null,
   surpriseTeamId: null,
   disappointmentTeamId: null,
   mvpPlayerId: null,

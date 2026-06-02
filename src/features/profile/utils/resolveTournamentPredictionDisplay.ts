@@ -16,8 +16,6 @@ export function resolveTournamentPredictionDisplay(
     return {
       champion: "—",
       runnerUp: "—",
-      finalHome: "—",
-      finalAway: "—",
       surprise: "—",
       disappointment: "—",
       mvp: "—",
@@ -30,8 +28,6 @@ export function resolveTournamentPredictionDisplay(
   return {
     champion: prediction.championTeam?.name ?? "—",
     runnerUp: prediction.runnerUpTeam?.name ?? "—",
-    finalHome: prediction.finalHomeTeam?.name ?? "—",
-    finalAway: prediction.finalAwayTeam?.name ?? "—",
     surprise: prediction.surpriseTeam?.name ?? "—",
     disappointment: prediction.disappointmentTeam?.name ?? "—",
     mvp: prediction.mvpPlayer?.name ?? "—",
@@ -44,8 +40,7 @@ export function resolveTournamentPredictionDisplay(
 export type TournamentPredictionDisplay = {
   champion: string;
   runnerUp: string;
-  finalHome: string;
-  finalAway: string;
+
   surprise: string;
   disappointment: string;
   mvp: string;

@@ -1,6 +1,6 @@
 import { ProfilePageServer } from "@/features/profile/components/ProfilePageServer";
 
-export const revalidate = 3600;
+export const revalidate = 0;
 
 export default function ProfilePage() {
   return <ProfilePageServer />;
