@@ -25,7 +25,7 @@ export function AvatarStep({
         Elegí tu avatar
       </h1>
 
-      <div className="grid grid-cols-5 md:grid-cols-6 gap-12 md:gap-4 mb-8">
+      <div className="grid grid-cols-4 md:grid-cols-6 gap-3 md:gap-4 mb-8">
         {AVATAR_PLAYERS.map((player) => (
           <button
             key={player.id}
@@ -44,7 +44,7 @@ export function AvatarStep({
               alt={player.name}
               fill
               className="object-cover"
-              sizes="64px"
+              sizes="80px"
             />
           </button>
         ))}
