@@ -21,4 +21,4 @@ export {
 } from "./utils/resolveTournamentPredictionDisplay";
 
 // Data
-export { getMockStats } from "./data/mockProfileData";
+// export { getMockStats } from "./data/mockProfileData";

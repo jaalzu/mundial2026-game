@@ -1,23 +1,15 @@
 import { getAdminMatches } from "@/features/admin/data/getAdminMatches";
+import { getPlayers } from "@/shared/data/getPlayers";
+import { getTeams } from "@/shared/data/getTeams";
 import { AdminTabs } from "@/features/admin/components/AdminTabs";
-import { MOCK_PLAYERS } from "@/features/predictions/utils/mockTournamentData";
 import { colors, typography } from "@/shared/constants/designSystem";
 
 export default async function AdminPage() {
-  const groups = await getAdminMatches();
-
-  // Extraer equipos únicos de los partidos — igual que en PredictionsLoader
-  const teams = Array.from(
-    new Map(
-      groups
-        .flatMap((g) => g.matches)
-        .flatMap((m) => [m.homeTeam, m.awayTeam])
-        .map((t) => [
-          t.id,
-          { id: t.id, name: t.name, code: t.code, flagUrl: "" },
-        ]),
-    ).values(),
-  ).sort((a, b) => a.name.localeCompare(b.name));
+  const [groups, players, teams] = await Promise.all([
+    getAdminMatches(),
+    getPlayers(),
+    getTeams(),
+  ]);
 
   return (
     <div className="flex flex-col gap-4 max-w-lg mx-auto">
@@ -35,7 +27,7 @@ export default async function AdminPage() {
         </span>
       </div>
 
-      <AdminTabs groups={groups} teams={teams} players={MOCK_PLAYERS} />
+      <AdminTabs groups={groups} teams={teams} players={players} />
     </div>
   );
 }

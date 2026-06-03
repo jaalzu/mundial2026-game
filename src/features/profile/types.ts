@@ -9,7 +9,6 @@ export type UserStats = {
 export type TournamentPredictions = {
   champion: string;
   runnerUp: string;
-
   surprise: string;
   disappointment: string;
   mvp: string;

@@ -1,10 +1,5 @@
 import type { TournamentCardConfig } from "../models/types";
 
-/**
- * Single source of truth for all tournament prediction cards.
- * Order here = render order in the UI.
- * When players are ready, playerPosition filters the dropdown automatically.
- */
 export const TOURNAMENT_CARDS: TournamentCardConfig[] = [
   {
     field: "championTeamId",
@@ -18,18 +13,6 @@ export const TOURNAMENT_CARDS: TournamentCardConfig[] = [
     description: "¿Quién llega a la final pero no gana?",
     type: "team",
   },
-  //   {
-  //     field: "finalHomeTeamId",
-  //     label: "Final — Local",
-  //     description: "Primer equipo en la gran final",
-  //     type: "team",
-  //   },
-  //   {
-  //     field: "finalAwayTeamId",
-  //     label: "Final — Visitante",
-  //     description: "Segundo equipo en la gran final",
-  //     type: "team",
-  //   },
   {
     field: "surpriseTeamId",
     label: "Selección Sorpresa",
@@ -53,14 +36,12 @@ export const TOURNAMENT_CARDS: TournamentCardConfig[] = [
     label: "Bota de Oro",
     description: "Máximo goleador",
     type: "player",
-    playerPosition: "FORWARD",
   },
   {
     field: "bestGoalkeeperPlayerId",
     label: "Mejor Arquero",
     description: "El guardián del torneo",
     type: "player",
-    playerPosition: "GOALKEEPER",
   },
   {
     field: "revelationPlayerId",

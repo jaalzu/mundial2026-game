@@ -8,7 +8,7 @@ import type {
   TeamOption,
   PlayerOption,
 } from "@/features/predictions/models/types";
-import { colors, borders, typography } from "@/shared/constants/designSystem";
+import { colors, typography } from "@/shared/constants/designSystem";
 
 type AdminTab = "matches" | "tournament";
 

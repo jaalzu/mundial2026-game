@@ -58,11 +58,7 @@ export type ActionResult<T = void> =
 
 // ─── Tournament types ────────────────────────────────────────────────────────
 
-export type PlayerPosition =
-  | "GOALKEEPER"
-  | "DEFENDER"
-  | "MIDFIELDER"
-  | "FORWARD";
+export type PlayerPosition = "GK" | "DEF" | "MID" | "FWD";
 
 export interface PlayerOption {
   id: string;
@@ -106,5 +102,4 @@ export interface TournamentCardConfig {
   label: string;
   description: string;
   type: TournamentSelectionType;
-  playerPosition?: PlayerPosition;
 }

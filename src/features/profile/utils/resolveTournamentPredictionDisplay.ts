@@ -40,7 +40,6 @@ export function resolveTournamentPredictionDisplay(
 export type TournamentPredictionDisplay = {
   champion: string;
   runnerUp: string;
-
   surprise: string;
   disappointment: string;
   mvp: string;

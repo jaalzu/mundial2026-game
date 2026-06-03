@@ -3,23 +3,33 @@ import { DataRow } from "./DataRow";
 import type { TournamentPredictions } from "../types";
 
 type TournamentPredictionsSectionProps = {
-  predictions: TournamentPredictions;
+  predictions: TournamentPredictions | null;
 };
 
 export function TournamentPredictionsSection({
   predictions,
 }: TournamentPredictionsSectionProps) {
+  if (!predictions) {
+    return (
+      <SectionCard title="Predicciones del torneo">
+        <p style={{ opacity: 0.5, fontSize: 14 }}>
+          Todavía no hiciste tus predicciones del torneo.
+        </p>
+      </SectionCard>
+    );
+  }
+
   return (
     <SectionCard title="Predicciones del torneo">
-      <DataRow label="Campeon" value={predictions.champion} valueHighlight />
-      <DataRow label="Subcampeon" value={predictions.runnerUp} valueHighlight />
+      <DataRow label="Campeón" value={predictions.champion} valueHighlight />
+      <DataRow label="Subcampeón" value={predictions.runnerUp} valueHighlight />
       <DataRow
         label="Equipo Sorpresa"
         value={predictions.surprise}
         valueHighlight
       />
       <DataRow
-        label="Equipo Decepcion"
+        label="Equipo Decepción"
         value={predictions.disappointment}
         valueHighlight
       />
@@ -35,7 +45,7 @@ export function TournamentPredictionsSection({
         valueHighlight
       />
       <DataRow
-        label="Revelacion"
+        label="Revelación"
         value={predictions.revelation}
         valueHighlight
       />

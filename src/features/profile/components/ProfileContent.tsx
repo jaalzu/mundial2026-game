@@ -2,7 +2,6 @@ import { ProfileSection } from "./ProfileSection";
 import { StatsSection } from "./StatsSection";
 import { TournamentPredictionsSection } from "./TournamentPredictionsSection";
 import { resolveTournamentPredictionDisplay } from "../utils/resolveTournamentPredictionDisplay";
-import { getMockStats } from "../data/mockProfileData";
 import { colors, typography } from "@/shared/constants/designSystem";
 import type { getProfileData } from "../actions/getProfileData";
 
@@ -21,7 +20,7 @@ export function ProfileContent({
   recoveryKey,
   profileData,
 }: ProfileContentProps) {
-  const stats = profileData?.stats ?? getMockStats();
+  const stats = profileData?.stats ?? null;
   const predictions = resolveTournamentPredictionDisplay(
     profileData?.prediction ?? null,
   );

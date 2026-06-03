@@ -12,7 +12,8 @@ export async function getTournamentPrediction(
       select: {
         championTeamId: true,
         runnerUpTeamId: true,
-
+        // finalHomeTeamId: true,
+        // finalAwayTeamId: true,
         surpriseTeamId: true,
         disappointmentTeamId: true,
         mvpPlayerId: true,

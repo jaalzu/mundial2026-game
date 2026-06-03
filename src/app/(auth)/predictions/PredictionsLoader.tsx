@@ -1,20 +1,25 @@
+// PredictionsLoader
 import { getAuthenticatedUser } from "@/shared/utils/getAuthenticatedUser";
-import { getMatches } from "@/features/matches/actions/getMatches";
+import { getMatches } from "@/shared/data/getMatches";
+import { getPlayers } from "@/shared/data/getPlayers";
+import { getTeams } from "@/shared/data/getTeams";
 import { getUserPredictions } from "@/features/predictions/actions/getUserPredictions";
 import { getTournamentPrediction } from "@/features/predictions/actions/getTournamentPrediction";
 import { PredictionsContent } from "@/features/predictions/components/PredictionsContent";
-import { MOCK_PLAYERS } from "@/features/predictions/utils/mockTournamentData";
 import { redirect } from "next/navigation";
 
 export async function PredictionsLoader() {
   const user = await getAuthenticatedUser();
   if (!user) redirect("/landing");
 
-  const [groups, predictionsResult, tournamentResult] = await Promise.all([
-    getMatches(),
-    getUserPredictions(user.id),
-    getTournamentPrediction(user.id),
-  ]);
+  const [groups, players, teams, predictionsResult, tournamentResult] =
+    await Promise.all([
+      getMatches(),
+      getPlayers(),
+      getTeams(),
+      getUserPredictions(user.id),
+      getTournamentPrediction(user.id),
+    ]);
 
   const initialPredictions = predictionsResult.success
     ? predictionsResult.data
@@ -24,16 +29,6 @@ export async function PredictionsLoader() {
     ? tournamentResult.data
     : null;
 
-  // Extraer los 48 equipos únicos de los partidos ya cargados — sin query extra
-  const teams = Array.from(
-    new Map(
-      groups
-        .flatMap((g) => g.matches)
-        .flatMap((m) => [m.homeTeam, m.awayTeam])
-        .map((t) => [t.id, t]),
-    ).values(),
-  ).sort((a, b) => a.name.localeCompare(b.name));
-
   return (
     <PredictionsContent
       userId={user.id}
@@ -41,7 +36,7 @@ export async function PredictionsLoader() {
       initialPredictions={initialPredictions}
       initialTournament={initialTournament}
       teams={teams}
-      players={MOCK_PLAYERS}
+      players={players}
     />
   );
 }
