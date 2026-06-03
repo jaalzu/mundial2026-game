@@ -60,6 +60,7 @@ export async function createUser(input: CreateUserInput) {
         id: userId,
         name: parsed.data.username,
         recoveryKey: parsed.data.recoveryCode,
+        avatarPlayerId: parsed.data.avatar, // ← faltaba esto
       },
     });
   } catch (error) {

@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { borders, colors, typography } from "@/shared/constants/designSystem";
+import { getAvatarPlayer } from "@/shared/constants/avatarPlayers";
 
 type LeaderboardEntry = {
   rank: number;
@@ -18,10 +20,7 @@ export function LeaderboardTable({
   entries,
   currentUserId,
 }: LeaderboardTableProps) {
-  // Borde inferior para separar a los jugadores
   const rowBottomBorder = `1px solid rgba(128, 128, 128, 0.12)`;
-
-  // Separador verde para los títulos (Header)
   const headerColumnSeparator = borders.light;
 
   return (
@@ -38,7 +37,7 @@ export function LeaderboardTable({
         }}
       >
         <div
-          className="flex items-center justify-center  h-full"
+          className="flex items-center justify-center h-full"
           style={{ borderRight: headerColumnSeparator }}
         >
           RANK
@@ -60,15 +59,14 @@ export function LeaderboardTable({
       <div className="flex flex-col">
         {entries.map((entry) => {
           const isCurrentUser = entry.userId === currentUserId;
-
-          // Rank colors
+          const avatarPlayer = getAvatarPlayer(entry.avatarPlayerId);
           const rankColor =
             entry.rank === 1
-              ? "#FFD700" // Oro
+              ? "#FFD700"
               : entry.rank === 2
-                ? "#C0C0C0" // Plata
+                ? "#C0C0C0"
                 : entry.rank === 3
-                  ? "#CD7F32" // Bronce
+                  ? "#CD7F32"
                   : colors.text;
 
           const deltaColor =
@@ -90,23 +88,27 @@ export function LeaderboardTable({
                 fontFamily: typography.fontFamily,
               }}
             >
-              {/* Rank  */}
-              <div
-                className="py-4  text-xl"
-                style={{
-                  color: rankColor,
-                }}
-              >
+              {/* Rank */}
+              <div className="py-4 text-xl" style={{ color: rankColor }}>
                 {entry.rank}
               </div>
 
-              {/* User info  */}
-              <div className="flex items-center gap-2  pl-2 text-left">
-                {/* Avatar grande */}
-                <div
-                  className="w-7 h-7 rounded-full flex items-center justify-center text-xl shrink-0"
-                  style={{ backgroundColor: "rgba(255, 0, 0, 0.93)" }}
-                ></div>
+              {/* User info */}
+              <div className="flex items-center gap-2 pl-2 text-left">
+                {/* Avatar */}
+                <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0">
+                  {avatarPlayer ? (
+                    <Image
+                      src={avatarPlayer.photoUrl}
+                      alt={avatarPlayer.name}
+                      fill
+                      className="object-cover"
+                      sizes="48px"
+                    />
+                  ) : (
+                    <div className="w-full h-full rounded-full bg-gray-600" />
+                  )}
+                </div>
 
                 {/* Nombre */}
                 <span
@@ -117,9 +119,9 @@ export function LeaderboardTable({
                 </span>
               </div>
 
-              {/* Points (Limpio) */}
+              {/* Points */}
               <div
-                className="py-4 font-bold text-xl"
+                className="py-4 font-bold"
                 style={{ fontSize: typography.sizes.lg }}
               >
                 {entry.totalPoints}
@@ -128,10 +130,7 @@ export function LeaderboardTable({
               {/* Rank Delta */}
               <div
                 className="py-4 font-bold"
-                style={{
-                  color: deltaColor,
-                  fontSize: typography.sizes.md,
-                }}
+                style={{ color: deltaColor, fontSize: typography.sizes.md }}
               >
                 {entry.rankDelta > 0 && `+${entry.rankDelta}`}
                 {entry.rankDelta < 0 && `${entry.rankDelta}`}

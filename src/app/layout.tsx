@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Anonymous_Pro } from "next/font/google";
-import { Providers } from "@/shared/providers";
 import "./globals.css";
 import "flag-icons/css/flag-icons.min.css";
 export const dynamic = "force-dynamic";
@@ -23,9 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={anonymousPro.variable}>
-        <Providers>{children}</Providers>
-      </body>
+      <body className={anonymousPro.variable}>{children}</body>
     </html>
   );
 }

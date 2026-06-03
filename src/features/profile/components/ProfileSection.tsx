@@ -2,14 +2,14 @@ import { SectionCard } from "./SectionCard";
 import { DataRow } from "./DataRow";
 import { RecoveryCodeRow } from "./RecoveryCodeRow";
 import type { ProfileUser } from "../types";
+import { getAvatarPlayer } from "@/shared/constants/avatarPlayers";
 
 type ProfileSectionProps = {
   user: ProfileUser;
 };
 
 export function ProfileSection({ user }: ProfileSectionProps) {
-  // TODO: resolver nombre display del avatar desde avatarPlayerId
-  const avatarDisplayName = user.avatarPlayerId ?? "—";
+  const avatarDisplayName = getAvatarPlayer(user.avatarPlayerId)?.name ?? "—";
 
   return (
     <SectionCard title="Perfil">

@@ -48,14 +48,13 @@ enum MatchPredictionResult {
 model User {
   id              String    @id @db.Uuid
   name            String    @unique
-  avatarPlayerId  String?   @map("avatar_player_id") @db.Uuid  
+  avatarPlayerId  String?   @map("avatar_player_id") 
   recoveryKey     String    @unique @map("recovery_key")
   nameUpdatedAt   DateTime? @map("name_updated_at") @db.Timestamptz(6)
   avatarUpdatedAt DateTime? @map("avatar_updated_at") @db.Timestamptz(6)
   createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt       DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
 
-  avatarPlayer         Player?               @relation("UserAvatar", fields: [avatarPlayerId], references: [id], onDelete: SetNull)
   matchPredictions     MatchPrediction[]
   tournamentPrediction TournamentPrediction?
   leaderboardDailyRows LeaderboardDaily[]
@@ -104,7 +103,6 @@ model Player {
   updatedAt  DateTime       @updatedAt @map("updated_at") @db.Timestamptz(6)
 
   team                      Team                   @relation(fields: [teamId], references: [id], onDelete: Restrict)
-  avatarUsers               User[]                 @relation("UserAvatar")
   mvpPredictions            TournamentPrediction[] @relation("TournamentPredictionMvp")
   goldenBootPredictions     TournamentPrediction[] @relation("TournamentPredictionGoldenBoot")
   bestGoalkeeperPredictions TournamentPrediction[] @relation("TournamentPredictionBestGoalkeeper")

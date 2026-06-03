@@ -1,6 +1,3 @@
--- CreateSchema
-CREATE SCHEMA IF NOT EXISTS "public";
-
 -- CreateEnum
 CREATE TYPE "MatchPhase" AS ENUM ('GROUP', 'ROUND_OF_16', 'QUARTER_FINAL', 'SEMI_FINAL', 'THIRD_PLACE', 'FINAL');
 
@@ -20,7 +17,7 @@ CREATE TYPE "MatchPredictionResult" AS ENUM ('EXACT_SCORE', 'WINNER', 'DRAW', 'W
 CREATE TABLE "users" (
     "id" UUID NOT NULL,
     "name" TEXT NOT NULL,
-    "avatar_player_id" UUID,
+    "avatar_player_id" TEXT,
     "recovery_key" TEXT NOT NULL,
     "name_updated_at" TIMESTAMPTZ(6),
     "avatar_updated_at" TIMESTAMPTZ(6),
@@ -65,6 +62,7 @@ CREATE TABLE "matches" (
     "home_team_id" UUID NOT NULL,
     "away_team_id" UUID NOT NULL,
     "winner_team_id" UUID,
+    "group" TEXT,
     "phase" "MatchPhase" NOT NULL,
     "status" "MatchStatus" NOT NULL DEFAULT 'SCHEDULED',
     "starts_at" TIMESTAMPTZ(6) NOT NULL,
@@ -205,9 +203,6 @@ CREATE UNIQUE INDEX "leaderboard_daily_user_id_calculated_at_key" ON "leaderboar
 
 -- CreateIndex
 CREATE INDEX "api_sync_logs_synced_at_idx" ON "api_sync_logs"("synced_at");
-
--- AddForeignKey
-ALTER TABLE "users" ADD CONSTRAINT "users_avatar_player_id_fkey" FOREIGN KEY ("avatar_player_id") REFERENCES "players"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "players" ADD CONSTRAINT "players_team_id_fkey" FOREIGN KEY ("team_id") REFERENCES "teams"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

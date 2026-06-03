@@ -1,4 +1,3 @@
-// src/features/leaderboard/actions/getLeaderboard.ts
 "use server";
 
 import { prisma } from "@/lib/prisma";
