@@ -21,5 +21,5 @@ export type ProfileUser = {
   id: string;
   name: string;
   avatarPlayerId: string | null;
-  recoveryKey: string;
+  recoveryKey: string | null;
 };

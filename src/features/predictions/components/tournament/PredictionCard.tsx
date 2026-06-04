@@ -1,5 +1,3 @@
-// PredictionCard.tsx
-
 "use client";
 
 import type {
@@ -20,6 +18,7 @@ interface PredictionCardProps {
   isActive: boolean;
   onActivate: () => void;
   onChange: (value: string | null) => void;
+  isLocked?: boolean;
 }
 
 export function PredictionCard({
@@ -30,16 +29,16 @@ export function PredictionCard({
   isActive,
   onActivate,
   onChange,
+  isLocked = false,
 }: PredictionCardProps) {
   const value = data[config.field];
-  const isCompleted = value !== null;
 
   return (
     <div
-      className="flex flex-col mx-2  mb-5"
+      className="flex flex-col mx-2 mb-5"
       style={{ border: borders.default }}
     >
-      {/* Header: TÍTULO — PUNTOS */}
+      {/* Header */}
       <div
         className="flex items-center justify-between px-4 py-1"
         style={{ borderBottom: borders.default }}
@@ -67,7 +66,14 @@ export function PredictionCard({
       </div>
 
       {/* Selector */}
-      <div className="px-5 py-5.5" onClick={onActivate}>
+      <div
+        className="px-5 py-5.5"
+        style={{
+          pointerEvents: isLocked ? "none" : "auto",
+          opacity: isLocked ? 0.5 : 1,
+        }}
+        onClick={!isLocked ? onActivate : undefined}
+      >
         {config.type === "team" ? (
           <TeamSelector
             teams={teams}

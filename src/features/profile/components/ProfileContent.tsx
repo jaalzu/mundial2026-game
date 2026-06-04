@@ -9,7 +9,8 @@ type ProfileContentProps = {
   userId: string;
   userName: string;
   avatarPlayerId: string | null;
-  recoveryKey: string;
+  recoveryKey: string | null;
+  isPublic?: boolean;
   profileData: Awaited<ReturnType<typeof getProfileData>>;
 };
 
@@ -18,6 +19,7 @@ export function ProfileContent({
   userName,
   avatarPlayerId,
   recoveryKey,
+  isPublic = false,
   profileData,
 }: ProfileContentProps) {
   const stats = profileData?.stats ?? null;
@@ -34,22 +36,24 @@ export function ProfileContent({
 
   return (
     <div className="flex flex-col gap-4">
-      <ProfileSection user={profileUser} />
+      <ProfileSection user={profileUser} isPublic={isPublic} />
       <StatsSection stats={stats} />
       <TournamentPredictionsSection predictions={predictions} />
-      <p
-        style={{
-          fontFamily: typography.fontFamily,
-          fontSize: "10px",
-          color: colors.text,
-          opacity: 0.7,
-          textAlign: "center",
-          lineHeight: 1.5,
-        }}
-      >
-        para informar sobre bugs o feedback podés comunicarte a este correo:{" "}
-        javieraizuu@gmail.com
-      </p>
+      {!isPublic && (
+        <p
+          style={{
+            fontFamily: typography.fontFamily,
+            fontSize: "10px",
+            color: colors.text,
+            opacity: 0.7,
+            textAlign: "center",
+            lineHeight: 1.5,
+          }}
+        >
+          para informar sobre bugs o feedback podés comunicarte a este correo:{" "}
+          javieraizuu@gmail.com
+        </p>
+      )}
     </div>
   );
 }

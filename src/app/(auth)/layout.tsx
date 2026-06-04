@@ -21,7 +21,7 @@ export default async function ProtectedLayout({
       className="min-h-screen"
       style={{ backgroundColor: colors.background }}
     >
-      <Nav userName={user.name} />
+      <Nav />
       <main className="pb-24" style={{ minHeight: "calc(100vh - 80px)" }}>
         {children}
       </main>

@@ -8,6 +8,11 @@ import {
   isValidScore,
   isPredictionComplete,
 } from "../../utils/predictionHelpers";
+import {
+  getMatchPoints,
+  getMatchPointsColor,
+  isMatchLocked,
+} from "../../utils/matchScoring";
 import { TeamDisplay } from "./TeamDisplay";
 import { MatchScoreInput } from "./MatchScoreInput";
 import {
@@ -26,29 +31,6 @@ interface MatchRowProps {
   onFocusRequest: () => void;
 }
 
-// MatchRow.tsx — arriba, antes del componente
-
-function getPoints(home: string, away: string, match: Match): string {
-  const ph = parseInt(home, 10);
-  const pa = parseInt(away, 10);
-  const sh = match.scoreHome!;
-  const sa = match.scoreAway!;
-
-  if (ph === sh && pa === sa) return "+3";
-
-  const predictedWinner = ph > pa ? "home" : ph < pa ? "away" : "draw";
-  const actualWinner = sh > sa ? "home" : sh < sa ? "away" : "draw";
-
-  return predictedWinner === actualWinner ? "+1" : "0";
-}
-
-function getPointsColor(home: string, away: string, match: Match): string {
-  const points = getPoints(home, away, match);
-  if (points === "+3") return colors.primary;
-  if (points === "+1") return "#f59f0be4";
-  return colors.secondary;
-}
-
 export function MatchRow({
   match,
   index,
@@ -62,10 +44,11 @@ export function MatchRow({
   const homeIsFilled = isValidScore(homeVal);
   const awayIsFilled = isValidScore(awayVal);
   const isComplete = isPredictionComplete(homeVal, awayVal);
+  const isLocked = isMatchLocked(match);
   const isFinished = match.status === "FINISHED";
 
-  const rowBorder = isFinished
-    ? `1px solid ${colors.primary}72`
+  const rowBorder = isLocked
+    ? `1px solid ${colors.primary}22`
     : isActive
       ? borders.light
       : isComplete
@@ -74,12 +57,12 @@ export function MatchRow({
 
   return (
     <div
-      onClick={!isFinished ? onFocusRequest : undefined}
+      onClick={!isLocked ? onFocusRequest : undefined}
       className="flex flex-col transition-all px-1 pb-4"
       style={{
         border: rowBorder,
-        height: isFinished ? "95px" : "90px",
-        cursor: isFinished ? "default" : "pointer",
+        height: isLocked ? "95px" : "90px",
+        cursor: isLocked ? "default" : "pointer",
       }}
     >
       <div className="w-full text-center pt-1 shrink-0">
@@ -103,7 +86,7 @@ export function MatchRow({
           <MatchScoreInput
             registration={register(`matches.${index}.predictedHome`)}
             isFilled={homeIsFilled}
-            disabled={isFinished}
+            disabled={isLocked}
           />
           <span
             style={{
@@ -117,38 +100,42 @@ export function MatchRow({
           <MatchScoreInput
             registration={register(`matches.${index}.predictedAway`)}
             isFilled={awayIsFilled}
-            disabled={isFinished}
+            disabled={isLocked}
           />
         </div>
         <TeamDisplay code={match.awayTeam.code} name={match.awayTeam.name} />
       </div>
 
-      {/* FUERA del grid */}
-      {isFinished && match.scoreHome != null && match.scoreAway != null && (
-        <div className="w-full text-center ">
-          <span
-            style={{
-              fontFamily: typography.fontFamily,
-              fontSize: typography.sizes.sm,
-              color: colors.mutedText,
-            }}
-          >
-            Resultado:{" "}
-            <strong style={{ color: colors.text }}>
-              {match.homeTeam.code} {match.scoreHome} — {match.scoreAway}{" "}
-              {match.awayTeam.code}
-            </strong>
-            {isComplete && (
-              <strong
-                style={{ color: getPointsColor(homeVal, awayVal, match) }}
-              >
-                {" "}
-                {getPoints(homeVal, awayVal, match)}
+      {isLocked &&
+        isFinished &&
+        match.scoreHome != null &&
+        match.scoreAway != null && (
+          <div className="w-full text-center">
+            <span
+              style={{
+                fontFamily: typography.fontFamily,
+                fontSize: typography.sizes.sm,
+                color: colors.mutedText,
+              }}
+            >
+              Resultado:{" "}
+              <strong style={{ color: colors.text }}>
+                {match.homeTeam.code} {match.scoreHome} — {match.scoreAway}{" "}
+                {match.awayTeam.code}
               </strong>
-            )}
-          </span>
-        </div>
-      )}
+              {isComplete && (
+                <strong
+                  style={{
+                    color: getMatchPointsColor(homeVal, awayVal, match),
+                  }}
+                >
+                  {" "}
+                  {getMatchPoints(homeVal, awayVal, match)}
+                </strong>
+              )}
+            </span>
+          </div>
+        )}
     </div>
   );
 }

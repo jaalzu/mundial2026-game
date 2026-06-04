@@ -2,6 +2,7 @@
 
 import { v4 as uuid } from "uuid";
 import { redirect } from "next/navigation";
+import { rebuildLeaderboard } from "@/server/leaderboard/rebuildLeaderboard";
 
 import { prisma } from "@/lib/prisma";
 import { createClient } from "@/lib/supabase/server";
@@ -60,9 +61,11 @@ export async function createUser(input: CreateUserInput) {
         id: userId,
         name: parsed.data.username,
         recoveryKey: parsed.data.recoveryCode,
-        avatarPlayerId: parsed.data.avatar, // ← faltaba esto
+        avatarPlayerId: parsed.data.avatar,
       },
     });
+
+    await rebuildLeaderboard();
   } catch (error) {
     console.error("DB error:", error);
     return {

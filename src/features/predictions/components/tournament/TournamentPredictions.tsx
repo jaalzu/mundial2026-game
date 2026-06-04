@@ -13,6 +13,8 @@ import type {
 } from "../../models/types";
 import { colors, typography } from "@/shared/constants/designSystem";
 
+const TOURNAMENT_DEADLINE = new Date("2026-06-11T00:00:00-05:00");
+
 interface TournamentPredictionsProps {
   userId: string;
   initialData: TournamentPredictionData | null;
@@ -34,21 +36,22 @@ export function TournamentPredictions({
     hydrate(initialData);
   }, [hydrate, initialData]);
 
+  const isLocked = new Date() > TOURNAMENT_DEADLINE;
   const completedCount = Object.values(data).filter(Boolean).length;
   const totalCount = TOURNAMENT_CARDS.length;
 
   const handleChange = useCallback(
     async (field: TournamentPredictionField, value: string | null) => {
+      if (isLocked) return;
       setField(field, value);
       await saveTournamentPrediction(userId, field, value);
     },
-    [userId, setField],
+    [userId, setField, isLocked],
   );
 
   return (
-    <div className="flex flex-col ">
-      {/* Progress header */}
-      <div className="flex items-center justify-between px-5 py-1 ">
+    <div className="flex flex-col">
+      <div className="flex items-center justify-between px-5 py-1">
         <span
           style={{
             fontFamily: typography.fontFamily,
@@ -59,10 +62,21 @@ export function TournamentPredictions({
         >
           {completedCount}/{totalCount}
         </span>
+        {isLocked && (
+          <span
+            style={{
+              fontFamily: typography.fontFamily,
+              fontSize: typography.sizes.xs,
+              color: colors.mutedText,
+              letterSpacing: "0.05em",
+            }}
+          >
+            CERRADO
+          </span>
+        )}
       </div>
 
-      {/* Cards */}
-      <div className="flex flex-col  ">
+      <div className="flex flex-col">
         {TOURNAMENT_CARDS.map((config) => (
           <PredictionCard
             key={config.field}
@@ -70,9 +84,10 @@ export function TournamentPredictions({
             data={data}
             teams={teams}
             players={players}
-            isActive={activeField === config.field}
-            onActivate={() => setActiveField(config.field)}
+            isActive={!isLocked && activeField === config.field}
+            onActivate={() => !isLocked && setActiveField(config.field)}
             onChange={(value) => handleChange(config.field, value)}
+            isLocked={isLocked}
           />
         ))}
       </div>
