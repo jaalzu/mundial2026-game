@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
 import type {
   TournamentPredictionData,
   TournamentPredictionField,
@@ -8,8 +7,6 @@ import type {
 const EMPTY: TournamentPredictionData = {
   championTeamId: null,
   runnerUpTeamId: null,
-  // finalHomeTeamId: null,
-  // finalAwayTeamId: null,
   surpriseTeamId: null,
   disappointmentTeamId: null,
   mvpPlayerId: null,
@@ -23,24 +20,13 @@ interface TournamentPredictionsStore {
   hydrate: (initial: TournamentPredictionData | null) => void;
   setField: (field: TournamentPredictionField, value: string | null) => void;
 }
-
-export const useTournamentPredictionsStore =
-  create<TournamentPredictionsStore>()(
-    persist(
-      (set) => ({
-        data: EMPTY,
-
-        hydrate: (initial) =>
-          set((state) => ({
-            // Local optimistic updates win over server data
-            data: { ...EMPTY, ...state.data, ...initial },
-          })),
-
-        setField: (field, value) =>
-          set((state) => ({
-            data: { ...state.data, [field]: value },
-          })),
-      }),
-      { name: "tournament-predictions-store" },
-    ),
-  );
+export const useTournamentPredictionsStore = create<TournamentPredictionsStore>(
+  (set) => ({
+    data: EMPTY,
+    hydrate: (initial) => set({ data: { ...EMPTY, ...initial } }),
+    setField: (field, value) =>
+      set((state) => ({
+        data: { ...state.data, [field]: value },
+      })),
+  }),
+);

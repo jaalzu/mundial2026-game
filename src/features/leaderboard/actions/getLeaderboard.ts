@@ -41,8 +41,6 @@ export async function getLeaderboard(): Promise<LeaderboardEntry[]> {
     }));
   }
 
-  console.log("[leaderboard] rows:", rows.length);
-
   return rows.map((row) => ({
     rank: row.rank,
     userId: row.userId,

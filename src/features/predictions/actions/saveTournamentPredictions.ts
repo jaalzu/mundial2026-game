@@ -17,7 +17,7 @@ export async function saveTournamentPrediction(
     });
 
     revalidatePath("/predictions");
-
+    revalidatePath("/profile");
     return { success: true, data: undefined };
   } catch (err) {
     console.error("[saveTournamentPrediction] Failed:", { field, value, err });

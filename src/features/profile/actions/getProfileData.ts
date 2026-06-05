@@ -23,8 +23,6 @@ export async function getProfileData(userId: string) {
           include: {
             championTeam: { select: { name: true } },
             runnerUpTeam: { select: { name: true } },
-            // finalHomeTeam: { select: { name: true } },
-            // finalAwayTeam: { select: { name: true } },
             surpriseTeam: { select: { name: true } },
             disappointmentTeam: { select: { name: true } },
             mvpPlayer: { select: { name: true } },
@@ -51,10 +49,6 @@ export async function getProfileData(userId: string) {
             exactPredictions: 0,
             rankDelta: 0,
           };
-      console.log(
-        "[profile] leaderboardEntry:",
-        JSON.stringify(leaderboardEntry, null, 2),
-      );
 
       return { stats, prediction };
     },

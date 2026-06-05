@@ -2,13 +2,26 @@ import { getAdminMatches } from "@/features/admin/data/getAdminMatches";
 import { getPlayers } from "@/shared/data/getPlayers";
 import { getTeams } from "@/shared/data/getTeams";
 import { AdminTabs } from "@/features/admin/components/AdminTabs";
+import { prisma } from "@/lib/prisma";
 import { colors, typography } from "@/shared/constants/designSystem";
 
 export default async function AdminPage() {
-  const [groups, players, teams] = await Promise.all([
+  const [groups, players, teams, existingResult] = await Promise.all([
     getAdminMatches(),
     getPlayers(),
     getTeams(),
+    prisma.tournamentResult.findFirst({
+      select: {
+        championTeamId: true,
+        runnerUpTeamId: true,
+        surpriseTeamId: true,
+        disappointmentTeamId: true,
+        mvpPlayerId: true,
+        goldenBootPlayerId: true,
+        bestGoalkeeperPlayerId: true,
+        revelationPlayerId: true,
+      },
+    }),
   ]);
 
   return (
@@ -27,7 +40,12 @@ export default async function AdminPage() {
         </span>
       </div>
 
-      <AdminTabs groups={groups} teams={teams} players={players} />
+      <AdminTabs
+        groups={groups}
+        teams={teams}
+        players={players}
+        initialTournamentResult={existingResult}
+      />
     </div>
   );
 }

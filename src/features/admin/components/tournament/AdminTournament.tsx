@@ -13,9 +13,10 @@ import { colors, borders, typography } from "@/shared/constants/designSystem";
 interface AdminTournamentProps {
   teams: TeamOption[];
   players: PlayerOption[];
+  initialResult: TournamentResultState | null;
 }
 
-interface TournamentResultState {
+export interface TournamentResultState {
   championTeamId: string | null;
   runnerUpTeamId: string | null;
   surpriseTeamId: string | null;
@@ -52,8 +53,14 @@ const FIELDS: {
   { key: "revelationPlayerId", label: "Revelación", type: "player" },
 ];
 
-export function AdminTournament({ teams, players }: AdminTournamentProps) {
-  const [data, setData] = useState<TournamentResultState>(EMPTY);
+export function AdminTournament({
+  teams,
+  players,
+  initialResult,
+}: AdminTournamentProps) {
+  const [data, setData] = useState<TournamentResultState>(
+    initialResult ?? EMPTY,
+  );
   const [activeField, setActiveField] = useState<
     keyof TournamentResultState | null
   >(null);

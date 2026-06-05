@@ -48,12 +48,10 @@ export function LeaderboardTable({
           className="flex items-center justify-center h-full"
           style={{
             borderLeft: headerColumnSeparator,
-            borderRight: headerColumnSeparator,
           }}
         >
           PTS
         </div>
-        {/* <div className="flex items-center justify-center h-full">+/-</div> */}
       </div>
 
       {/* Rows */}
@@ -87,7 +85,10 @@ export function LeaderboardTable({
                 className="py-4 flex flex-col items-center justify-center gap-0.5"
                 style={{ color: rankColor }}
               >
-                <span className="text-xl">{entry.rank}</span>
+                <span className="text-xl">
+                  {entry.rank === entries.length ? "💩" : entry.rank}
+                </span>
+
                 {entry.rankDelta > 0 && (
                   <span
                     style={{

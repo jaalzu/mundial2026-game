@@ -21,28 +21,36 @@ export interface MatchScoreOutput {
   result: "EXACT_SCORE" | "WINNER" | "WRONG";
 }
 
-/**
- * Pure function — no side effects, easy to unit test.
- * Calculates points for a single match prediction.
- */
 export function scoreMatchPrediction({
   predictedHome,
   predictedAway,
   actualHome,
   actualAway,
 }: MatchScoreInput): MatchScoreOutput {
-  const isExact = predictedHome === actualHome && predictedAway === actualAway;
+  console.log("[scoreMatch]", {
+    predictedHome,
+    predictedAway,
+    actualHome,
+    actualAway,
+  });
 
-  if (isExact) {
+  const isExact = predictedHome === actualHome && predictedAway === actualAway;
+  console.log("[scoreMatch] isExact:", isExact);
+
+  if (isExact)
     return { points: POINTS_EXACT, exactHit: true, result: "EXACT_SCORE" };
-  }
 
   const predictedWinner = getWinner(predictedHome, predictedAway);
   const actualWinner = getWinner(actualHome, actualAway);
+  console.log(
+    "[scoreMatch] predictedWinner:",
+    predictedWinner,
+    "actualWinner:",
+    actualWinner,
+  );
 
-  if (predictedWinner === actualWinner) {
+  if (predictedWinner === actualWinner)
     return { points: POINTS_WINNER, exactHit: false, result: "WINNER" };
-  }
 
   return { points: POINTS_MISS, exactHit: false, result: "WRONG" };
 }

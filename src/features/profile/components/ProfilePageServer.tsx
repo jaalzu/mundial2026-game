@@ -13,15 +13,13 @@ export async function ProfilePageServer() {
 
   return (
     <ScreenContainer>
-      <div>
-        <ProfileContent
-          userId={user.id}
-          userName={user.name}
-          avatarPlayerId={user.avatarPlayerId}
-          recoveryKey={user.recoveryKey}
-          profileData={profileData}
-        />
-      </div>
+      <ProfileContent
+        userId={user.id}
+        userName={user.name}
+        avatarPlayerId={user.avatarPlayerId}
+        recoveryKey={user.recoveryKey}
+        profileData={profileData}
+      />
     </ScreenContainer>
   );
 }

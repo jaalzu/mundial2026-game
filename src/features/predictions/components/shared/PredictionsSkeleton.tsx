@@ -4,7 +4,7 @@ import { colors, borders, typography } from "@/shared/constants/designSystem";
 
 export function PredictionsSkeleton() {
   return (
-    <div className="flex flex-col mt-1">
+    <div className="flex flex-col ">
       {/* Phase Tabs */}
       <div
         className="grid grid-cols-3 mb-4"
@@ -31,10 +31,10 @@ export function PredictionsSkeleton() {
 
       {/* Group Tabs */}
       <div
-        className="flex overflow-x-auto gap-3 mx-3 mb-4"
+        className="flex overflow-x-auto gap-3 mx-3 mb-5"
         style={{ scrollbarWidth: "none" }}
       >
-        {["A", "B", "C", "D", "E", "F", "G", "H"].map((group) => (
+        {["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"].map((group) => (
           <div
             key={group}
             className="flex-shrink-0 px-3.5 py-1 animate-pulse"
@@ -53,7 +53,7 @@ export function PredictionsSkeleton() {
       </div>
 
       {/* Points Legend */}
-      <div className="flex justify-end gap-3 px-4 mb-4">
+      <div className="flex justify-end gap-3 px-4 ">
         <span
           style={{
             fontFamily: typography.fontFamily,

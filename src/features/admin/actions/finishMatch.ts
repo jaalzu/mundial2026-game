@@ -13,17 +13,6 @@ interface FinishMatchInput {
   winnerTeamId?: string | null;
 }
 
-/**
- * Called from the admin panel when a match ends.
- *
- * Steps (all in one transaction):
- * 1. Update match: status → FINISHED, scores, winnerTeamId
- * 2. Score all predictions for this match
- *
- * Then outside the transaction:
- * 3. Rebuild leaderboard
- * 4. Revalidate cache
- */
 export async function finishMatch({
   matchId,
   scoreHome,
@@ -31,7 +20,6 @@ export async function finishMatch({
   winnerTeamId,
 }: FinishMatchInput): Promise<ActionResult> {
   try {
-    // Fetch all predictions for this match
     const predictions = await prisma.matchPrediction.findMany({
       where: { matchId },
       select: {
@@ -42,7 +30,6 @@ export async function finishMatch({
       },
     });
 
-    // Calculate scores for each prediction
     const scored = predictions.map((p) => ({
       id: p.id,
       ...scoreMatchPrediction({
@@ -53,14 +40,24 @@ export async function finishMatch({
       }),
     }));
 
+    console.log("[finishMatch] input:", { scoreHome, scoreAway });
     console.log(
-      "[finishMatch] scored predictions:",
-      JSON.stringify(scored, null, 2),
+      "[finishMatch] predictions a scorear:",
+      predictions.map((p) => ({
+        userId: p.userId,
+        predictedHome: p.predictedHome,
+        predictedAway: p.predictedAway,
+        types: {
+          predictedHome: typeof p.predictedHome,
+          predictedAway: typeof p.predictedAway,
+          scoreHome: typeof scoreHome,
+          scoreAway: typeof scoreAway,
+        },
+      })),
     );
+    console.log("[finishMatch] scored:", JSON.stringify(scored, null, 2));
 
-    // Transaction: update match + all predictions atomically
     await prisma.$transaction([
-      // 1. Mark match as finished
       prisma.match.update({
         where: { id: matchId },
         data: {
@@ -70,7 +67,6 @@ export async function finishMatch({
           winnerTeamId: winnerTeamId ?? null,
         },
       }),
-      // 2. Update each prediction with points
       ...scored.map((s) =>
         prisma.matchPrediction.update({
           where: { id: s.id },
@@ -83,10 +79,8 @@ export async function finishMatch({
       ),
     ]);
 
-    // 3. Rebuild leaderboard outside transaction (heavy operation)
     await rebuildLeaderboard();
 
-    // 4. Invalidate caches
     revalidatePath("/predictions");
     revalidatePath("/leaderboard");
     revalidatePath("/profile");

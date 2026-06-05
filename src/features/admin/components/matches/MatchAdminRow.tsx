@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { AdminMatch } from "../../data/getAdminMatches";
 import { finishMatch } from "../../actions/finishMatch";
 import { colors, borders, typography } from "@/shared/constants/designSystem";
+import { useRouter } from "next/navigation";
 
 interface MatchAdminRowProps {
   match: AdminMatch;
@@ -14,6 +15,7 @@ export function MatchAdminRow({ match }: MatchAdminRowProps) {
   const [awayScore, setAwayScore] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
   const isFinished = match.status === "FINISHED";
 
@@ -35,7 +37,9 @@ export function MatchAdminRow({ match }: MatchAdminRowProps) {
       scoreAway: away,
     });
 
-    if (!result.success) {
+    if (result.success) {
+      router.refresh();
+    } else {
       setError(result.error);
     }
 

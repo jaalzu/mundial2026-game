@@ -9,6 +9,7 @@ import type {
   PlayerOption,
 } from "@/features/predictions/models/types";
 import { colors, typography } from "@/shared/constants/designSystem";
+import type { TournamentResultState } from "./tournament/AdminTournament";
 
 type AdminTab = "matches" | "tournament";
 
@@ -21,9 +22,15 @@ interface AdminTabsProps {
   groups: AdminGroupData[];
   teams: TeamOption[];
   players: PlayerOption[];
+  initialTournamentResult: TournamentResultState | null;
 }
 
-export function AdminTabs({ groups, teams, players }: AdminTabsProps) {
+export function AdminTabs({
+  groups,
+  teams,
+  players,
+  initialTournamentResult,
+}: AdminTabsProps) {
   const [activeTab, setActiveTab] = useState<AdminTab>("matches");
 
   return (
@@ -60,7 +67,11 @@ export function AdminTabs({ groups, teams, players }: AdminTabsProps) {
 
       {activeTab === "matches" && <AdminMatches groups={groups} />}
       {activeTab === "tournament" && (
-        <AdminTournament teams={teams} players={players} />
+        <AdminTournament
+          teams={teams}
+          players={players}
+          initialResult={initialTournamentResult}
+        />
       )}
     </div>
   );

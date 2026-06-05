@@ -24,7 +24,6 @@ export async function loginWithRecoveryCode(recoveryCode: string) {
       error: "Invalid recovery code",
     };
   }
-  console.log("✅ USER FOUND:", { userId: user.id, username: user.name });
 
   const supabase = await createClient();
 
@@ -46,7 +45,6 @@ export async function loginWithRecoveryCode(recoveryCode: string) {
       error: "Failed to create session",
     };
   }
-  console.log("✅ USER FOUND:", { userId: user.id, username: user.name });
 
   // Redirect automático (la sesión ya está en la cookie)
   redirect("/leaderboard");

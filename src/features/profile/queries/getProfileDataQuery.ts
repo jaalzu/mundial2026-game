@@ -49,10 +49,6 @@ export function getCachedProfileData(userId: string) {
             exactPredictions: 0,
             rankDelta: 0,
           };
-      console.log(
-        "[profile] leaderboardEntry:",
-        JSON.stringify(leaderboardEntry, null, 2),
-      );
 
       return { stats, prediction };
     },

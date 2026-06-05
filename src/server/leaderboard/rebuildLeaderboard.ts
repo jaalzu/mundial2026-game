@@ -75,7 +75,10 @@ export async function rebuildLeaderboard(): Promise<void> {
       ? b.totalPoints - a.totalPoints
       : b.exactHits - a.exactHits,
   );
-
+  console.log(
+    "[rebuild] matchPoints raw:",
+    JSON.stringify(matchPoints, null, 2),
+  );
   const upserts = userScores.map((user, i) => {
     const rank = i + 1;
     const previousRank = previousRankMap.get(user.userId) ?? rank;
@@ -103,9 +106,6 @@ export async function rebuildLeaderboard(): Promise<void> {
       },
     });
   });
-
-  console.log("[rebuild] total userScores a upsertear:", userScores.length);
-  console.log("[rebuild] userScores:", JSON.stringify(userScores, null, 2));
 
   await prisma.$transaction(upserts);
   revalidatePath("/leaderboard");
