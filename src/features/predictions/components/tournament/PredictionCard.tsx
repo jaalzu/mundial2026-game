@@ -61,7 +61,7 @@ export function PredictionCard({
             color: colors.text,
           }}
         >
-          +20 puntos
+          +{config.points} puntos
         </span>
       </div>
 

@@ -10,12 +10,12 @@ export const POINTS_MISS = 0; // wrong
 
 // Tournament predictions
 export const TOURNAMENT_POINTS: Record<string, number> = {
-  championTeamId: 20,
-  runnerUpTeamId: 10,
-  surpriseTeamId: 10,
-  disappointmentTeamId: 10,
-  mvpPlayerId: 10,
-  goldenBootPlayerId: 10,
-  bestGoalkeeperPlayerId: 10,
-  revelationPlayerId: 10,
+  championTeamId: 30,
+  runnerUpTeamId: 15,
+  surpriseTeamId: 15,
+  disappointmentTeamId: 15,
+  mvpPlayerId: 20,
+  goldenBootPlayerId: 20,
+  bestGoalkeeperPlayerId: 15,
+  revelationPlayerId: 15,
 } as const;

@@ -103,4 +103,5 @@ export interface TournamentCardConfig {
   description: string;
   type: TournamentSelectionType;
   filterPosition?: PlayerPosition;
+  points: number;
 }
