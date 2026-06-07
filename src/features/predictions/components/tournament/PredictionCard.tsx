@@ -84,7 +84,11 @@ export function PredictionCard({
           />
         ) : (
           <PlayerSelector
-            players={players}
+            players={
+              config.filterPosition
+                ? players.filter((p) => p.position === config.filterPosition)
+                : players
+            }
             value={value}
             onChange={onChange}
             isActive={isActive}

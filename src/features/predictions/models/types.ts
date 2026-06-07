@@ -102,4 +102,5 @@ export interface TournamentCardConfig {
   label: string;
   description: string;
   type: TournamentSelectionType;
+  filterPosition?: PlayerPosition;
 }

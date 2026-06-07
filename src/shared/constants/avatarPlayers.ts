@@ -6,7 +6,7 @@ export type AvatarPlayer = {
 
 export const AVATAR_PLAYERS: AvatarPlayer[] = [
   { id: "messi", name: "Messi", photoUrl: "/players/messi2.webp" },
-  { id: "cr7", name: "Ronaldo", photoUrl: "/players/cr7.webp" },
+  { id: "cr7", name: "el bicho", photoUrl: "/players/cr7.webp" },
   { id: "nazario", name: "Ronaldo", photoUrl: "/players/nazario.webp" },
   { id: "cruyff", name: "Cruyff", photoUrl: "/players/cruyff.webp" },
   { id: "enzo", name: "Enzo", photoUrl: "/players/enzo.webp" },
@@ -16,7 +16,6 @@ export const AVATAR_PLAYERS: AvatarPlayer[] = [
   { id: "pele", name: "Pele", photoUrl: "/players/pele.webp" },
   { id: "messi2", name: "messi", photoUrl: "/players/messi2.webp" },
   { id: "yamal", name: "yamal", photoUrl: "/players/yamal.webp" },
-  { id: "diaz", name: "luisito diaz", photoUrl: "/players/diaz.webp" },
   { id: "dibu", name: "el dibu", photoUrl: "/players/dibu.webp" },
 ];
 

@@ -42,6 +42,7 @@ export const TOURNAMENT_CARDS: TournamentCardConfig[] = [
     label: "Mejor Arquero",
     description: "El guardián del torneo",
     type: "player",
+    filterPosition: "GK",
   },
   {
     field: "revelationPlayerId",

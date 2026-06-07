@@ -37,7 +37,7 @@ export function SelectorInput({
                 e.stopPropagation();
                 onClear();
               }}
-              style={{ color: colors.mutedText, fontSize: "0.75rem" }}
+              style={{ color: colors.secondary, fontSize: "0.75rem" }}
             >
               ✕
             </button>
