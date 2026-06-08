@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import type {
   GroupData,
@@ -39,12 +39,20 @@ export function GroupMatches({
 }: GroupMatchesProps) {
   const [activeMatchIndex, setActiveMatchIndex] = useState(0);
 
-  const { register, watch, setFocus } = useForm<GroupPredictionsFormValues>({
-    defaultValues: buildGroupDefaultValues(
-      groupData.matches,
-      initialPredictions,
-    ),
-  });
+  const { register, watch, setFocus, reset } =
+    useForm<GroupPredictionsFormValues>({
+      defaultValues: buildGroupDefaultValues(
+        groupData.matches,
+        initialPredictions,
+      ),
+    });
+
+  const predictionsKey = JSON.stringify(initialPredictions);
+
+  useEffect(() => {
+    reset(buildGroupDefaultValues(groupData.matches, initialPredictions));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [predictionsKey, groupData.matches, reset]);
 
   useGroupAutosave({
     watch,
