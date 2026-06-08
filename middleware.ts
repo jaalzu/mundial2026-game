@@ -25,7 +25,6 @@ export async function middleware(request: NextRequest) {
     },
   );
 
-  // Refresca la sesión — sin esto getSession() en server puede estar stale
   await supabase.auth.getUser();
 
   return supabaseResponse;
