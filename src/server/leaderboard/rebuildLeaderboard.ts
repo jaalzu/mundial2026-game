@@ -3,7 +3,7 @@ import { revalidatePath } from "next/cache";
 
 export async function rebuildLeaderboard(): Promise<void> {
   const now = new Date();
-  now.setHours(0, 0, 0, 0);
+  now.setUTCHours(0, 0, 0, 0);
 
   const [
     matchPoints,

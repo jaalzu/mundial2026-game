@@ -6,8 +6,8 @@ interface SelectorInputProps {
   isActive: boolean;
   hasValue: boolean;
   onClear: () => void;
-  children: React.ReactNode; // el contenido cuando hay valor
-  input: React.ReactNode; // el input cuando no hay valor
+  children: React.ReactNode;
+  input: React.ReactNode;
 }
 
 export function SelectorInput({
