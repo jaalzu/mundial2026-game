@@ -42,12 +42,6 @@ export function scoreMatchPrediction({
 
   const predictedWinner = getWinner(predictedHome, predictedAway);
   const actualWinner = getWinner(actualHome, actualAway);
-  console.log(
-    "[scoreMatch] predictedWinner:",
-    predictedWinner,
-    "actualWinner:",
-    actualWinner,
-  );
 
   if (predictedWinner === actualWinner)
     return { points: POINTS_WINNER, exactHit: false, result: "WINNER" };
