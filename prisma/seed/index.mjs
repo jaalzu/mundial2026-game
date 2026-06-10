@@ -11,7 +11,7 @@ dotenv.config({ path: ".env.local" });
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function main() {
-  console.log("🌱 Seeding World Cup 2026...");
+  console.log("🌱 Seeding World Cup 2026.....");
 
   const fixturesPath = path.join(__dirname, "data/fixtures.json");
   const teamsPath = path.join(__dirname, "data/teams.json");
