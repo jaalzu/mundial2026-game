@@ -12,21 +12,14 @@ export type LeaderboardEntry = {
 };
 
 export async function getLeaderboard(): Promise<LeaderboardEntry[]> {
-  const rows = await prisma.leaderboardDaily.findMany({
-    orderBy: { rank: "asc" },
-    distinct: ["userId"],
-    select: {
-      userId: true,
-      rank: true,
-      totalPoints: true,
-      rankDelta: true,
-      user: {
-        select: { name: true, avatarPlayerId: true },
-      },
-    },
+  // 1. Obtener la fecha del snapshot más reciente
+  const latest = await prisma.leaderboardDaily.findFirst({
+    orderBy: { calculatedAt: "desc" },
+    select: { calculatedAt: true },
   });
 
-  if (rows.length === 0) {
+  if (!latest) {
+    // fallback: no hay ningún snapshot todavía
     const users = await prisma.user.findMany({
       select: { id: true, name: true, avatarPlayerId: true },
       orderBy: { name: "asc" },
@@ -40,6 +33,21 @@ export async function getLeaderboard(): Promise<LeaderboardEntry[]> {
       rankDelta: 0,
     }));
   }
+
+  // 2. Traer solo las filas de ese snapshot
+  const rows = await prisma.leaderboardDaily.findMany({
+    where: { calculatedAt: latest.calculatedAt },
+    orderBy: { rank: "asc" },
+    select: {
+      userId: true,
+      rank: true,
+      totalPoints: true,
+      rankDelta: true,
+      user: {
+        select: { name: true, avatarPlayerId: true },
+      },
+    },
+  });
 
   return rows.map((row) => ({
     rank: row.rank,

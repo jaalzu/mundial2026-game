@@ -5,11 +5,18 @@ export async function rebuildLeaderboard(): Promise<void> {
   const now = new Date();
   now.setUTCHours(0, 0, 0, 0);
 
+  // 1. Obtener snapshot anterior a hoy (para calcular rankDelta correctamente)
+  const previousSnapshot = await prisma.leaderboardDaily.findFirst({
+    where: { calculatedAt: { lt: now } },
+    orderBy: { calculatedAt: "desc" },
+    select: { calculatedAt: true },
+  });
+
   const [
     matchPoints,
     exactHitCounts,
     tournamentPredictions,
-    previousRanks,
+    previousRankRows,
     allUsers,
   ] = await Promise.all([
     prisma.matchPrediction.groupBy({
@@ -24,11 +31,12 @@ export async function rebuildLeaderboard(): Promise<void> {
     prisma.tournamentPrediction.findMany({
       select: { userId: true, points: true },
     }),
-    prisma.leaderboardDaily.findMany({
-      select: { userId: true, rank: true },
-      orderBy: { calculatedAt: "desc" },
-      distinct: ["userId"],
-    }),
+    previousSnapshot
+      ? prisma.leaderboardDaily.findMany({
+          where: { calculatedAt: previousSnapshot.calculatedAt },
+          select: { userId: true, rank: true },
+        })
+      : Promise.resolve([]),
     prisma.user.findMany({
       select: { id: true },
     }),
@@ -40,7 +48,9 @@ export async function rebuildLeaderboard(): Promise<void> {
   const exactHitsMap = new Map(
     exactHitCounts.map((e) => [e.userId, e._count.id]),
   );
-  const previousRankMap = new Map(previousRanks.map((r) => [r.userId, r.rank]));
+  const previousRankMap = new Map(
+    previousRankRows.map((r) => [r.userId, r.rank]),
+  );
 
   const userScores = matchPoints.map((agg) => ({
     userId: agg.userId,
@@ -75,10 +85,12 @@ export async function rebuildLeaderboard(): Promise<void> {
       ? b.totalPoints - a.totalPoints
       : b.exactHits - a.exactHits,
   );
+
   console.log(
     "[rebuild] matchPoints raw:",
     JSON.stringify(matchPoints, null, 2),
   );
+
   const upserts = userScores.map((user, i) => {
     const rank = i + 1;
     const previousRank = previousRankMap.get(user.userId) ?? rank;
