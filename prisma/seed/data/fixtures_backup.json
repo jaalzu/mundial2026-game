@@ -2,7 +2,7 @@
   {
     "MatchNumber": 1,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-11 16:00:00Z",
+    "DateUtc": "2026-06-11 19:00:00Z",
     "Location": "Mexico City Stadium",
     "HomeTeam": "Mexico",
     "AwayTeam": "South Africa",
@@ -13,7 +13,7 @@
   {
     "MatchNumber": 2,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-11 23:00:00Z",
+    "DateUtc": "2026-06-12 02:00:00Z",
     "Location": "Guadalajara Stadium",
     "HomeTeam": "Korea Republic",
     "AwayTeam": "Czechia",
@@ -24,7 +24,7 @@
   {
     "MatchNumber": 3,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-12 16:00:00Z",
+    "DateUtc": "2026-06-12 19:00:00Z",
     "Location": "Toronto Stadium",
     "HomeTeam": "Canada",
     "AwayTeam": "Bosnia and Herzegovina",
@@ -35,7 +35,7 @@
   {
     "MatchNumber": 4,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-12 22:00:00Z",
+    "DateUtc": "2026-06-13 01:00:00Z",
     "Location": "Los Angeles Stadium",
     "HomeTeam": "USA",
     "AwayTeam": "Paraguay",
@@ -46,7 +46,7 @@
   {
     "MatchNumber": 8,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-13 16:00:00Z",
+    "DateUtc": "2026-06-13 19:00:00Z",
     "Location": "San Francisco Bay Area Stadium",
     "HomeTeam": "Qatar",
     "AwayTeam": "Switzerland",
@@ -57,7 +57,7 @@
   {
     "MatchNumber": 7,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-13 19:00:00Z",
+    "DateUtc": "2026-06-13 22:00:00Z",
     "Location": "New York/New Jersey Stadium",
     "HomeTeam": "Brazil",
     "AwayTeam": "Morocco",
@@ -68,7 +68,7 @@
   {
     "MatchNumber": 5,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-13 22:00:00Z",
+    "DateUtc": "2026-06-14 01:00:00Z",
     "Location": "Boston Stadium",
     "HomeTeam": "Haiti",
     "AwayTeam": "Scotland",
@@ -79,7 +79,7 @@
   {
     "MatchNumber": 6,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-14 01:00:00Z",
+    "DateUtc": "2026-06-14 04:00:00Z",
     "Location": "BC Place Vancouver",
     "HomeTeam": "Australia",
     "AwayTeam": "Türkiye",
@@ -90,7 +90,7 @@
   {
     "MatchNumber": 10,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-14 14:00:00Z",
+    "DateUtc": "2026-06-14 17:00:00Z",
     "Location": "Houston Stadium",
     "HomeTeam": "Germany",
     "AwayTeam": "Curaçao",
@@ -101,7 +101,7 @@
   {
     "MatchNumber": 11,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-14 17:00:00Z",
+    "DateUtc": "2026-06-14 20:00:00Z",
     "Location": "Dallas Stadium",
     "HomeTeam": "Netherlands",
     "AwayTeam": "Japan",
@@ -112,7 +112,7 @@
   {
     "MatchNumber": 9,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-14 20:00:00Z",
+    "DateUtc": "2026-06-14 23:00:00Z",
     "Location": "Philadelphia Stadium",
     "HomeTeam": "Côte d'Ivoire",
     "AwayTeam": "Ecuador",
@@ -123,7 +123,7 @@
   {
     "MatchNumber": 12,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-14 23:00:00Z",
+    "DateUtc": "2026-06-15 02:00:00Z",
     "Location": "Monterrey Stadium",
     "HomeTeam": "Sweden",
     "AwayTeam": "Tunisia",
@@ -134,7 +134,7 @@
   {
     "MatchNumber": 14,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-15 13:00:00Z",
+    "DateUtc": "2026-06-15 16:00:00Z",
     "Location": "Atlanta Stadium",
     "HomeTeam": "Spain",
     "AwayTeam": "Cabo Verde",
@@ -145,7 +145,7 @@
   {
     "MatchNumber": 16,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-15 16:00:00Z",
+    "DateUtc": "2026-06-15 19:00:00Z",
     "Location": "Seattle Stadium",
     "HomeTeam": "Belgium",
     "AwayTeam": "Egypt",
@@ -156,7 +156,7 @@
   {
     "MatchNumber": 13,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-15 19:00:00Z",
+    "DateUtc": "2026-06-15 22:00:00Z",
     "Location": "Miami Stadium",
     "HomeTeam": "Saudi Arabia",
     "AwayTeam": "Uruguay",
@@ -167,7 +167,7 @@
   {
     "MatchNumber": 15,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-15 22:00:00Z",
+    "DateUtc": "2026-06-16 01:00:00Z",
     "Location": "Los Angeles Stadium",
     "HomeTeam": "IR Iran",
     "AwayTeam": "New Zealand",
@@ -178,7 +178,7 @@
   {
     "MatchNumber": 17,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-16 16:00:00Z",
+    "DateUtc": "2026-06-16 19:00:00Z",
     "Location": "New York/New Jersey Stadium",
     "HomeTeam": "France",
     "AwayTeam": "Senegal",
@@ -189,7 +189,7 @@
   {
     "MatchNumber": 18,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-16 19:00:00Z",
+    "DateUtc": "2026-06-16 22:00:00Z",
     "Location": "Boston Stadium",
     "HomeTeam": "Iraq",
     "AwayTeam": "Norway",
@@ -200,7 +200,7 @@
   {
     "MatchNumber": 19,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-16 22:00:00Z",
+    "DateUtc": "2026-06-17 01:00:00Z",
     "Location": "Kansas City Stadium",
     "HomeTeam": "Argentina",
     "AwayTeam": "Algeria",
@@ -211,7 +211,7 @@
   {
     "MatchNumber": 20,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-17 01:00:00Z",
+    "DateUtc": "2026-06-17 04:00:00Z",
     "Location": "San Francisco Bay Area Stadium",
     "HomeTeam": "Austria",
     "AwayTeam": "Jordan",
@@ -222,7 +222,7 @@
   {
     "MatchNumber": 23,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-17 14:00:00Z",
+    "DateUtc": "2026-06-17 17:00:00Z",
     "Location": "Houston Stadium",
     "HomeTeam": "Portugal",
     "AwayTeam": "Congo DR",
@@ -233,7 +233,7 @@
   {
     "MatchNumber": 22,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-17 17:00:00Z",
+    "DateUtc": "2026-06-17 20:00:00Z",
     "Location": "Dallas Stadium",
     "HomeTeam": "England",
     "AwayTeam": "Croatia",
@@ -244,7 +244,7 @@
   {
     "MatchNumber": 21,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-17 20:00:00Z",
+    "DateUtc": "2026-06-17 23:00:00Z",
     "Location": "Toronto Stadium",
     "HomeTeam": "Ghana",
     "AwayTeam": "Panama",
@@ -255,7 +255,7 @@
   {
     "MatchNumber": 24,
     "RoundNumber": 1,
-    "DateUtc": "2026-06-17 23:00:00Z",
+    "DateUtc": "2026-06-18 02:00:00Z",
     "Location": "Mexico City Stadium",
     "HomeTeam": "Uzbekistan",
     "AwayTeam": "Colombia",
@@ -266,7 +266,7 @@
   {
     "MatchNumber": 25,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-18 13:00:00Z",
+    "DateUtc": "2026-06-18 16:00:00Z",
     "Location": "Atlanta Stadium",
     "HomeTeam": "Czechia",
     "AwayTeam": "South Africa",
@@ -277,7 +277,7 @@
   {
     "MatchNumber": 26,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-18 16:00:00Z",
+    "DateUtc": "2026-06-18 19:00:00Z",
     "Location": "Los Angeles Stadium",
     "HomeTeam": "Switzerland",
     "AwayTeam": "Bosnia and Herzegovina",
@@ -288,7 +288,7 @@
   {
     "MatchNumber": 27,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-18 19:00:00Z",
+    "DateUtc": "2026-06-18 22:00:00Z",
     "Location": "BC Place Vancouver",
     "HomeTeam": "Canada",
     "AwayTeam": "Qatar",
@@ -299,7 +299,7 @@
   {
     "MatchNumber": 28,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-18 22:00:00Z",
+    "DateUtc": "2026-06-19 01:00:00Z",
     "Location": "Guadalajara Stadium",
     "HomeTeam": "Mexico",
     "AwayTeam": "Korea Republic",
@@ -310,7 +310,7 @@
   {
     "MatchNumber": 32,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-19 16:00:00Z",
+    "DateUtc": "2026-06-19 19:00:00Z",
     "Location": "Seattle Stadium",
     "HomeTeam": "USA",
     "AwayTeam": "Australia",
@@ -321,7 +321,7 @@
   {
     "MatchNumber": 30,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-19 19:00:00Z",
+    "DateUtc": "2026-06-19 22:00:00Z",
     "Location": "Boston Stadium",
     "HomeTeam": "Scotland",
     "AwayTeam": "Morocco",
@@ -332,7 +332,7 @@
   {
     "MatchNumber": 29,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-19 22:00:00Z",
+    "DateUtc": "2026-06-20 01:00:00Z",
     "Location": "Philadelphia Stadium",
     "HomeTeam": "Brazil",
     "AwayTeam": "Haiti",
@@ -343,7 +343,7 @@
   {
     "MatchNumber": 31,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-20 01:00:00Z",
+    "DateUtc": "2026-06-20 04:00:00Z",
     "Location": "San Francisco Bay Area Stadium",
     "HomeTeam": "Türkiye",
     "AwayTeam": "Paraguay",
@@ -354,7 +354,7 @@
   {
     "MatchNumber": 35,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-20 14:00:00Z",
+    "DateUtc": "2026-06-20 17:00:00Z",
     "Location": "Houston Stadium",
     "HomeTeam": "Netherlands",
     "AwayTeam": "Sweden",
@@ -365,7 +365,7 @@
   {
     "MatchNumber": 33,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-20 17:00:00Z",
+    "DateUtc": "2026-06-20 20:00:00Z",
     "Location": "Toronto Stadium",
     "HomeTeam": "Germany",
     "AwayTeam": "Côte d'Ivoire",
@@ -376,7 +376,7 @@
   {
     "MatchNumber": 34,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-20 21:00:00Z",
+    "DateUtc": "2026-06-21 00:00:00Z",
     "Location": "Kansas City Stadium",
     "HomeTeam": "Ecuador",
     "AwayTeam": "Curaçao",
@@ -387,7 +387,7 @@
   {
     "MatchNumber": 36,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-21 01:00:00Z",
+    "DateUtc": "2026-06-21 04:00:00Z",
     "Location": "Monterrey Stadium",
     "HomeTeam": "Tunisia",
     "AwayTeam": "Japan",
@@ -398,7 +398,7 @@
   {
     "MatchNumber": 38,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-21 13:00:00Z",
+    "DateUtc": "2026-06-21 16:00:00Z",
     "Location": "Atlanta Stadium",
     "HomeTeam": "Spain",
     "AwayTeam": "Saudi Arabia",
@@ -409,7 +409,7 @@
   {
     "MatchNumber": 39,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-21 16:00:00Z",
+    "DateUtc": "2026-06-21 19:00:00Z",
     "Location": "Los Angeles Stadium",
     "HomeTeam": "Belgium",
     "AwayTeam": "IR Iran",
@@ -420,7 +420,7 @@
   {
     "MatchNumber": 37,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-21 19:00:00Z",
+    "DateUtc": "2026-06-21 22:00:00Z",
     "Location": "Miami Stadium",
     "HomeTeam": "Uruguay",
     "AwayTeam": "Cabo Verde",
@@ -431,7 +431,7 @@
   {
     "MatchNumber": 40,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-21 22:00:00Z",
+    "DateUtc": "2026-06-22 01:00:00Z",
     "Location": "BC Place Vancouver",
     "HomeTeam": "New Zealand",
     "AwayTeam": "Egypt",
@@ -442,7 +442,7 @@
   {
     "MatchNumber": 43,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-22 14:00:00Z",
+    "DateUtc": "2026-06-22 17:00:00Z",
     "Location": "Dallas Stadium",
     "HomeTeam": "Argentina",
     "AwayTeam": "Austria",
@@ -453,7 +453,7 @@
   {
     "MatchNumber": 42,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-22 18:00:00Z",
+    "DateUtc": "2026-06-22 21:00:00Z",
     "Location": "Philadelphia Stadium",
     "HomeTeam": "France",
     "AwayTeam": "Iraq",
@@ -464,7 +464,7 @@
   {
     "MatchNumber": 41,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-22 21:00:00Z",
+    "DateUtc": "2026-06-23 00:00:00Z",
     "Location": "New York/New Jersey Stadium",
     "HomeTeam": "Norway",
     "AwayTeam": "Senegal",
@@ -475,7 +475,7 @@
   {
     "MatchNumber": 44,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-23 00:00:00Z",
+    "DateUtc": "2026-06-23 03:00:00Z",
     "Location": "San Francisco Bay Area Stadium",
     "HomeTeam": "Jordan",
     "AwayTeam": "Algeria",
@@ -486,7 +486,7 @@
   {
     "MatchNumber": 47,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-23 14:00:00Z",
+    "DateUtc": "2026-06-23 17:00:00Z",
     "Location": "Houston Stadium",
     "HomeTeam": "Portugal",
     "AwayTeam": "Uzbekistan",
@@ -497,7 +497,7 @@
   {
     "MatchNumber": 45,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-23 17:00:00Z",
+    "DateUtc": "2026-06-23 20:00:00Z",
     "Location": "Boston Stadium",
     "HomeTeam": "England",
     "AwayTeam": "Ghana",
@@ -508,7 +508,7 @@
   {
     "MatchNumber": 46,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-23 20:00:00Z",
+    "DateUtc": "2026-06-23 23:00:00Z",
     "Location": "Toronto Stadium",
     "HomeTeam": "Panama",
     "AwayTeam": "Croatia",
@@ -519,7 +519,7 @@
   {
     "MatchNumber": 48,
     "RoundNumber": 2,
-    "DateUtc": "2026-06-23 23:00:00Z",
+    "DateUtc": "2026-06-24 02:00:00Z",
     "Location": "Guadalajara Stadium",
     "HomeTeam": "Colombia",
     "AwayTeam": "Congo DR",
@@ -530,7 +530,7 @@
   {
     "MatchNumber": 51,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-24 16:00:00Z",
+    "DateUtc": "2026-06-24 19:00:00Z",
     "Location": "BC Place Vancouver",
     "HomeTeam": "Switzerland",
     "AwayTeam": "Canada",
@@ -541,7 +541,7 @@
   {
     "MatchNumber": 52,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-24 16:00:00Z",
+    "DateUtc": "2026-06-24 19:00:00Z",
     "Location": "Seattle Stadium",
     "HomeTeam": "Bosnia and Herzegovina",
     "AwayTeam": "Qatar",
@@ -552,7 +552,7 @@
   {
     "MatchNumber": 49,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-24 19:00:00Z",
+    "DateUtc": "2026-06-24 22:00:00Z",
     "Location": "Miami Stadium",
     "HomeTeam": "Scotland",
     "AwayTeam": "Brazil",
@@ -563,7 +563,7 @@
   {
     "MatchNumber": 50,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-24 19:00:00Z",
+    "DateUtc": "2026-06-24 22:00:00Z",
     "Location": "Atlanta Stadium",
     "HomeTeam": "Morocco",
     "AwayTeam": "Haiti",
@@ -574,7 +574,7 @@
   {
     "MatchNumber": 53,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-24 22:00:00Z",
+    "DateUtc": "2026-06-25 01:00:00Z",
     "Location": "Mexico City Stadium",
     "HomeTeam": "Czechia",
     "AwayTeam": "Mexico",
@@ -585,7 +585,7 @@
   {
     "MatchNumber": 54,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-24 22:00:00Z",
+    "DateUtc": "2026-06-25 01:00:00Z",
     "Location": "Monterrey Stadium",
     "HomeTeam": "South Africa",
     "AwayTeam": "Korea Republic",
@@ -596,7 +596,7 @@
   {
     "MatchNumber": 55,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-25 17:00:00Z",
+    "DateUtc": "2026-06-25 20:00:00Z",
     "Location": "Philadelphia Stadium",
     "HomeTeam": "Curaçao",
     "AwayTeam": "Côte d'Ivoire",
@@ -607,7 +607,7 @@
   {
     "MatchNumber": 56,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-25 17:00:00Z",
+    "DateUtc": "2026-06-25 20:00:00Z",
     "Location": "New York/New Jersey Stadium",
     "HomeTeam": "Ecuador",
     "AwayTeam": "Germany",
@@ -618,7 +618,7 @@
   {
     "MatchNumber": 57,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-25 20:00:00Z",
+    "DateUtc": "2026-06-25 23:00:00Z",
     "Location": "Dallas Stadium",
     "HomeTeam": "Japan",
     "AwayTeam": "Sweden",
@@ -629,7 +629,7 @@
   {
     "MatchNumber": 58,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-25 20:00:00Z",
+    "DateUtc": "2026-06-25 23:00:00Z",
     "Location": "Kansas City Stadium",
     "HomeTeam": "Tunisia",
     "AwayTeam": "Netherlands",
@@ -640,7 +640,7 @@
   {
     "MatchNumber": 59,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-25 23:00:00Z",
+    "DateUtc": "2026-06-26 02:00:00Z",
     "Location": "Los Angeles Stadium",
     "HomeTeam": "Türkiye",
     "AwayTeam": "USA",
@@ -651,7 +651,7 @@
   {
     "MatchNumber": 60,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-25 23:00:00Z",
+    "DateUtc": "2026-06-26 02:00:00Z",
     "Location": "San Francisco Bay Area Stadium",
     "HomeTeam": "Paraguay",
     "AwayTeam": "Australia",
@@ -662,7 +662,7 @@
   {
     "MatchNumber": 61,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-26 16:00:00Z",
+    "DateUtc": "2026-06-26 19:00:00Z",
     "Location": "Boston Stadium",
     "HomeTeam": "Norway",
     "AwayTeam": "France",
@@ -673,7 +673,7 @@
   {
     "MatchNumber": 62,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-26 16:00:00Z",
+    "DateUtc": "2026-06-26 19:00:00Z",
     "Location": "Toronto Stadium",
     "HomeTeam": "Senegal",
     "AwayTeam": "Iraq",
@@ -684,7 +684,7 @@
   {
     "MatchNumber": 65,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-26 21:00:00Z",
+    "DateUtc": "2026-06-27 00:00:00Z",
     "Location": "Houston Stadium",
     "HomeTeam": "Cabo Verde",
     "AwayTeam": "Saudi Arabia",
@@ -695,7 +695,7 @@
   {
     "MatchNumber": 66,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-26 21:00:00Z",
+    "DateUtc": "2026-06-27 00:00:00Z",
     "Location": "Guadalajara Stadium",
     "HomeTeam": "Uruguay",
     "AwayTeam": "Spain",
@@ -706,7 +706,7 @@
   {
     "MatchNumber": 63,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-27 00:00:00Z",
+    "DateUtc": "2026-06-27 03:00:00Z",
     "Location": "Seattle Stadium",
     "HomeTeam": "Egypt",
     "AwayTeam": "IR Iran",
@@ -717,7 +717,7 @@
   {
     "MatchNumber": 64,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-27 00:00:00Z",
+    "DateUtc": "2026-06-27 03:00:00Z",
     "Location": "BC Place Vancouver",
     "HomeTeam": "New Zealand",
     "AwayTeam": "Belgium",
@@ -728,7 +728,7 @@
   {
     "MatchNumber": 67,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-27 18:00:00Z",
+    "DateUtc": "2026-06-27 21:00:00Z",
     "Location": "New York/New Jersey Stadium",
     "HomeTeam": "Panama",
     "AwayTeam": "England",
@@ -739,7 +739,7 @@
   {
     "MatchNumber": 68,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-27 18:00:00Z",
+    "DateUtc": "2026-06-27 21:00:00Z",
     "Location": "Philadelphia Stadium",
     "HomeTeam": "Croatia",
     "AwayTeam": "Ghana",
@@ -750,7 +750,7 @@
   {
     "MatchNumber": 71,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-27 20:30:00Z",
+    "DateUtc": "2026-06-27 23:30:00Z",
     "Location": "Miami Stadium",
     "HomeTeam": "Colombia",
     "AwayTeam": "Portugal",
@@ -761,7 +761,7 @@
   {
     "MatchNumber": 72,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-27 20:30:00Z",
+    "DateUtc": "2026-06-27 23:30:00Z",
     "Location": "Atlanta Stadium",
     "HomeTeam": "Congo DR",
     "AwayTeam": "Uzbekistan",
@@ -772,7 +772,7 @@
   {
     "MatchNumber": 69,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-27 23:00:00Z",
+    "DateUtc": "2026-06-28 02:00:00Z",
     "Location": "Kansas City Stadium",
     "HomeTeam": "Algeria",
     "AwayTeam": "Austria",
@@ -783,7 +783,7 @@
   {
     "MatchNumber": 70,
     "RoundNumber": 3,
-    "DateUtc": "2026-06-27 23:00:00Z",
+    "DateUtc": "2026-06-28 02:00:00Z",
     "Location": "Dallas Stadium",
     "HomeTeam": "Jordan",
     "AwayTeam": "Argentina",
@@ -794,7 +794,7 @@
   {
     "MatchNumber": 73,
     "RoundNumber": 4,
-    "DateUtc": "2026-06-28 16:00:00Z",
+    "DateUtc": "2026-06-28 19:00:00Z",
     "Location": "Los Angeles Stadium",
     "HomeTeam": "2A",
     "AwayTeam": "2B",
@@ -805,7 +805,7 @@
   {
     "MatchNumber": 76,
     "RoundNumber": 4,
-    "DateUtc": "2026-06-29 14:00:00Z",
+    "DateUtc": "2026-06-29 17:00:00Z",
     "Location": "Houston Stadium",
     "HomeTeam": "1C",
     "AwayTeam": "2F",
@@ -816,7 +816,7 @@
   {
     "MatchNumber": 74,
     "RoundNumber": 4,
-    "DateUtc": "2026-06-29 17:30:00Z",
+    "DateUtc": "2026-06-29 20:30:00Z",
     "Location": "Boston Stadium",
     "HomeTeam": "1E",
     "AwayTeam": "3ABCDF",
@@ -827,7 +827,7 @@
   {
     "MatchNumber": 75,
     "RoundNumber": 4,
-    "DateUtc": "2026-06-29 22:00:00Z",
+    "DateUtc": "2026-06-30 01:00:00Z",
     "Location": "Monterrey Stadium",
     "HomeTeam": "1F",
     "AwayTeam": "2C",
@@ -838,7 +838,7 @@
   {
     "MatchNumber": 78,
     "RoundNumber": 4,
-    "DateUtc": "2026-06-30 14:00:00Z",
+    "DateUtc": "2026-06-30 17:00:00Z",
     "Location": "Dallas Stadium",
     "HomeTeam": "2E",
     "AwayTeam": "2I",
@@ -849,7 +849,7 @@
   {
     "MatchNumber": 77,
     "RoundNumber": 4,
-    "DateUtc": "2026-06-30 18:00:00Z",
+    "DateUtc": "2026-06-30 21:00:00Z",
     "Location": "New York/New Jersey Stadium",
     "HomeTeam": "1I",
     "AwayTeam": "3CDFGH",
@@ -860,7 +860,7 @@
   {
     "MatchNumber": 79,
     "RoundNumber": 4,
-    "DateUtc": "2026-06-30 22:00:00Z",
+    "DateUtc": "2026-07-01 01:00:00Z",
     "Location": "Mexico City Stadium",
     "HomeTeam": "1A",
     "AwayTeam": "3CEFHI",
@@ -871,7 +871,7 @@
   {
     "MatchNumber": 80,
     "RoundNumber": 4,
-    "DateUtc": "2026-07-01 13:00:00Z",
+    "DateUtc": "2026-07-01 16:00:00Z",
     "Location": "Atlanta Stadium",
     "HomeTeam": "1L",
     "AwayTeam": "3EHIJK",
@@ -882,7 +882,7 @@
   {
     "MatchNumber": 82,
     "RoundNumber": 4,
-    "DateUtc": "2026-07-01 17:00:00Z",
+    "DateUtc": "2026-07-01 20:00:00Z",
     "Location": "Seattle Stadium",
     "HomeTeam": "1G",
     "AwayTeam": "3AEHIJ",
@@ -893,7 +893,7 @@
   {
     "MatchNumber": 81,
     "RoundNumber": 4,
-    "DateUtc": "2026-07-01 21:00:00Z",
+    "DateUtc": "2026-07-02 00:00:00Z",
     "Location": "San Francisco Bay Area Stadium",
     "HomeTeam": "1D",
     "AwayTeam": "3BEFIJ",
@@ -904,7 +904,7 @@
   {
     "MatchNumber": 84,
     "RoundNumber": 4,
-    "DateUtc": "2026-07-02 16:00:00Z",
+    "DateUtc": "2026-07-02 19:00:00Z",
     "Location": "Los Angeles Stadium",
     "HomeTeam": "1H",
     "AwayTeam": "2J",
@@ -915,7 +915,7 @@
   {
     "MatchNumber": 83,
     "RoundNumber": 4,
-    "DateUtc": "2026-07-02 20:00:00Z",
+    "DateUtc": "2026-07-02 23:00:00Z",
     "Location": "Toronto Stadium",
     "HomeTeam": "2K",
     "AwayTeam": "2L",
@@ -926,7 +926,7 @@
   {
     "MatchNumber": 85,
     "RoundNumber": 4,
-    "DateUtc": "2026-07-03 00:00:00Z",
+    "DateUtc": "2026-07-03 03:00:00Z",
     "Location": "BC Place Vancouver",
     "HomeTeam": "1B",
     "AwayTeam": "3EFGIJ",
@@ -937,7 +937,7 @@
   {
     "MatchNumber": 88,
     "RoundNumber": 4,
-    "DateUtc": "2026-07-03 15:00:00Z",
+    "DateUtc": "2026-07-03 18:00:00Z",
     "Location": "Dallas Stadium",
     "HomeTeam": "2D",
     "AwayTeam": "2G",
@@ -948,7 +948,7 @@
   {
     "MatchNumber": 86,
     "RoundNumber": 4,
-    "DateUtc": "2026-07-03 19:00:00Z",
+    "DateUtc": "2026-07-03 22:00:00Z",
     "Location": "Miami Stadium",
     "HomeTeam": "1J",
     "AwayTeam": "2H",
@@ -959,7 +959,7 @@
   {
     "MatchNumber": 87,
     "RoundNumber": 4,
-    "DateUtc": "2026-07-03 22:30:00Z",
+    "DateUtc": "2026-07-04 01:30:00Z",
     "Location": "Kansas City Stadium",
     "HomeTeam": "1K",
     "AwayTeam": "3DEIJL",
@@ -970,7 +970,7 @@
   {
     "MatchNumber": 90,
     "RoundNumber": 5,
-    "DateUtc": "2026-07-04 14:00:00Z",
+    "DateUtc": "2026-07-04 17:00:00Z",
     "Location": "Houston Stadium",
     "HomeTeam": "To be announced",
     "AwayTeam": "To be announced",
@@ -981,7 +981,7 @@
   {
     "MatchNumber": 89,
     "RoundNumber": 5,
-    "DateUtc": "2026-07-04 18:00:00Z",
+    "DateUtc": "2026-07-04 21:00:00Z",
     "Location": "Philadelphia Stadium",
     "HomeTeam": "To be announced",
     "AwayTeam": "To be announced",
@@ -992,7 +992,7 @@
   {
     "MatchNumber": 91,
     "RoundNumber": 5,
-    "DateUtc": "2026-07-05 17:00:00Z",
+    "DateUtc": "2026-07-05 20:00:00Z",
     "Location": "New York/New Jersey Stadium",
     "HomeTeam": "To be announced",
     "AwayTeam": "To be announced",
@@ -1003,7 +1003,7 @@
   {
     "MatchNumber": 92,
     "RoundNumber": 5,
-    "DateUtc": "2026-07-05 21:00:00Z",
+    "DateUtc": "2026-07-06 00:00:00Z",
     "Location": "Mexico City Stadium",
     "HomeTeam": "To be announced",
     "AwayTeam": "To be announced",
@@ -1014,7 +1014,7 @@
   {
     "MatchNumber": 93,
     "RoundNumber": 5,
-    "DateUtc": "2026-07-06 16:00:00Z",
+    "DateUtc": "2026-07-06 19:00:00Z",
     "Location": "Dallas Stadium",
     "HomeTeam": "To be announced",
     "AwayTeam": "To be announced",
@@ -1025,7 +1025,7 @@
   {
     "MatchNumber": 94,
     "RoundNumber": 5,
-    "DateUtc": "2026-07-06 21:00:00Z",
+    "DateUtc": "2026-07-07 00:00:00Z",
     "Location": "Seattle Stadium",
     "HomeTeam": "To be announced",
     "AwayTeam": "To be announced",
@@ -1036,7 +1036,7 @@
   {
     "MatchNumber": 95,
     "RoundNumber": 5,
-    "DateUtc": "2026-07-07 13:00:00Z",
+    "DateUtc": "2026-07-07 16:00:00Z",
     "Location": "Atlanta Stadium",
     "HomeTeam": "To be announced",
     "AwayTeam": "To be announced",
@@ -1047,7 +1047,7 @@
   {
     "MatchNumber": 96,
     "RoundNumber": 5,
-    "DateUtc": "2026-07-07 17:00:00Z",
+    "DateUtc": "2026-07-07 20:00:00Z",
     "Location": "BC Place Vancouver",
     "HomeTeam": "To be announced",
     "AwayTeam": "To be announced",
@@ -1058,7 +1058,7 @@
   {
     "MatchNumber": 97,
     "RoundNumber": 6,
-    "DateUtc": "2026-07-09 17:00:00Z",
+    "DateUtc": "2026-07-09 20:00:00Z",
     "Location": "Boston Stadium",
     "HomeTeam": "To be announced",
     "AwayTeam": "To be announced",
@@ -1069,7 +1069,7 @@
   {
     "MatchNumber": 98,
     "RoundNumber": 6,
-    "DateUtc": "2026-07-10 16:00:00Z",
+    "DateUtc": "2026-07-10 19:00:00Z",
     "Location": "Los Angeles Stadium",
     "HomeTeam": "To be announced",
     "AwayTeam": "To be announced",
@@ -1080,7 +1080,7 @@
   {
     "MatchNumber": 99,
     "RoundNumber": 6,
-    "DateUtc": "2026-07-11 18:00:00Z",
+    "DateUtc": "2026-07-11 21:00:00Z",
     "Location": "Miami Stadium",
     "HomeTeam": "To be announced",
     "AwayTeam": "To be announced",
@@ -1091,7 +1091,7 @@
   {
     "MatchNumber": 100,
     "RoundNumber": 6,
-    "DateUtc": "2026-07-11 22:00:00Z",
+    "DateUtc": "2026-07-12 01:00:00Z",
     "Location": "Kansas City Stadium",
     "HomeTeam": "To be announced",
     "AwayTeam": "To be announced",
@@ -1102,7 +1102,7 @@
   {
     "MatchNumber": 101,
     "RoundNumber": 7,
-    "DateUtc": "2026-07-14 16:00:00Z",
+    "DateUtc": "2026-07-14 19:00:00Z",
     "Location": "Dallas Stadium",
     "HomeTeam": "To be announced",
     "AwayTeam": "To be announced",
@@ -1113,7 +1113,7 @@
   {
     "MatchNumber": 102,
     "RoundNumber": 7,
-    "DateUtc": "2026-07-15 16:00:00Z",
+    "DateUtc": "2026-07-15 19:00:00Z",
     "Location": "Atlanta Stadium",
     "HomeTeam": "To be announced",
     "AwayTeam": "To be announced",
@@ -1124,7 +1124,7 @@
   {
     "MatchNumber": 103,
     "RoundNumber": 8,
-    "DateUtc": "2026-07-18 18:00:00Z",
+    "DateUtc": "2026-07-18 21:00:00Z",
     "Location": "Miami Stadium",
     "HomeTeam": "To be announced",
     "AwayTeam": "To be announced",
@@ -1135,7 +1135,7 @@
   {
     "MatchNumber": 104,
     "RoundNumber": 8,
-    "DateUtc": "2026-07-19 16:00:00Z",
+    "DateUtc": "2026-07-19 19:00:00Z",
     "Location": "New York/New Jersey Stadium",
     "HomeTeam": "To be announced",
     "AwayTeam": "To be announced",
