@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import type {
   GroupData,
@@ -37,8 +37,6 @@ export function GroupMatches({
   prevGroupLabel,
   onAutosave,
 }: GroupMatchesProps) {
-  const [activeMatchIndex, setActiveMatchIndex] = useState(0);
-
   const { register, watch, setFocus, reset } =
     useForm<GroupPredictionsFormValues>({
       defaultValues: buildGroupDefaultValues(
@@ -56,11 +54,8 @@ export function GroupMatches({
 
   useGroupAutosave({
     watch,
-    setFocus,
     matches: groupData.matches,
     onAutosave,
-    onNavigateNext,
-    setActiveMatchIndex,
   });
 
   return (
@@ -100,13 +95,10 @@ export function GroupMatches({
               key={match.id}
               match={match}
               index={index}
-              isActive={activeMatchIndex === index}
+              isActive={false}
               register={register}
               watch={watch}
-              onFocusRequest={() => {
-                setActiveMatchIndex(index);
-                setFocus(`matches.${index}.predictedHome`);
-              }}
+              onFocusRequest={() => setFocus(`matches.${index}.predictedHome`)}
             />
           ))}
         </div>

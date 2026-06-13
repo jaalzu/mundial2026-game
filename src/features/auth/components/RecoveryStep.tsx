@@ -31,10 +31,12 @@ export function RecoveryStep({
         <p className="text-2xl font-bold uppercase">{recoveryCode}</p>
       </div>
 
-      <p className="mt-4 text-sm  text-[#E61D25]">
+      <p className="mt-4 text-md  text-[#E61D25]">
         Este código permite recuperar tu usuario si perdés acceso a tu cuenta.
         <br />
-        Puedes copiarlo mas adelante en tu perfil.
+        <br />
+        Puedes sacarle un screenshot para guardarlo en tu celular o copiarlo mas
+        adelante en tu perfil.
       </p>
 
       <Button
