@@ -29,7 +29,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "prisma/seed/seed.mjs"
+    "prisma/seed/seed.mjs",
+    "scripts/fix-finished-matchs.mjs"
   ],
   "exclude": ["node_modules"]
 }
