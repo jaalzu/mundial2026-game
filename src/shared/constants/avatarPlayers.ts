@@ -16,6 +16,7 @@ export const AVATAR_PLAYERS: AvatarPlayer[] = [
   { id: "pele", name: "Pele", photoUrl: "/players/pele.webp" },
   { id: "yamal", name: "yamal", photoUrl: "/players/yamal.webp" },
   { id: "dibu", name: "el dibu", photoUrl: "/players/dibu.webp" },
+  { id: "kane", name: "harry kane", photoUrl: "/players/kane.webp" },
 ];
 
 export function getAvatarPlayer(id: string | null | undefined) {
