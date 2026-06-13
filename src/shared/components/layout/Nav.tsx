@@ -1,4 +1,3 @@
-// Nav.tsx
 import { Logo } from "@/shared/components/ui/Logo";
 import { NextMatch } from "@/shared/components/ui/NextMatch";
 import type { NextMatchData } from "@/shared/components/ui/NextMatch";
@@ -9,7 +8,7 @@ interface NavProps {
 
 export function Nav({ nextMatch }: NavProps) {
   return (
-    <header className="flex items-center justify-between px-2 py-4 md:px-8 md:py-6">
+    <header className="flex items-center justify-between px-2 py-3 md:px-8 md:py-6">
       <Logo />
       {nextMatch ? <NextMatch {...nextMatch} /> : null}
     </header>

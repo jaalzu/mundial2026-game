@@ -21,6 +21,7 @@ export function MatchScoreInput({
       inputMode="numeric"
       maxLength={2}
       disabled={disabled}
+      onClick={(e) => e.stopPropagation()} // 👈 esto
       onChange={(e) => {
         const cleaned = e.target.value.replace(/^0+(\d)/, "$1");
         e.target.value = cleaned;

@@ -17,7 +17,7 @@ interface PhaseTabsProps {
 export function PhaseTabs({ activePhase, onSelectPhase }: PhaseTabsProps) {
   return (
     <div
-      className="grid grid-cols-3 mb-4"
+      className="grid grid-cols-3  mb-4"
       style={{ border: `2px solid ${colors.border}` }}
     >
       {PHASES.map(({ id, label }, i) => {
