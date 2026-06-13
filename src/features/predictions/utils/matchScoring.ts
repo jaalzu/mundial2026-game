@@ -32,5 +32,10 @@ export function getMatchPointsColor(
 }
 
 export function isMatchLocked(match: Match): boolean {
-  return match.status === "FINISHED" || new Date() > new Date(match.startsAt);
+  const now = new Date();
+  const matchTime = new Date(match.startsAt);
+
+  const correctedMatchTime = new Date(matchTime.getTime() + 3 * 60 * 60 * 1000);
+
+  return match.status === "FINISHED" || now > correctedMatchTime;
 }
