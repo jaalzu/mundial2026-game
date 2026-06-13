@@ -81,9 +81,7 @@ export async function finishMatch({
 
     await rebuildLeaderboard();
 
-    revalidatePath("/predictions");
-    revalidatePath("/leaderboard");
-    revalidatePath("/profile");
+    revalidatePath("/", "layout");
 
     return { success: true, data: undefined };
   } catch (err) {
