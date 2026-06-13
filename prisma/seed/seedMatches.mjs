@@ -61,7 +61,12 @@ export async function seedMatches(fixturesRaw, teamsMap) {
 
     await prisma.match.upsert({
       where: { externalId: `wc2026-${fixture.MatchNumber}` },
-      update: { group, phase, status: "SCHEDULED" },
+      update: {
+        group,
+        phase,
+        status: "SCHEDULED",
+        startsAt: new Date(fixture.DateUtc),
+      }, // ✅ AGREGA startsAt
       create: {
         externalId: `wc2026-${fixture.MatchNumber}`,
         homeTeamId,
