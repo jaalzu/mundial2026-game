@@ -13,7 +13,7 @@ import type {
 } from "../../models/types";
 import { colors, typography } from "@/shared/constants/designSystem";
 
-const TOURNAMENT_DEADLINE = new Date("2026-06-14T00:00:00-05:00");
+const TOURNAMENT_DEADLINE = new Date("2026-06-20T00:00:00-05:00");
 
 interface TournamentPredictionsProps {
   userId: string;
