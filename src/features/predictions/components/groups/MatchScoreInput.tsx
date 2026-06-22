@@ -36,7 +36,7 @@ export function MatchScoreInput({
         fontWeight: 400,
         color: isFilled ? colors.primary : colors.mutedText,
         border: isFilled ? borders.light : borders.default,
-        borderRadius: "1px",
+        borderRadius: "5px",
         caretColor: colors.primary,
         opacity: disabled ? 0.4 : 1,
         cursor: disabled ? "not-allowed" : "text",
