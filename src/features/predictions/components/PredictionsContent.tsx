@@ -15,7 +15,10 @@ import { GroupTabs } from "./groups/GroupTabs";
 import { GroupMatches } from "./groups/GroupMatches";
 import { TournamentPredictions } from "./tournament/TournamentPredictions";
 import { savePrediction } from "../actions/savePrediction";
-import { colors, typography } from "@/shared/constants/designSystem";
+import { colors } from "@/shared/constants/designSystem";
+import type { KnockoutPredictionsMap } from "../models/types";
+import { KnockoutMatches } from "./knockout/KnockoutMatches";
+import { MOCK_KNOCKOUT_MATCHES } from "@/features/admin/data/mockKnockoutMatches";
 
 interface PredictionsContentProps {
   userId: string;
@@ -38,6 +41,8 @@ export function PredictionsContent({
   const [activeGroup, setActiveGroup] = useState<string>(
     groups[0]?.group ?? "A",
   );
+  const [knockoutPredictions, setKnockoutPredictions] =
+    useState<KnockoutPredictionsMap>({});
 
   const { predictions, hydrate, setPrediction } = usePredictionStore();
 
@@ -106,18 +111,22 @@ export function PredictionsContent({
       )}
 
       {activePhase === "KNOCKOUT" && (
-        <div className="flex flex-1 items-center justify-center min-h-48">
-          <span
-            style={{
-              fontFamily: typography.fontFamily,
-              fontSize: typography.sizes.sm,
-              color: colors.mutedText,
-              letterSpacing: "0.06em",
-            }}
-          >
-            Eliminatorias — próximamente
-          </span>
-        </div>
+        <KnockoutMatches
+          matches={MOCK_KNOCKOUT_MATCHES}
+          predictions={knockoutPredictions}
+          onAutosave={(matchId, home, away, penaltyWinnerId) => {
+            // por ahora solo en memoria, sin server action todavía
+            setKnockoutPredictions((prev) => ({
+              ...prev,
+              [matchId]: {
+                matchId,
+                predictedHome: home,
+                predictedAway: away,
+                predictedPenaltyWinnerId: penaltyWinnerId,
+              },
+            }));
+          }}
+        />
       )}
     </div>
   );

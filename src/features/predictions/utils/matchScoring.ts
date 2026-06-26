@@ -31,11 +31,18 @@ export function getMatchPointsColor(
   return colors.secondary;
 }
 
-export function isMatchLocked(match: Match): boolean {
+interface LockableMatch {
+  status: "SCHEDULED" | "FINISHED";
+  startsAt: string | null;
+}
+
+export function isMatchLocked(match: LockableMatch): boolean {
+  if (match.status === "FINISHED") return true;
+  if (!match.startsAt) return false; // sin fecha (TBD) nunca está locked
+
   const now = new Date();
   const matchTime = new Date(match.startsAt);
-
   const correctedMatchTime = new Date(matchTime.getTime() + 3 * 60 * 60 * 1000);
 
-  return match.status === "FINISHED" || now > correctedMatchTime;
+  return now > correctedMatchTime;
 }

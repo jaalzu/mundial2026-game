@@ -35,7 +35,7 @@ export function PredictionCard({
 
   return (
     <div
-      className="flex flex-col mx-2 mb-5"
+      className="flex flex-col mx-3 mb-5"
       style={{ border: borders.default }}
     >
       {/* Header */}
