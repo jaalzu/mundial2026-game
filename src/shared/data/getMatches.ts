@@ -36,11 +36,11 @@ const fetchMatches = unstable_cache(
       if (!groupMap.has(group)) groupMap.set(group, { group, matches: [] });
       groupMap.get(group)!.matches.push({
         id: match.id,
-        homeTeam: match.homeTeam,
-        awayTeam: match.awayTeam,
+        homeTeam: match.homeTeam!, // ← agregar el !
+        awayTeam: match.awayTeam!, // ← agregar el !
         phase: match.phase,
         status: match.status,
-        startsAt: match.startsAt.toISOString(),
+        startsAt: match.startsAt!.toISOString(), // ← este también, porque startsAt ahora es nullable
         group,
         scoreHome: match.scoreHome ?? undefined,
         scoreAway: match.scoreAway ?? undefined,

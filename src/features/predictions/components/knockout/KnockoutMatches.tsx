@@ -11,9 +11,10 @@ import { KNOCKOUT_ROUNDS } from "../../models/types";
 import { KnockoutRoundTabs } from "./KnockoutRoundTabs";
 import { BracketTabs } from "./BracketTabs";
 import { KnockoutMatchRow } from "./KnockoutMatchRow";
-import { colors, borders, typography } from "@/shared/constants/designSystem";
+import { colors, typography } from "@/shared/constants/designSystem";
 
 interface KnockoutMatchesProps {
+  userId: string;
   matches: KnockoutMatch[];
   predictions: KnockoutPredictionsMap;
   onAutosave: (

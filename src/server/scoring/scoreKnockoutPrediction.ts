@@ -6,7 +6,7 @@ export interface KnockoutScoreInput {
   predictedPenaltyWinnerId: string | null;
   actualHome: number;
   actualAway: number;
-  actualWinnerTeamId: string | null; // viene de match.winnerTeamId, ya resuelto con penales si aplicó
+  actualWinnerTeamId: string | null;
   homeTeamId: string;
   awayTeamId: string;
 }

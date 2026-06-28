@@ -11,6 +11,7 @@ datasource db {
 enum MatchPhase {
   GROUP
   ROUND_OF_16
+    ROUND_OF_8  
   QUARTER_FINAL
   SEMI_FINAL
   THIRD_PLACE
@@ -115,24 +116,24 @@ model Player {
   @@index([teamId])
   @@map("players")
 }
-
 model Match {
   id           String      @id @default(uuid()) @db.Uuid
   externalId   String?     @unique @map("external_id")
-  homeTeamId   String      @map("home_team_id") @db.Uuid
-  awayTeamId   String      @map("away_team_id") @db.Uuid
+  homeTeamId   String?     @map("home_team_id") @db.Uuid    // antes: String (obligatorio)
+  awayTeamId   String?     @map("away_team_id") @db.Uuid    // antes: String (obligatorio)
   winnerTeamId String?     @map("winner_team_id") @db.Uuid
-  group String? @map("group")
+  bracket      Int?        @map("bracket")                  // ← nuevo
+  group        String?     @map("group")
   phase        MatchPhase
   status       MatchStatus @default(SCHEDULED)
-  startsAt     DateTime    @map("starts_at") @db.Timestamptz(6)
+  startsAt     DateTime?   @map("starts_at") @db.Timestamptz(6)   // antes: DateTime (obligatorio)
   scoreHome    Int?        @map("score_home")
   scoreAway    Int?        @map("score_away")
   createdAt    DateTime    @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt    DateTime    @updatedAt @map("updated_at") @db.Timestamptz(6)
 
-  homeTeam    Team              @relation("MatchHomeTeam", fields: [homeTeamId], references: [id], onDelete: Restrict)
-  awayTeam    Team              @relation("MatchAwayTeam", fields: [awayTeamId], references: [id], onDelete: Restrict)
+  homeTeam    Team?             @relation("MatchHomeTeam", fields: [homeTeamId], references: [id], onDelete: Restrict)  // Team? en vez de Team
+  awayTeam    Team?             @relation("MatchAwayTeam", fields: [awayTeamId], references: [id], onDelete: Restrict)  // Team? en vez de Team
   winnerTeam  Team?             @relation("MatchWinnerTeam", fields: [winnerTeamId], references: [id], onDelete: SetNull)
   predictions MatchPrediction[]
 
@@ -143,15 +144,16 @@ model Match {
 }
 
 model MatchPrediction {
-  id            String                 @id @default(uuid()) @db.Uuid
-  userId        String                 @map("user_id") @db.Uuid
-  matchId       String                 @map("match_id") @db.Uuid
-  predictedHome Int                    @map("predicted_home")
-  predictedAway Int                    @map("predicted_away")
-  points        Int                    @default(0)
-  exactHit      Boolean                @default(false) @map("exact_hit")
-  result        MatchPredictionResult?
-  createdAt     DateTime               @default(now()) @map("created_at") @db.Timestamptz(6)
+  id                       String                 @id @default(uuid()) @db.Uuid
+  userId                   String                 @map("user_id") @db.Uuid
+  matchId                  String                 @map("match_id") @db.Uuid
+  predictedHome            Int                    @map("predicted_home")
+  predictedAway            Int                    @map("predicted_away")
+  predictedPenaltyWinnerId String?                @map("predicted_penalty_winner_id") @db.Uuid  // ← nuevo
+  points                   Int                    @default(0)
+  exactHit                 Boolean                @default(false) @map("exact_hit")
+  result                   MatchPredictionResult?
+  createdAt                DateTime               @default(now()) @map("created_at") @db.Timestamptz(6)
 
   user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
   match Match @relation(fields: [matchId], references: [id], onDelete: Cascade)

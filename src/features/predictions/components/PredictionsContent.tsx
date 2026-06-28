@@ -8,7 +8,7 @@ import type {
   TeamOption,
   PlayerOption,
 } from "../models/types";
-import type { GroupData } from "../models/types";
+import type { GroupData, KnockoutMatch } from "../models/types";
 import { usePredictionStore } from "../store/usePredictionStore";
 import { PhaseTabs } from "./shared/PhaseTabs";
 import { GroupTabs } from "./groups/GroupTabs";
@@ -18,12 +18,16 @@ import { savePrediction } from "../actions/savePrediction";
 import { colors } from "@/shared/constants/designSystem";
 import type { KnockoutPredictionsMap } from "../models/types";
 import { KnockoutMatches } from "./knockout/KnockoutMatches";
-import { MOCK_KNOCKOUT_MATCHES } from "@/features/admin/data/mockKnockoutMatches";
+import { saveKnockoutPrediction } from "../../admin/actions/saveKnockoutPrediction";
+import { getKnockoutMatches } from "@/shared/data/getKnockoutMatches"; //
 
 interface PredictionsContentProps {
   userId: string;
   groups: GroupData[];
   initialPredictions: PredictionsMap;
+  knockoutMatches: KnockoutMatch[];
+  initialKnockoutPredictions: KnockoutPredictionsMap;
+
   initialTournament: TournamentPredictionData | null;
   teams: TeamOption[];
   players: PlayerOption[];
@@ -33,6 +37,8 @@ export function PredictionsContent({
   userId,
   groups,
   initialPredictions,
+  knockoutMatches,
+  initialKnockoutPredictions,
   initialTournament,
   teams,
   players,
@@ -42,7 +48,7 @@ export function PredictionsContent({
     groups[0]?.group ?? "A",
   );
   const [knockoutPredictions, setKnockoutPredictions] =
-    useState<KnockoutPredictionsMap>({});
+    useState<KnockoutPredictionsMap>(initialKnockoutPredictions);
 
   const { predictions, hydrate, setPrediction } = usePredictionStore();
 
@@ -112,10 +118,10 @@ export function PredictionsContent({
 
       {activePhase === "KNOCKOUT" && (
         <KnockoutMatches
-          matches={MOCK_KNOCKOUT_MATCHES}
+          userId={userId}
+          matches={knockoutMatches}
           predictions={knockoutPredictions}
-          onAutosave={(matchId, home, away, penaltyWinnerId) => {
-            // por ahora solo en memoria, sin server action todavía
+          onAutosave={async (matchId, home, away, penaltyWinnerId) => {
             setKnockoutPredictions((prev) => ({
               ...prev,
               [matchId]: {
@@ -125,6 +131,13 @@ export function PredictionsContent({
                 predictedPenaltyWinnerId: penaltyWinnerId,
               },
             }));
+            await saveKnockoutPrediction(
+              userId,
+              matchId,
+              home,
+              away,
+              penaltyWinnerId,
+            );
           }}
         />
       )}

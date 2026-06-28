@@ -46,3 +46,38 @@ export function isMatchLocked(match: LockableMatch): boolean {
 
   return now > correctedMatchTime;
 }
+
+export function getKnockoutMatchDisplay(
+  predictedHome: string,
+  predictedAway: string,
+  predictedPenaltyWinnerId: string | null,
+  match: {
+    scoreHome?: number;
+    scoreAway?: number;
+    winnerTeamId?: string | null;
+    homeTeam: { id: string };
+    awayTeam: { id: string };
+  },
+): { label: string; color: string } {
+  const ph = parseInt(predictedHome, 10);
+  const pa = parseInt(predictedAway, 10);
+  const sh = match.scoreHome!;
+  const sa = match.scoreAway!;
+
+  if (ph === sh && pa === sa) {
+    return { label: "+3", color: colors.primary };
+  }
+
+  const predictedWinnerId =
+    ph > pa
+      ? match.homeTeam.id
+      : pa > ph
+        ? match.awayTeam.id
+        : predictedPenaltyWinnerId;
+
+  if (predictedWinnerId && predictedWinnerId === match.winnerTeamId) {
+    return { label: "+1", color: "#f59f0be4" };
+  }
+
+  return { label: "0", color: colors.secondary };
+}

@@ -3,11 +3,13 @@
 import { useState } from "react";
 import type { KnockoutMatch } from "../../models/types";
 import { formatMatchDate } from "../../utils/matchDate";
-import { isMatchLocked } from "../../utils/matchScoring";
+import {
+  isMatchLocked,
+  getKnockoutMatchDisplay,
+} from "../../utils/matchScoring";
 import { TeamSlot } from "./TeamSlot";
 import { ScoreInput } from "./ScoreInput";
 import { colors, borders, typography } from "@/shared/constants/designSystem";
-
 interface KnockoutMatchRowProps {
   match: KnockoutMatch;
   predictedHome: string;
@@ -240,6 +242,17 @@ export function KnockoutMatchRow({
                   </strong>
                 </>
               )}
+              {homeIsFilled &&
+                awayIsFilled &&
+                (() => {
+                  const { label, color } = getKnockoutMatchDisplay(
+                    home,
+                    away,
+                    penalty,
+                    match as Parameters<typeof getKnockoutMatchDisplay>[3],
+                  );
+                  return <strong style={{ color }}> {label}</strong>;
+                })()}
             </span>
           </div>
         )}

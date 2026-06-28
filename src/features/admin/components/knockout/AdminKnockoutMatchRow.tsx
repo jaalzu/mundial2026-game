@@ -7,6 +7,9 @@ import type {
 } from "@/features/predictions/models/types";
 import { colors, borders, typography } from "@/shared/constants/designSystem";
 
+import { assignKnockoutTeams } from "../../actions/assignKnockoutTeams";
+import { finishKnockoutMatch } from "../../actions/finishKnockoutMatch";
+
 interface AdminKnockoutMatchRowProps {
   match: KnockoutMatch;
   teams: TeamOption[];
@@ -43,38 +46,59 @@ export function AdminKnockoutMatchRow({
 
   const findTeam = (id: string) => teams.find((t) => t.id === id) ?? null;
 
-  const handleAssignTeams = () => {
+  const handleAssignTeams = async () => {
     if (!homeTeamId || !awayTeamId || homeTeamId === awayTeamId) return;
-    onUpdate({
-      ...match,
-      homeTeam: findTeam(homeTeamId),
-      awayTeam: findTeam(awayTeamId),
+    const result = await assignKnockoutTeams({
+      matchId: match.id,
+      homeTeamId,
+      awayTeamId,
       startsAt: startsAt ? new Date(startsAt).toISOString() : null,
     });
+    if (result.success) {
+      onUpdate({
+        ...match,
+        homeTeam: findTeam(homeTeamId),
+        awayTeam: findTeam(awayTeamId),
+        startsAt: startsAt ? new Date(startsAt).toISOString() : null,
+      });
+    } else {
+      alert(result.error);
+    }
   };
 
-  const handleFinish = () => {
+  const handleFinish = async () => {
     const sh = parseInt(scoreHome, 10);
     const sa = parseInt(scoreAway, 10);
     if (isNaN(sh) || isNaN(sa)) return;
 
-    let winnerTeamId: string | null;
+    let winnerTeamId: string;
     if (sh > sa) {
-      winnerTeamId = match.homeTeam?.id ?? null;
+      winnerTeamId = match.homeTeam!.id;
     } else if (sa > sh) {
-      winnerTeamId = match.awayTeam?.id ?? null;
+      winnerTeamId = match.awayTeam!.id;
     } else {
-      if (!penaltyWinnerId) return; // empate sin penal elegido: no deja cerrar
+      if (!penaltyWinnerId) return;
       winnerTeamId = penaltyWinnerId;
     }
 
-    onUpdate({
-      ...match,
-      status: "FINISHED",
+    const result = await finishKnockoutMatch({
+      matchId: match.id,
       scoreHome: sh,
       scoreAway: sa,
       winnerTeamId,
     });
+
+    if (result.success) {
+      onUpdate({
+        ...match,
+        status: "FINISHED",
+        scoreHome: sh,
+        scoreAway: sa,
+        winnerTeamId,
+      });
+    } else {
+      alert(result.error);
+    }
   };
 
   return (
@@ -95,11 +119,11 @@ export function AdminKnockoutMatchRow({
           >
             ASIGNAR EQUIPOS
           </span>
-          <div className="flex gap-2 items-center">
+          <div className="flex flex-col gap-2">
             <select
               value={homeTeamId}
               onChange={(e) => setHomeTeamId(e.target.value)}
-              className="flex-1 p-1"
+              className="w-full p-1"
               style={{
                 fontFamily: typography.fontFamily,
                 fontSize: typography.sizes.sm,
@@ -115,11 +139,13 @@ export function AdminKnockoutMatchRow({
                 </option>
               ))}
             </select>
-            <span style={{ color: colors.mutedText }}>vs</span>
+            <div className="flex items-center justify-center">
+              <span style={{ color: colors.mutedText }}>vs</span>
+            </div>
             <select
               value={awayTeamId}
               onChange={(e) => setAwayTeamId(e.target.value)}
-              className="flex-1 p-1"
+              className="w-full p-1"
               style={{
                 fontFamily: typography.fontFamily,
                 fontSize: typography.sizes.sm,

@@ -3,6 +3,7 @@
 export type MatchPhase =
   | "GROUP"
   | "ROUND_OF_16"
+  | "ROUND_OF_8"
   | "QUARTER_FINAL"
   | "SEMI_FINAL"
   | "THIRD_PLACE"
@@ -21,7 +22,7 @@ export interface Match {
   id: string;
   homeTeam: Team;
   awayTeam: Team;
-  phase: MatchPhase;
+  phase?: MatchPhase;
   status: MatchStatus;
   startsAt: string;
   group?: string;
@@ -140,15 +141,15 @@ export const KNOCKOUT_ROUNDS: {
   { phase: "ROUND_OF_8", label: "8VOS", hasBracket: true },
   { phase: "QUARTER_FINAL", label: "4TOS", hasBracket: false },
   { phase: "SEMI_FINAL", label: "SEMIS", hasBracket: false },
-  { phase: "THIRD_PLACE", label: "3ER", hasBracket: false },
   { phase: "FINAL", label: "FINAL", hasBracket: false },
+  { phase: "THIRD_PLACE", label: "3ER", hasBracket: false },
 ];
 
 export interface KnockoutPredictionValue {
   matchId: string;
   predictedHome: number | null;
   predictedAway: number | null;
-  predictedPenaltyWinnerId: string | null; // solo se usa si predictedHome === predictedAway
+  predictedPenaltyWinnerId: string | null;
 }
 
 export type KnockoutPredictionsMap = Record<string, KnockoutPredictionValue>;
