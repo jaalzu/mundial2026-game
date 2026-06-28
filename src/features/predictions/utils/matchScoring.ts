@@ -31,11 +31,53 @@ export function getMatchPointsColor(
   return colors.secondary;
 }
 
-export function isMatchLocked(match: Match): boolean {
+interface LockableMatch {
+  status: "SCHEDULED" | "FINISHED";
+  startsAt: string | null;
+}
+
+export function isMatchLocked(match: LockableMatch): boolean {
+  if (match.status === "FINISHED") return true;
+  if (!match.startsAt) return false; // sin fecha (TBD) nunca está locked
+
   const now = new Date();
   const matchTime = new Date(match.startsAt);
-
   const correctedMatchTime = new Date(matchTime.getTime() + 3 * 60 * 60 * 1000);
 
-  return match.status === "FINISHED" || now > correctedMatchTime;
+  return now > correctedMatchTime;
+}
+
+export function getKnockoutMatchDisplay(
+  predictedHome: string,
+  predictedAway: string,
+  predictedPenaltyWinnerId: string | null,
+  match: {
+    scoreHome?: number;
+    scoreAway?: number;
+    winnerTeamId?: string | null;
+    homeTeam: { id: string };
+    awayTeam: { id: string };
+  },
+): { label: string; color: string } {
+  const ph = parseInt(predictedHome, 10);
+  const pa = parseInt(predictedAway, 10);
+  const sh = match.scoreHome!;
+  const sa = match.scoreAway!;
+
+  if (ph === sh && pa === sa) {
+    return { label: "+3", color: colors.primary };
+  }
+
+  const predictedWinnerId =
+    ph > pa
+      ? match.homeTeam.id
+      : pa > ph
+        ? match.awayTeam.id
+        : predictedPenaltyWinnerId;
+
+  if (predictedWinnerId && predictedWinnerId === match.winnerTeamId) {
+    return { label: "+1", color: "#f59f0be4" };
+  }
+
+  return { label: "0", color: colors.secondary };
 }

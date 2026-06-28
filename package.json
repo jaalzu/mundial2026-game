@@ -17,6 +17,7 @@
     "db:seed:test-user": "prisma db execute --file prisma/seed/dev-user.sql",
     "fetch:data": "node scripts/fetch-world-cup-data.mjs",
     "db:seed": "node prisma/seed/index.mjs",
+    "db:seed:knockout": "node prisma/seed/seed-knockout.mjs",
     "db:seed:matches": "node prisma/seed/update-matches.mjs"
   },
   "dependencies": {

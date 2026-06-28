@@ -8,19 +8,26 @@ import type {
   TeamOption,
   PlayerOption,
 } from "../models/types";
-import type { GroupData } from "../models/types";
+import type { GroupData, KnockoutMatch } from "../models/types";
 import { usePredictionStore } from "../store/usePredictionStore";
 import { PhaseTabs } from "./shared/PhaseTabs";
 import { GroupTabs } from "./groups/GroupTabs";
 import { GroupMatches } from "./groups/GroupMatches";
 import { TournamentPredictions } from "./tournament/TournamentPredictions";
 import { savePrediction } from "../actions/savePrediction";
-import { colors, typography } from "@/shared/constants/designSystem";
+import { colors } from "@/shared/constants/designSystem";
+import type { KnockoutPredictionsMap } from "../models/types";
+import { KnockoutMatches } from "./knockout/KnockoutMatches";
+import { saveKnockoutPrediction } from "../../admin/actions/saveKnockoutPrediction";
+import { getKnockoutMatches } from "@/shared/data/getKnockoutMatches"; //
 
 interface PredictionsContentProps {
   userId: string;
   groups: GroupData[];
   initialPredictions: PredictionsMap;
+  knockoutMatches: KnockoutMatch[];
+  initialKnockoutPredictions: KnockoutPredictionsMap;
+
   initialTournament: TournamentPredictionData | null;
   teams: TeamOption[];
   players: PlayerOption[];
@@ -30,6 +37,8 @@ export function PredictionsContent({
   userId,
   groups,
   initialPredictions,
+  knockoutMatches,
+  initialKnockoutPredictions,
   initialTournament,
   teams,
   players,
@@ -38,6 +47,8 @@ export function PredictionsContent({
   const [activeGroup, setActiveGroup] = useState<string>(
     groups[0]?.group ?? "A",
   );
+  const [knockoutPredictions, setKnockoutPredictions] =
+    useState<KnockoutPredictionsMap>(initialKnockoutPredictions);
 
   const { predictions, hydrate, setPrediction } = usePredictionStore();
 
@@ -106,18 +117,29 @@ export function PredictionsContent({
       )}
 
       {activePhase === "KNOCKOUT" && (
-        <div className="flex flex-1 items-center justify-center min-h-48">
-          <span
-            style={{
-              fontFamily: typography.fontFamily,
-              fontSize: typography.sizes.sm,
-              color: colors.mutedText,
-              letterSpacing: "0.06em",
-            }}
-          >
-            Eliminatorias — próximamente
-          </span>
-        </div>
+        <KnockoutMatches
+          userId={userId}
+          matches={knockoutMatches}
+          predictions={knockoutPredictions}
+          onAutosave={async (matchId, home, away, penaltyWinnerId) => {
+            setKnockoutPredictions((prev) => ({
+              ...prev,
+              [matchId]: {
+                matchId,
+                predictedHome: home,
+                predictedAway: away,
+                predictedPenaltyWinnerId: penaltyWinnerId,
+              },
+            }));
+            await saveKnockoutPrediction(
+              userId,
+              matchId,
+              home,
+              away,
+              penaltyWinnerId,
+            );
+          }}
+        />
       )}
     </div>
   );

@@ -48,11 +48,11 @@ export async function getAdminMatches(): Promise<AdminGroupData[]> {
       id: match.id,
       group,
       status: match.status,
-      startsAt: match.startsAt.toISOString(),
+      startsAt: match.startsAt!.toISOString(), // ← agregar !
       scoreHome: match.scoreHome,
       scoreAway: match.scoreAway,
-      homeTeam: match.homeTeam,
-      awayTeam: match.awayTeam,
+      homeTeam: match.homeTeam!, // ← agregar !
+      awayTeam: match.awayTeam!, // ← agregar !
     });
   }
 

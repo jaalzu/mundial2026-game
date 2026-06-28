@@ -3,6 +3,7 @@
 export type MatchPhase =
   | "GROUP"
   | "ROUND_OF_16"
+  | "ROUND_OF_8"
   | "QUARTER_FINAL"
   | "SEMI_FINAL"
   | "THIRD_PLACE"
@@ -21,7 +22,7 @@ export interface Match {
   id: string;
   homeTeam: Team;
   awayTeam: Team;
-  phase: MatchPhase;
+  phase?: MatchPhase;
   status: MatchStatus;
   startsAt: string;
   group?: string;
@@ -105,3 +106,50 @@ export interface TournamentCardConfig {
   filterPosition?: PlayerPosition;
   points: number;
 }
+
+// ─── Knockout types ──────────────────────────────────────────────────────────
+
+export type KnockoutPhase =
+  | "ROUND_OF_16"
+  | "ROUND_OF_8"
+  | "QUARTER_FINAL"
+  | "SEMI_FINAL"
+  | "THIRD_PLACE"
+  | "FINAL";
+
+export type BracketSide = 1 | 2 | null;
+
+export interface KnockoutMatch {
+  id: string;
+  phase: KnockoutPhase;
+  bracket: BracketSide;
+  homeTeam: Team | null;
+  awayTeam: Team | null;
+  startsAt: string | null;
+  status: MatchStatus;
+  scoreHome?: number;
+  scoreAway?: number;
+  winnerTeamId?: string | null;
+}
+
+export const KNOCKOUT_ROUNDS: {
+  phase: KnockoutPhase;
+  label: string;
+  hasBracket: boolean;
+}[] = [
+  { phase: "ROUND_OF_16", label: "16AVOS", hasBracket: true },
+  { phase: "ROUND_OF_8", label: "8VOS", hasBracket: true },
+  { phase: "QUARTER_FINAL", label: "4TOS", hasBracket: false },
+  { phase: "SEMI_FINAL", label: "SEMIS", hasBracket: false },
+  { phase: "FINAL", label: "FINAL", hasBracket: false },
+  { phase: "THIRD_PLACE", label: "3ER", hasBracket: false },
+];
+
+export interface KnockoutPredictionValue {
+  matchId: string;
+  predictedHome: number | null;
+  predictedAway: number | null;
+  predictedPenaltyWinnerId: string | null;
+}
+
+export type KnockoutPredictionsMap = Record<string, KnockoutPredictionValue>;

@@ -4,17 +4,21 @@ import { useState } from "react";
 import type { AdminGroupData } from "../data/getAdminMatches";
 import { AdminMatches } from "./matches/AdminMatches";
 import { AdminTournament } from "./tournament/AdminTournament";
+import { AdminKnockoutMatches } from "./knockout/AdminKnockoutMatches";
+// ← borrar el import de MOCK_KNOCKOUT_MATCHES si todavía estaba ahí
 import type {
   TeamOption,
   PlayerOption,
+  KnockoutMatch, // ← nuevo
 } from "@/features/predictions/models/types";
 import { colors, typography } from "@/shared/constants/designSystem";
 import type { TournamentResultState } from "./tournament/AdminTournament";
 
-type AdminTab = "matches" | "tournament";
+type AdminTab = "matches" | "knockout" | "tournament";
 
 const TABS: { id: AdminTab; label: string }[] = [
-  { id: "matches", label: "PARTIDOS" },
+  { id: "matches", label: "GRUPOS" },
+  { id: "knockout", label: "ELIMINATORIAS" },
   { id: "tournament", label: "TORNEO" },
 ];
 
@@ -23,6 +27,7 @@ interface AdminTabsProps {
   teams: TeamOption[];
   players: PlayerOption[];
   initialTournamentResult: TournamentResultState | null;
+  knockoutMatches: KnockoutMatch[]; // ← nuevo
 }
 
 export function AdminTabs({
@@ -30,14 +35,14 @@ export function AdminTabs({
   teams,
   players,
   initialTournamentResult,
+  knockoutMatches, // ← nuevo
 }: AdminTabsProps) {
   const [activeTab, setActiveTab] = useState<AdminTab>("matches");
 
   return (
     <div className="flex flex-col">
-      {/* Tabs */}
       <div
-        className="grid grid-cols-2 mb-6"
+        className="grid grid-cols-3 mb-6"
         style={{ border: `2px solid ${colors.border}` }}
       >
         {TABS.map(({ id, label }, i) => {
@@ -49,7 +54,7 @@ export function AdminTabs({
               className="py-2 text-center transition-all"
               style={{
                 fontFamily: typography.fontFamily,
-                fontSize: typography.sizes.lg,
+                fontSize: typography.sizes.md,
                 letterSpacing: "-0.03em",
                 fontWeight: isActive ? 700 : 400,
                 color: isActive ? colors.text : colors.mutedText,
@@ -66,6 +71,12 @@ export function AdminTabs({
       </div>
 
       {activeTab === "matches" && <AdminMatches groups={groups} />}
+      {activeTab === "knockout" && (
+        <AdminKnockoutMatches
+          initialMatches={knockoutMatches} //
+          teams={teams}
+        />
+      )}
       {activeTab === "tournament" && (
         <AdminTournament
           teams={teams}

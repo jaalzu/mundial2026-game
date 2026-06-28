@@ -3,23 +3,34 @@ import { getAuthenticatedUser } from "@/shared/utils/getAuthenticatedUser";
 import { getMatches } from "@/shared/data/getMatches";
 import { getPlayers } from "@/shared/data/getPlayers";
 import { getTeams } from "@/shared/data/getTeams";
+import { getKnockoutMatches } from "@/shared/data/getKnockoutMatches"; // ← nuevo
 import { getUserPredictions } from "@/features/predictions/actions/getUserPredictions";
 import { getTournamentPrediction } from "@/features/predictions/actions/getTournamentPrediction";
 import { PredictionsContent } from "@/features/predictions/components/PredictionsContent";
 import { redirect } from "next/navigation";
+import { getUserKnockoutPredictions } from "@/features/predictions/actions/getUserKnockoutPredictions"; // ← nuevo
 
 export async function PredictionsLoader() {
   const user = await getAuthenticatedUser();
   if (!user) redirect("/landing");
 
-  const [groups, players, teams, predictionsResult, tournamentResult] =
-    await Promise.all([
-      getMatches(),
-      getPlayers(),
-      getTeams(),
-      getUserPredictions(user.id),
-      getTournamentPrediction(user.id),
-    ]);
+  const [
+    groups,
+    players,
+    teams,
+    knockoutMatches,
+    predictionsResult,
+    tournamentResult,
+    knockoutPredictionsResult,
+  ] = await Promise.all([
+    getMatches(),
+    getPlayers(),
+    getTeams(),
+    getKnockoutMatches(),
+    getUserPredictions(user.id),
+    getTournamentPrediction(user.id),
+    getUserKnockoutPredictions(user.id), // ← nuevo
+  ]);
 
   const initialPredictions = predictionsResult.success
     ? predictionsResult.data
@@ -29,6 +40,10 @@ export async function PredictionsLoader() {
     ? tournamentResult.data
     : null;
 
+  const initialKnockoutPredictions = knockoutPredictionsResult.success
+    ? knockoutPredictionsResult.data
+    : {};
+
   return (
     <PredictionsContent
       userId={user.id}
@@ -37,6 +52,8 @@ export async function PredictionsLoader() {
       initialTournament={initialTournament}
       teams={teams}
       players={players}
+      knockoutMatches={knockoutMatches} // ← nuevo
+      initialKnockoutPredictions={initialKnockoutPredictions}
     />
   );
 }
