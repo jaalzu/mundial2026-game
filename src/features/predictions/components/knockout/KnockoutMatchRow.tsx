@@ -8,6 +8,8 @@ import {
   getKnockoutMatchDisplay,
 } from "../../utils/matchScoring";
 import { TeamSlot } from "./TeamSlot";
+import { PenaltyRadio } from "./PenaltyRadio";
+
 import { ScoreInput } from "./ScoreInput";
 import { colors, borders, typography } from "@/shared/constants/designSystem";
 interface KnockoutMatchRowProps {
@@ -168,7 +170,7 @@ export function KnockoutMatchRow({
       </div>
 
       {isDraw && !isLocked && (
-        <div className="flex items-center justify-center gap-4 mt-2">
+        <div className="flex items-center justify-center gap-3 mt-2">
           <span
             style={{
               fontFamily: typography.fontFamily,
@@ -178,40 +180,16 @@ export function KnockoutMatchRow({
           >
             ¿Quién avanza por penales?
           </span>
-          <label className="flex items-center gap-1 cursor-pointer">
-            <input
-              type="radio"
-              name={`penalty-${match.id}`}
-              checked={penalty === match.homeTeam!.id}
-              onChange={() => handlePenaltyChange(match.homeTeam!.id)}
-            />
-            <span
-              style={{
-                fontFamily: typography.fontFamily,
-                fontSize: typography.sizes.sm,
-                color: colors.text,
-              }}
-            >
-              {match.homeTeam!.code}
-            </span>
-          </label>
-          <label className="flex items-center gap-1 cursor-pointer">
-            <input
-              type="radio"
-              name={`penalty-${match.id}`}
-              checked={penalty === match.awayTeam!.id}
-              onChange={() => handlePenaltyChange(match.awayTeam!.id)}
-            />
-            <span
-              style={{
-                fontFamily: typography.fontFamily,
-                fontSize: typography.sizes.sm,
-                color: colors.text,
-              }}
-            >
-              {match.awayTeam!.code}
-            </span>
-          </label>
+          <PenaltyRadio
+            label={match.homeTeam!.code}
+            selected={penalty === match.homeTeam!.id}
+            onSelect={() => handlePenaltyChange(match.homeTeam!.id)}
+          />
+          <PenaltyRadio
+            label={match.awayTeam!.code}
+            selected={penalty === match.awayTeam!.id}
+            onSelect={() => handlePenaltyChange(match.awayTeam!.id)}
+          />
         </div>
       )}
 

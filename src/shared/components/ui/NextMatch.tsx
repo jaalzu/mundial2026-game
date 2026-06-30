@@ -1,3 +1,6 @@
+"use client";
+
+import Link from "next/link";
 import { typography, colors } from "@/shared/constants/designSystem";
 
 export interface NextMatchData {
@@ -15,20 +18,11 @@ function formatTime(date: Date): string {
   });
 }
 
-function formatGroup(group: string | null): string {
-  return group?.replace("Group ", "") ?? "";
-}
-
-export function NextMatch({
-  group,
-  startsAt,
-  homeTeam,
-  awayTeam,
-}: NextMatchData) {
+export function NextMatch({ startsAt, homeTeam, awayTeam }: NextMatchData) {
   const sep = <span style={{ color: colors.primary }}> - </span>;
 
   return (
-    <div className="flex flex-col items-end">
+    <div className="flex flex-col items-end gap-1">
       <span
         style={{
           fontFamily: typography.fontFamily,
@@ -49,7 +43,6 @@ export function NextMatch({
         {homeTeam.code} VS {awayTeam.code}
         {sep}
         {formatTime(startsAt)}
-        {sep}GRUPO {formatGroup(group)}
       </span>
     </div>
   );

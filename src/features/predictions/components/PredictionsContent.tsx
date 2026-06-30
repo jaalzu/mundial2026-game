@@ -20,7 +20,7 @@ import type { KnockoutPredictionsMap } from "../models/types";
 import { KnockoutMatches } from "./knockout/KnockoutMatches";
 import { saveKnockoutPrediction } from "../../admin/actions/saveKnockoutPrediction";
 import { getKnockoutMatches } from "@/shared/data/getKnockoutMatches"; //
-
+import { useSearchParams } from "next/navigation";
 interface PredictionsContentProps {
   userId: string;
   groups: GroupData[];
@@ -43,10 +43,19 @@ export function PredictionsContent({
   teams,
   players,
 }: PredictionsContentProps) {
-  const [activePhase, setActivePhase] = useState<PredictionPhase>("GROUPS");
+  const searchParams = useSearchParams();
+  const tabParam = searchParams.get("tab");
+  const [activePhase, setActivePhase] = useState<PredictionPhase>(
+    tabParam === "groups"
+      ? "GROUPS"
+      : tabParam === "tournament"
+        ? "TOURNAMENT"
+        : "KNOCKOUT",
+  );
   const [activeGroup, setActiveGroup] = useState<string>(
     groups[0]?.group ?? "A",
   );
+
   const [knockoutPredictions, setKnockoutPredictions] =
     useState<KnockoutPredictionsMap>(initialKnockoutPredictions);
 

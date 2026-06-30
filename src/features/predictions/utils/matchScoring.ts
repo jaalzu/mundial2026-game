@@ -1,6 +1,11 @@
 // features/predictions/utils/matchScoring.ts
 import type { Match } from "../models/types";
 import { colors } from "@/shared/constants/designSystem";
+import {
+  POINTS_EXACT,
+  POINTS_WINNER,
+  POINTS_MISS,
+} from "@/server/scoring/points"; // ← agregar este import arriba
 
 export function getMatchPoints(
   home: string,
@@ -65,7 +70,7 @@ export function getKnockoutMatchDisplay(
   const sa = match.scoreAway!;
 
   if (ph === sh && pa === sa) {
-    return { label: "+3", color: colors.primary };
+    return { label: `+${POINTS_EXACT}`, color: colors.primary };
   }
 
   const predictedWinnerId =
@@ -76,8 +81,8 @@ export function getKnockoutMatchDisplay(
         : predictedPenaltyWinnerId;
 
   if (predictedWinnerId && predictedWinnerId === match.winnerTeamId) {
-    return { label: "+1", color: "#f59f0be4" };
+    return { label: `+${POINTS_WINNER}`, color: "#f59f0be4" };
   }
 
-  return { label: "0", color: colors.secondary };
+  return { label: `${POINTS_MISS}`, color: colors.secondary };
 }
