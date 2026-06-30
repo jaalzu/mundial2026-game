@@ -4,8 +4,8 @@
  */
 
 // Match predictions
-export const POINTS_EXACT = 3; // exact score
-export const POINTS_WINNER = 1; // correct winner/draw
+export const POINTS_EXACT = 6; // exact score
+export const POINTS_WINNER = 2; // correct winner/draw
 export const POINTS_MISS = 0; // wrong
 
 // Tournament predictions
