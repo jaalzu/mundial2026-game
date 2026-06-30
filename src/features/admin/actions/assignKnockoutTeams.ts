@@ -27,7 +27,9 @@ export async function assignKnockoutTeams({
       data: {
         homeTeamId,
         awayTeamId,
-        startsAt: startsAt ? new Date(startsAt) : null,
+        startsAt: startsAt
+          ? new Date(new Date(startsAt).getTime() - 3 * 60 * 60 * 1000)
+          : null,
       },
     });
 

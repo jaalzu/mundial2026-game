@@ -5,8 +5,8 @@ import { colors, typography } from "@/shared/constants/designSystem";
 
 const PHASES: { id: PredictionPhase; label: string }[] = [
   { id: "GROUPS", label: "GRUPOS" },
-  { id: "TOURNAMENT", label: "CAMPEONATO" },
   { id: "KNOCKOUT", label: "ELIMINATORIAS" },
+  { id: "TOURNAMENT", label: "CAMPEONATO" },
 ];
 
 interface PhaseTabsProps {

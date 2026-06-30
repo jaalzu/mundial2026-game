@@ -10,7 +10,7 @@ export function PredictionsSkeleton() {
         className="grid grid-cols-3 mb-4"
         style={{ border: `2px solid ${colors.border}` }}
       >
-        {["GRUPOS", "CAMPEONATO", "ELIMINATORIAS"].map((label, i) => (
+        {["GRUPOS", "ELIMINATORIAS", "CAMPEONATO"].map((label, i) => (
           <div
             key={label}
             className="py-2 text-center"
@@ -21,7 +21,7 @@ export function PredictionsSkeleton() {
               color: colors.text,
               borderLeft: i === 0 ? "none" : `2px solid ${colors.border}`,
               backgroundColor: colors.background,
-              opacity: 0.6,
+              opacity: i === 1 ? 1 : 0.6,
             }}
           >
             {label}
@@ -29,67 +29,52 @@ export function PredictionsSkeleton() {
         ))}
       </div>
 
-      {/* Group Tabs */}
+      {/* Round Tabs */}
       <div
-        className="flex overflow-x-auto gap-3 mx-3 mb-5"
+        className="flex overflow-x-auto gap-3 mx-3 mb-4"
         style={{ scrollbarWidth: "none" }}
       >
-        {["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"].map((group) => (
+        {["16AVOS", "8VOS", "4TOS", "SEMIS", "FINAL", "3ER"].map((round, i) => (
           <div
-            key={group}
+            key={round}
             className="flex-shrink-0 px-3.5 py-1 animate-pulse"
             style={{
               fontFamily: typography.fontFamily,
               fontSize: typography.sizes.md,
-              fontWeight: 700,
-              border: borders.default,
+              fontWeight: i === 0 ? 700 : 400,
+              border: i === 0 ? borders.light : borders.default,
               backgroundColor: colors.background,
-              color: colors.text,
+              color: i === 0 ? colors.text : colors.mutedText,
             }}
           >
-            {group}
+            {round}
           </div>
         ))}
       </div>
 
-      {/* Points Legend */}
-      <div className="flex justify-end gap-3 px-4 ">
-        <span
-          style={{
-            fontFamily: typography.fontFamily,
-            fontSize: typography.sizes.sm,
-            color: colors.primary,
-          }}
-        >
-          <strong>+3</strong> exacto
-        </span>
-        <span
-          style={{
-            fontFamily: typography.fontFamily,
-            fontSize: typography.sizes.sm,
-            color: "#f59f0be4",
-          }}
-        >
-          <strong>+1</strong> ganador
-        </span>
-        <span
-          style={{
-            fontFamily: typography.fontFamily,
-            fontSize: typography.sizes.sm,
-            color: colors.secondary,
-          }}
-        >
-          <strong>0</strong> fallo
-        </span>
+      {/* Bracket Tabs */}
+      <div className="flex mx-3 mb-4">
+        {[1, 2].map((bracket) => (
+          <div
+            key={bracket}
+            className="flex-1 py-1.5 text-center animate-pulse"
+            style={{
+              fontFamily: typography.fontFamily,
+              fontSize: typography.sizes.md,
+              fontWeight: bracket === 1 ? 700 : 400,
+              border: bracket === 1 ? borders.light : borders.default,
+              backgroundColor: colors.background,
+              color: bracket === 1 ? colors.text : colors.mutedText,
+            }}
+          >
+            LLAVE {bracket}
+          </div>
+        ))}
       </div>
 
-      {/* Group Header & Match Rows */}
-      <div className="mx-2" style={{ border: borders.default }}>
-        {/* Group Title */}
-        <div
-          className="flex items-center justify-between px-6 py-1"
-          style={{ borderBottom: borders.default }}
-        >
+      {/* Round Header & Match Rows */}
+      <div className="mx-3">
+        <div className="flex items-center justify-between px-6 py-1">
           <span
             style={{
               fontFamily: typography.fontFamily,
@@ -99,20 +84,18 @@ export function PredictionsSkeleton() {
               opacity: 0.7,
             }}
           >
-            Grupo A
+            16AVOS — LLAVE 1
           </span>
         </div>
 
-        {/* Match Rows */}
-        <div className="flex flex-col">
-          {Array.from({ length: 6 }).map((_, i) => (
+        <div className="flex flex-col gap-2 p-2">
+          {Array.from({ length: 7 }).map((_, i) => (
             <div
               key={i}
-              className="flex flex-col animate-pulse"
+              className="flex flex-col animate-pulse px-1 pb-3"
               style={{
-                height: "90px",
-                borderTop: i > 0 ? borders.default : "none",
-                padding: "8px 4px 16px 4px",
+                border: borders.default,
+                minHeight: "90px",
               }}
             >
               {/* Date skeleton */}
@@ -133,7 +116,6 @@ export function PredictionsSkeleton() {
                 className="grid items-center w-full flex-1 mt-2"
                 style={{ gridTemplateColumns: "1fr auto 1fr" }}
               >
-                {/* Home Team */}
                 <div className="flex flex-col items-center gap-1 w-full justify-center">
                   <div
                     style={{
@@ -154,7 +136,6 @@ export function PredictionsSkeleton() {
                   />
                 </div>
 
-                {/* Score inputs */}
                 <div className="flex items-center gap-1 px-2 justify-center">
                   <div
                     className="rounded"
@@ -185,7 +166,6 @@ export function PredictionsSkeleton() {
                   />
                 </div>
 
-                {/* Away Team */}
                 <div className="flex flex-col items-center gap-1 w-full justify-center">
                   <div
                     style={{
