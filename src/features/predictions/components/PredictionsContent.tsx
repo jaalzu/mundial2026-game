@@ -19,7 +19,6 @@ import { colors } from "@/shared/constants/designSystem";
 import type { KnockoutPredictionsMap } from "../models/types";
 import { KnockoutMatches } from "./knockout/KnockoutMatches";
 import { saveKnockoutPrediction } from "../../admin/actions/saveKnockoutPrediction";
-import { getKnockoutMatches } from "@/shared/data/getKnockoutMatches"; //
 import { useSearchParams } from "next/navigation";
 interface PredictionsContentProps {
   userId: string;
