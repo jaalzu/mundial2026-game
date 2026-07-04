@@ -29,7 +29,7 @@ export async function PredictionsLoader() {
     getKnockoutMatches(),
     getUserPredictions(user.id),
     getTournamentPrediction(user.id),
-    getUserKnockoutPredictions(user.id), // ← nuevo
+    getUserKnockoutPredictions(user.id),
   ]);
 
   const initialPredictions = predictionsResult.success
@@ -52,7 +52,7 @@ export async function PredictionsLoader() {
       initialTournament={initialTournament}
       teams={teams}
       players={players}
-      knockoutMatches={knockoutMatches} // ← nuevo
+      knockoutMatches={knockoutMatches}
       initialKnockoutPredictions={initialKnockoutPredictions}
     />
   );
