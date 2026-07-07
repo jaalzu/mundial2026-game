@@ -30,7 +30,8 @@ export function KnockoutMatches({
   predictions,
   onAutosave,
 }: KnockoutMatchesProps) {
-  const [activePhase, setActivePhase] = useState<KnockoutPhase>("ROUND_OF_8");
+  const [activePhase, setActivePhase] =
+    useState<KnockoutPhase>("QUARTER_FINAL");
   const [activeBracket, setActiveBracket] = useState<BracketSide>(1);
 
   const roundConfig = KNOCKOUT_ROUNDS.find((r) => r.phase === activePhase)!;
