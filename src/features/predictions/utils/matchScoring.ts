@@ -1,11 +1,10 @@
-// features/predictions/utils/matchScoring.ts
 import type { Match } from "../models/types";
 import { colors } from "@/shared/constants/designSystem";
 import {
   POINTS_EXACT,
   POINTS_WINNER,
   POINTS_MISS,
-} from "@/server/scoring/points"; // ← agregar este import arriba
+} from "@/server/scoring/points";
 
 export function getMatchPoints(
   home: string,
@@ -43,7 +42,7 @@ interface LockableMatch {
 
 export function isMatchLocked(match: LockableMatch): boolean {
   if (match.status === "FINISHED") return true;
-  if (!match.startsAt) return false; // sin fecha (TBD) nunca está locked
+  if (!match.startsAt) return false; //
 
   const now = new Date();
   const matchTime = new Date(match.startsAt);
