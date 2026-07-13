@@ -35,7 +35,6 @@ export function scoreMatchPrediction({
   });
 
   const isExact = predictedHome === actualHome && predictedAway === actualAway;
-  console.log("[scoreMatch] isExact:", isExact);
 
   if (isExact)
     return { points: POINTS_EXACT, exactHit: true, result: "EXACT_SCORE" };
