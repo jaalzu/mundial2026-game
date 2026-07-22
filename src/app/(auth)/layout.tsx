@@ -4,8 +4,10 @@ import { redirect } from "next/navigation";
 import { getAuthenticatedUser } from "@/shared/utils/getAuthenticatedUser";
 import { Nav } from "@/shared/components/layout/Nav";
 import { BottomTabs } from "@/shared/components/layout/BottomTabs";
+import { WelcomeBanner } from "@/shared/components/layout/WelcomeBanner";
 import { colors } from "@/shared/constants/designSystem";
 import { getNextMatch } from "@/shared/data/getNextMatch";
+import { getLeaderboard } from "@/features/leaderboard/actions/getLeaderboard";
 
 type ProtectedLayoutProps = {
   children: React.ReactNode;
@@ -14,11 +16,14 @@ type ProtectedLayoutProps = {
 export default async function ProtectedLayout({
   children,
 }: ProtectedLayoutProps) {
-  const [user, nextMatch] = await Promise.all([
+  const [user, nextMatch, leaderboard] = await Promise.all([
     getAuthenticatedUser(),
     getNextMatch(),
+    getLeaderboard(),
   ]);
   if (!user) redirect("/landing");
+
+  const winner = leaderboard[0]; // rank 1, ya viene ordenado
 
   return (
     <div
@@ -26,6 +31,7 @@ export default async function ProtectedLayout({
       style={{ backgroundColor: colors.background }}
     >
       <Nav nextMatch={nextMatch} />
+      {winner && <WelcomeBanner winnerName={winner.username} />}
 
       <main className="pb-24" style={{ minHeight: "calc(100vh - 80px)" }}>
         {children}
