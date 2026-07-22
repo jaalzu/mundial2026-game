@@ -21,8 +21,6 @@ No hay grupos, no hay realtime, no hay pagos, no hay chat y no hay cargas de ima
 - `users.id` usa el mismo UUID que `auth.users.id` de Supabase.
 - La recuperacion de cuenta se hace con una `recovery_key` local.
 - La zona horaria del negocio es `America/Argentina/Buenos_Aires`.
-- El bloqueo de torneo ocurre el `2026-06-11 00:00:00` hora Argentina.
-- API-Football es fuente de seed/sync estructural, nunca fuente automatica de resultados.
 - Los resultados oficiales se cargan manualmente desde admin.
 - El leaderboard es global y unico.
 - Las predicciones no se editan despues de enviarse.
@@ -253,13 +251,7 @@ export type MatchStatus = "SCHEDULED" | "FINISHED";
 
 export type PlayerPosition = "GK" | "DEF" | "MID" | "FWD";
 
-export type TeamRegion =
-  | "CONMEBOL"
-  | "UEFA"
-  | "CONCACAF"
-  | "CAF"
-  | "AFC"
-  | "OFC";
+
 
 export type MatchPredictionResult =
   | "EXACT_SCORE"
@@ -363,8 +355,6 @@ export type MatchPredictionResult =
 
 ### Matches and results
 
-- API-Football can create/update teams, players and fixture structure.
-- API-Football must not close matches or set official scores automatically.
 - Admin manually closes a match by setting:
   - `score_home`
   - `score_away`
