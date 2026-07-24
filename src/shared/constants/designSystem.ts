@@ -44,11 +44,15 @@ export const typography = {
   },
 };
 
+export const layout = {
+  maxWidth: "800px",
+};
+
 /////// states ////////
 
 export const states = {
   disabled: {
-    opacity: 0.5,
+    opacity: 0.6,
   },
 
   completed: {
@@ -56,7 +60,7 @@ export const states = {
   },
 
   locked: {
-    opacity: 0.4,
+    opacity: 0.6,
   },
 
   saving: {

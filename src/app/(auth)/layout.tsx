@@ -1,5 +1,3 @@
-// app/(protected)/layout.tsx
-
 import { redirect } from "next/navigation";
 import { getAuthenticatedUser } from "@/shared/utils/getAuthenticatedUser";
 import { Nav } from "@/shared/components/layout/Nav";
@@ -23,19 +21,26 @@ export default async function ProtectedLayout({
   ]);
   if (!user) redirect("/landing");
 
-  const winner = leaderboard[0]; // rank 1, ya viene ordenado
+  const winner = leaderboard[0];
 
   return (
     <div
       className="min-h-screen"
       style={{ backgroundColor: colors.background }}
     >
-      <Nav nextMatch={nextMatch} />
-      {winner && <WelcomeBanner winnerName={winner.username} />}
+      {/* Columna centrada, ancho fijo tipo mobile en desktop */}
+      <div
+        className="mx-auto w-full max-w-[800px] border-x"
+        style={{ borderColor: "rgba(128,128,128,0.12)" }}
+      >
+        <Nav nextMatch={nextMatch} />
+        {winner && <WelcomeBanner winnerName={winner.username} />}
 
-      <main className="pb-24" style={{ minHeight: "calc(100vh - 80px)" }}>
-        {children}
-      </main>
+        <main className="pb-24" style={{ minHeight: "calc(100vh - 80px)" }}>
+          {children}
+        </main>
+      </div>
+
       <BottomTabs />
     </div>
   );
