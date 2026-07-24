@@ -41,12 +41,12 @@ export function CTASection() {
         </div>
 
         {/* Trophy icon al frente - 100% opacidad */}
-        <div className="relative z-10 flex h-full items-center justify-center">
+        <div className="relative mr-5 z-10 flex h-full items-center justify-center">
           <Image
             src="/cup.webp"
             alt="Trophy"
-            width={350}
-            height={350}
+            width={110}
+            height={110}
             className="object-contain"
           />
         </div>
